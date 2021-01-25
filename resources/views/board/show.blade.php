@@ -21,6 +21,16 @@
             </tr>
         </table>
         <table>
+
+        <tr>
+            @if($items->state === 2)
+            <th>焼き菓子</th>
+            @else
+            <th>全て</th>
+            @endif
+        </tr>
+        </table>
+        <table>
         <tr><th>{{$items->material}}</th></tr>
         </table>
         <table>

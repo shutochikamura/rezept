@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -55,9 +55,9 @@
                         </li>
                         @endif
                         @else
-                        <li><a href="board">レシピ一覧</a></li>
+                        <li><a href="/board">レシピ一覧</a></li>
 
-                        <li><a href="board/create">レシピ作成</a></li>
+                        <li><a href="/board/create">レシピ作成</a></li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
