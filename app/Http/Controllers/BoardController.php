@@ -25,8 +25,8 @@ class BoardController extends Controller
      */
     public function create()
     {
-        $items = Board::all();
-        return view('board.add', compact('items'));
+
+        return view('board.add');
     }
 
     /**
@@ -46,9 +46,10 @@ class BoardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $id)
     {
-        //
+        $items = Board::find($id);
+        return view('board.show', compact('items'));
     }
 
     /**
