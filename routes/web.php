@@ -22,4 +22,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('board', 'App\Http\Controllers\BoardController');
+Route::resource('board', App\Http\Controllers\BoardController::class);
