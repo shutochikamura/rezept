@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Board;
+use App\Http\Requests\BoardRequest;
 
 class BoardController extends Controller
 {
@@ -19,7 +20,7 @@ class BoardController extends Controller
         return view('board.add');
     }
 
-    public function store(Request $request)
+    public function store(BoardRequest $request)
     {
         $post = new Board;
         $form = $request->all();
@@ -41,7 +42,7 @@ class BoardController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(BoardRequest $request, $id)
     {
         $post = Board::find($id);
         $form = $request->all();

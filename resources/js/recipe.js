@@ -1,7 +1,5 @@
 function stateChange(){
   const stateList = document.getElementsByName('stateList');
-  const oneState = document.querySelectorAll('.oneState');
-//let value = oneState.getAttribute('value');
   const recipe = document.querySelectorAll('.recipeCard');
   const mouse = document.querySelectorAll('.mouse');
   const cookie = document.querySelectorAll('.cookie');
@@ -129,10 +127,12 @@ function stateChange(){
     recipe.forEach(item => {
       item.style.display = '';
     });
+
   }
 
-
 }
+
 document.getElementsByName('stateList').forEach(radio => {
-radio.addEventListener('click', stateChange);
+radio.addEventListener('click', stateChange,recipeCount);
 });
+document.getElementById("recipeCount").textContent = document.querySelectorAll('.recipeCard').length;

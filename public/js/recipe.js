@@ -4,8 +4,6 @@
   \********************************/
 function stateChange() {
   var stateList = document.getElementsByName('stateList');
-  var oneState = document.querySelectorAll('.oneState'); //let value = oneState.getAttribute('value');
-
   var recipe = document.querySelectorAll('.recipeCard');
   var mouse = document.querySelectorAll('.mouse');
   var cookie = document.querySelectorAll('.cookie');
@@ -136,7 +134,8 @@ function stateChange() {
 }
 
 document.getElementsByName('stateList').forEach(function (radio) {
-  radio.addEventListener('click', stateChange);
+  radio.addEventListener('click', stateChange, recipeCount);
 });
+document.getElementById("recipeCount").textContent = document.querySelectorAll('.recipeCard').length;
 /******/ })()
 ;

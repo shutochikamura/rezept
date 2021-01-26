@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(['verify' => true]);
 
 Route::resource('board', App\Http\Controllers\BoardController::class);
