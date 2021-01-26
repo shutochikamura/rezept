@@ -18,12 +18,25 @@
             </tr>
                 @foreach($items as $item)
                 <div class="card-body board-frame ">
-<input class="oneState" type="hidden" value="{{$item->state}}">
 
+                        <table >
+                            <tr class="recipeCard">
+@if($item->state === 1)
+<th class="mouse">
+@elseif($item->state === 2)
+<th class="cookie">
+@elseif($item->state === 3)
+<th class="choco">
+@elseif($item->state === 4)
+<th class="season">
+@elseif($item->state === 5)
+<th class="pan">
+@elseif($item->state === 6)
+<th class="el">
+@endif
+</th>
                     <form action="board/{{$item->id}}" method="get">
-                        <table class="recipeCard">
                             @csrf
-                            <tr>
 
                                 <td><input type="submit" value="{{$item->title}}"></td>
                     </form>
