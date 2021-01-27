@@ -18,7 +18,7 @@
                     <th><input type="radio" name="stateList" value="5">パン</th>
                     <th><input type="radio" name="stateList" value="6">その他</th>
                 </tr>
-                <p id="recipeCount"></p>
+
                 <div class="card-body board-frame ">
                     <table>
                 @foreach($items as $item)

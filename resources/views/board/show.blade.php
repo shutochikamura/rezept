@@ -40,9 +40,12 @@
             @endif
         </tr>
         </table>
-        <table>
-        <tr><th>{{$items->material}}</th></tr>
-        </table>
+
+        @if($items->materials != null)
+        @foreach($items->materials as $obj)
+        <table><tr><th>{{$obj->getData()}}</th></tr></table>
+        @endforeach
+        @endif
         <table>
         <tr><th>{{$items->recipe}}</th></tr>
         </table>

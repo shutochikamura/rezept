@@ -32,7 +32,24 @@
                         <input type="radio" name="state" value="5">パン
                         <input type="radio" name="state" value="6">その他
                         <h2>材料名</h2>
-                        <textarea name="material" id="material" cols="30" rows="10" value="">{{$form->material}}</textarea>
+                        <table>
+
+@foreach($form->materials as $obj)
+        <table><tr><th>{{$obj->getData()}}</th></tr></table>
+        @endforeach
+                        <div id="form_area">
+                            <input type="text" name="material_0">
+                            <input type="text" name="volume_0">
+                            <select id="unit" name="unit_0" value="">
+                                <option value="g">g</option>
+                                <option value="個">個</option>
+                                <option value="ml">ml</option>
+                                <option value="適量">適量</option>
+                            </select>
+                        </div>
+                        <input id="addInput" type="button" value="+">
+
+                        </table>
                         <h2>作り方</h2>
                         <textarea name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
                         <input type="submit" value="変更">
@@ -52,4 +69,5 @@
         </div>
     </div>
 </div>
+<script src="{{mix('/js/recipe.js')}}"></script>
 @endsection

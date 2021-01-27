@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Board;
 use App\Http\Requests\BoardRequest;
+use App\Models\Material;
 
 class BoardController extends Controller
 {
@@ -26,6 +27,21 @@ class BoardController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $post->fill($form)->save();
+        $postId = $post->id;
+        foreach ($form as $key => $val) {
+            if (preg_match("/material/", $key)) {
+                $material = new Material;
+                $material->board_id = $postId;
+                $material->material = $val;
+            }
+            if (preg_match("/volume/", $key)) {
+                $material->volume = $val;
+            }
+            if (preg_match("/unit/", $key)) {
+                $material->unit = $val;
+                $material->save();
+            }
+        }
         return redirect('/board');
     }
 
