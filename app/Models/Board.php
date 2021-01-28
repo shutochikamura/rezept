@@ -12,7 +12,7 @@ class Board extends Model
     protected $guarded = array('id');
 
     public function materials(){
-        return $this->hasMany(Material::class);
+        return $this->hasMany(Material::class, 'board_id');
     }
 
 

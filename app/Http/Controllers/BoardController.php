@@ -64,6 +64,32 @@ class BoardController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $post->fill($form)->save();
+        $materialGet = Board::find($id)->materials()->get();
+
+        // $material = Material::find($materialGet)->where('material')->first();
+        // $material = Material::find($materialGet)->first();
+        // dd($materialGet->id);
+
+        foreach ($materialGet as $mate) {
+            $material = Material::find($mate->id);
+            foreach ($form as $key => $val) {
+
+
+
+                if (preg_match("/material/", $key)) {
+
+                    $material->material = $val;
+                }
+
+                if (preg_match("/volume/", $key)) {
+                    $material->volume = $val;
+                }
+                if (preg_match("/unit/", $key)) {
+                    $material->unit = $val;
+                    $material->save();
+                }
+            }
+        }
         return redirect('/board');
     }
 

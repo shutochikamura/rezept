@@ -18,5 +18,18 @@ class Material extends Model
     public function getData(){
         return $this->material . $this->volume . $this->unit;
     }
+    public function getMaterial(){
+        return $this->material;
+    }
+
+    public function getVolume(){
+        return $this->volume;
+    }
+    public function getUnit(){
+        return $this->unit;
+    }
+    public function getId(){
+        return $this->id;
+    }
 
 }
