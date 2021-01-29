@@ -31,5 +31,8 @@ class Material extends Model
     public function getId(){
         return $this->id;
     }
+    public function getBoardId(){
+        return $this->board_id;
+    }
 
 }

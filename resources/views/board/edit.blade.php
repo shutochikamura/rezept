@@ -37,7 +37,9 @@
                             <div id="form_area">
                                 @foreach($form->materials as $obj)
 
+                                <input type="hidden" name="num_{{$obj->getId()}}" value="{{$obj->getId()}}">
                                 <input type="text" name="material_{{$obj->getId()}}" value="{{$obj->getMaterial()}}">
+
                                 <input type="text" name="volume_{{$obj->getId()}}" value="{{$obj->getVolume()}}">
                                 <select name="unit_{{$obj->getId()}}" value="{{$obj->getUnit()}}">
                                     <option value="g">g</option>
