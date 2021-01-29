@@ -68,9 +68,9 @@ class BoardController extends Controller
             if (preg_match("/num/", $key)) {
                 $material = Material::find($val);
             }
-                if (preg_match("/material/", $key)) {
-                    $material->material = $val;
-                }
+            if (preg_match("/material/", $key)) {
+                $material->material = $val;
+            }
             if (preg_match("/volume/", $key)) {
                 $material->volume = $val;
             }
