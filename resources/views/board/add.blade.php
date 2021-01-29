@@ -57,5 +57,5 @@
         </div>
     </div>
 </div>
-<script src="{{mix('/js/recipe.js')}}"></script>
+<script src="{{asset('/js/add.js')}}"></script>
 @endsection

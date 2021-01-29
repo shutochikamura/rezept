@@ -49,7 +49,7 @@
                                 </select>
                                 @endforeach
                             </div>
-                            <input id="addInput" type="button" value="+">
+                            <input id="editInput" type="button" value="+">
                         </table>
 
 
@@ -72,5 +72,5 @@
         </div>
     </div>
 </div>
-<script src="{{mix('/js/recipe.js')}}"></script>
+<script src="{{asset('/js/edit.js')}}"></script>
 @endsection

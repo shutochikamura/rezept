@@ -64,9 +64,15 @@ class BoardController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $post->fill($form)->save();
+        $postId = $post->id;
+
         foreach ($form as $key => $val) {
             if (preg_match("/num/", $key)) {
                 $material = Material::find($val);
+            }
+            if (preg_match("/digit/", $key)){
+                $material = new Material;
+                $material->board_id = $postId;
             }
             if (preg_match("/material/", $key)) {
                 $material->material = $val;
