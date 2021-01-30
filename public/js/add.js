@@ -1,21 +1,34 @@
 let i = 1;
+const addButton = document.getElementById('addInput');
+const deleteButton = document.getElementById('deleteInput');
 function addForm(){
-  const input_data = document.createElement('input');
-  input_data.type = 'text';
-  input_data.name = 'material_' + i;
-  const input_data_1 = document.createElement('input');
-  input_data_1.type = 'text';
-  input_data_1.name = 'volume_' + i;
-  const select = document.createElement('select');
-  select.name = 'unit_' + i;
-  select.add( (new Option("g")));
-  select.add( (new Option("個")));
-  select.add( (new Option("ml")));
-  select.add( (new Option("適量")));
+const divElement = document.createElement("div");
+divElement.className = 'input-wrapper';
+divElement.innerHTML = '<table><tr><th><input type="text" name="material_' + i +'"></th><th><input type="text" name="volume_' + i + '"></th><td><select name="unit_' + i + '"><option value="g">g</option><option value="個">個</option><option value="ml">ml</option><option value="適量">適量</option></select></td></tr></table>';
+
   const parent = document.getElementById('form_area');
-  parent.appendChild(input_data);
-  parent.appendChild(input_data_1);
-  parent.appendChild(select);
+  parent.appendChild(divElement);
   i++ ;
+  let inputCount = document.getElementsByClassName('input-wrapper').length;
+  if(inputCount === 50){
+    addButton.disabled = true;
+  }else if (inputCount === 1){
+    deleteButton.disabled = false;
+  }
 }
-document.getElementById('addInput').addEventListener('click', addForm)
+function deleteForm(){
+  const inputDivs = document.getElementsByClassName('input-wrapper');
+
+  const parent = document.getElementById("form_area");
+  parent.removeChild(inputDivs[inputDivs.length-1]);
+
+  let inputCount = document.getElementsByClassName('input-wrapper').length;
+
+  if (inputCount === 49) {
+    addButton.disabled = false;  // + をクリックできるようにする。
+  } else if (inputCount === 2) {
+    deleteButton.disabled = true; // - をクリックできないようにする。
+  }
+}
+addButton.addEventListener('click', addForm)
+deleteButton.addEventListener('click', deleteForm)

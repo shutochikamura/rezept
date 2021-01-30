@@ -21,36 +21,51 @@
                     <input type="text" name="title" value="{{old('title')}}">
                     <h2>菓子の種類</h2>
 
+<h2>
 
+</h2>
 
                     <input type="radio" name="state" value="1" checked>生菓子
-                    <input type="radio" name="state" value="2">焼き菓子
-                    <input type="radio" name="state" value="3">チョコレート
-                    <input type="radio" name="state" value="4">季節もの
-                    <input type="radio" name="state" value="5">パン
-                    <input type="radio" name="state" value="6">その他
+                    <input type="radio" name="state" value="2" >焼き菓子
+                    <input type="radio" name="state" value="3" >チョコレート
+                    <input type="radio" name="state" value="4" >季節もの
+                    <input type="radio" name="state" value="5" >パン
+                    <input type="radio" name="state" value="6" >その他
 
                     <h2>材料名</h2>
-                    <table>
+                    <table >
 
-                        <div id="form_area">
-                            <input type="text" name="material_0">
-                            <input type="text" name="volume_0">
-                            <select id="unit" name="unit_0">
-                                <option value="g">g</option>
-                                <option value="個">個</option>
-                                <option value="ml">ml</option>
-                                <option value="適量">適量</option>
-                            </select>
+                        <div>
+
+                            <tr>
+                                <th>
+                                    <input type="text" name="material_0" value="{{old('material')}}">
+                                </th>
+
+                                <th>
+                                    <input type="text" name="volume_0">
+                                </th>
+
+                                <td>
+                                    <select id="unit" name="unit_0">
+                                        <option value="1">g</option>
+                                        <option value="2">個</option>
+                                        <option value="3">ml</option>
+                                        <option value="4">適量</option>
+                                    </select>
+                                </td>
+                            </tr>
+
                         </div>
-                        <input id="addInput" type="button" value="+">
+                    </table>
+                        <div id="form_area"></div>
+                    <input id="addInput" type="button" value="+">
+<input type="button" id="deleteInput" value="-" disabled>
 
-                        </table>
 
-
-                        <h2>作り方</h2>
-                        <textarea name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
-                        <input type="submit" value="作成">
+                    <h2>作り方</h2>
+                    <textarea name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+                    <input type="submit" value="作成">
                 </form>
 
             </div>

@@ -1,25 +1,35 @@
 let i = 1;
+const editButton = document.getElementById('editInput');
+const deleteButton = document.getElementById('deleteInput');
 function addForm(){
-  const input_data_0 = document.createElement('input');
-  input_data_0.type = 'hidden';
-  input_data_0.name = 'digit_' + i;
-  const input_data_1 = document.createElement('input');
-  input_data_1.type = 'text';
-  input_data_1.name = 'material_' + i;
-  const input_data_2 = document.createElement('input');
-  input_data_2.type = 'text';
-  input_data_2.name = 'volume_' + i;
-  const select = document.createElement('select');
-  select.name = 'unit_' + i;
-  select.add( (new Option("g")));
-  select.add( (new Option("個")));
-  select.add( (new Option("ml")));
-  select.add( (new Option("適量")));
+  const divElement = document.createElement('div');
+  divElement.className = 'input-wrapper';
+  //Materialの三つの単位を入れてる（material ,volume,unit)
+  divElement.innerHTML = '<table><tr><th><input type="text" name="digit_' + i +'"></th><th><input type="text" name="volume_' + i + '"></th><td><select name="unit_' + i + '"><option value="g">g</option><option value="個">個</option><option value="ml">ml</option><option value="適量">適量</option></select></td></tr></table>';
+
   const parent = document.getElementById('form_area');
-  parent.appendChild(input_data_0);
-  parent.appendChild(input_data_1);
-  parent.appendChild(input_data_2);
-  parent.appendChild(select);
+  parent.appendChild(divElement);
   i++ ;
+  let inputCount = document.getElementsByClassName('input-wrapper').length;
+  if(inputCount === 50){
+    editButton.disabled = true;
+  }else if (inputCount >= 2){
+    deleteButton.disabled = false;
+  }
 }
-document.getElementById('editInput').addEventListener('click', addForm)
+function deleteForm(){
+  const inputDivs = document.getElementsByClassName('input-wrapper');
+
+  const parent = document.getElementById("form_area");
+  parent.removeChild(inputDivs[inputDivs.length-1]);
+
+  let inputCount = document.getElementsByClassName('input-wrapper').length;
+
+  if (inputCount === 49) {
+    editButton.disabled = false;  // + をクリックできるようにする。
+  } else if (inputCount === 1) {
+    deleteButton.disabled = true; // - をクリックできないようにする。
+  }
+}
+editButton.addEventListener('click', addForm);
+deleteButton.addEventListener('click', deleteForm);

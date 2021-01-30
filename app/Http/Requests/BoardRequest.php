@@ -25,11 +25,13 @@ class BoardRequest extends FormRequest
     {
         return [
             'title' => 'required',
+
         ];
     }
     public function messages(){
         return [
             'title.required' => '菓子名は必ず入力して下さい',
+
         ];
     }
 }
