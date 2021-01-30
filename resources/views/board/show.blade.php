@@ -43,7 +43,17 @@
 
         @if($items->materials != null)
         @foreach($items->materials as $obj)
-        <table><tr><th>{{$obj->getData()}}</th></tr></table>
+        <table><tr><th>{{$obj->getData()}}</th><td>
+            @if($obj->getUnit() === '1')
+            g
+            @elseif($obj->getUnit() === '2')
+            個
+            @elseif($obj->getUnit() === '3')
+            ml
+            @elseif($obj->getUnit() === '4')
+            適量
+            @endif
+        </td></tr></table>
         @endforeach
         @endif
         <table>

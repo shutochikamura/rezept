@@ -16,7 +16,7 @@ class Material extends Model
         return $this->belongsTo(Board::class);
     }
     public function getData(){
-        return $this->material . $this->volume . $this->unit;
+        return $this->material . $this->volume ;
     }
     public function getMaterial(){
         return $this->material;

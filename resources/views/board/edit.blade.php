@@ -25,34 +25,44 @@
 
 
 
-                        <input type="radio" name="state" value="1" checked>生菓子
-                        <input type="radio" name="state" value="2">焼き菓子
-                        <input type="radio" name="state" value="3">チョコレート
-                        <input type="radio" name="state" value="4">季節もの
-                        <input type="radio" name="state" value="5">パン
-                        <input type="radio" name="state" value="6">その他
+                        <input type="radio" name="state" value="1" @if($form->state === 1) checked @endif >生菓子
+                        <input type="radio" name="state" value="2" @if($form->state === 2) checked @endif >焼き菓子
+                        <input type="radio" name="state" value="3" @if($form->state === 3) checked @endif >チョコレート
+                        <input type="radio" name="state" value="4" @if($form->state === 4) checked @endif >季節もの
+                        <input type="radio" name="state" value="5" @if($form->state === 5) checked @endif >パン
+                        <input type="radio" name="state" value="6" @if($form->state === 6) checked @endif >その他
                         <h2>材料名</h2>
-                        <table>
 
-                            <div id="form_area">
-                                @foreach($form->materials as $obj)
+                        <div  id="form_area">
 
-                                <input type="hidden" name="num_{{$obj->getId()}}" value="{{$obj->getId()}}">
-                                <input type="text" name="material_{{$obj->getId()}}" value="{{$obj->getMaterial()}}">
+                            @foreach($form->materials as $obj)
+                            <table class="input-wrapper">
+                                    <tr>
+                                    <input type="hidden" name="num_{{$obj->getId()}}" value="{{$obj->getId()}}">
+                                    <th>
+                                        <input type="text" name="material_{{$obj->getId()}}" value="{{$obj->getMaterial()}}">
+                                    </th>
 
-                                <input type="text" name="volume_{{$obj->getId()}}" value="{{$obj->getVolume()}}">
-                                <select name="unit_{{$obj->getId()}}" value="{{$obj->getUnit()}}">
-                                    <option value="g">g</option>
-                                    <option value="個">個</option>
-                                    <option value="ml">ml</option>
-                                    <option value="適量">適量</option>
-                                </select>
-                                @endforeach
+                                    <th>
+                                        <input type="text" name="volume_{{$obj->getId()}}" value="{{$obj->getVolume()}}">
+                                    </th>
+                                    <td>
+                                        <select name="unit_{{$obj->getId()}}" value="{{$obj->getUnit()}}">
+                                            <option value="1" @if($obj->getUnit() === '1') selected @endif >g</option>
+                                            <option value="2" @if($obj->getUnit() === '2') selected @endif >個</option>
+                                            <option value="3" @if($obj->getUnit() === '3') selected @endif >ml</option>
+                                            <option value="4" @if($obj->getUnit() === '4') selected @endif >適量</option>
+
+                                        </select>
+                                        {{$obj->state}}
+                                    </td>
+                                </tr>
+                            </table>
+                                    @endforeach
                             </div>
-                            <input id="addInput" type="button" value="+">
-                        </table>
-
-
+                            <div></div>
+                            <input id="editInput" type="button" value="+">
+                            <input type="button" id="deleteInput" value="-" disabled>
                         <h2>作り方</h2>
                         <textarea name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
                         <input type="submit" value="変更">
@@ -72,5 +82,5 @@
         </div>
     </div>
 </div>
-<script src="{{mix('/js/recipe.js')}}"></script>
+<script src="{{asset('/js/edit.js')}}"></script>
 @endsection
