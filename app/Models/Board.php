@@ -14,6 +14,11 @@ class Board extends Model
     public function materials(){
         return $this->hasMany(Material::class, 'board_id');
     }
-
+public function user(){
+    return $this->belongsTo(User::class);
+}
+public function getData(){
+    return $this->user->id;
+}
 
 }

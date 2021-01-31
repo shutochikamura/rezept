@@ -21,19 +21,17 @@
                     <input type="text" name="title" value="{{old('title')}}">
                     <h2>菓子の種類</h2>
 
-<h2>
 
-</h2>
 
                     <input type="radio" name="state" value="1" checked>生菓子
-                    <input type="radio" name="state" value="2" >焼き菓子
-                    <input type="radio" name="state" value="3" >チョコレート
-                    <input type="radio" name="state" value="4" >季節もの
-                    <input type="radio" name="state" value="5" >パン
-                    <input type="radio" name="state" value="6" >その他
+                    <input type="radio" name="state" value="2">焼き菓子
+                    <input type="radio" name="state" value="3">チョコレート
+                    <input type="radio" name="state" value="4">季節もの
+                    <input type="radio" name="state" value="5">パン
+                    <input type="radio" name="state" value="6">その他
 
                     <h2>材料名</h2>
-                    <table >
+                    <table>
 
                         <div>
 
@@ -58,9 +56,9 @@
 
                         </div>
                     </table>
-                        <div id="form_area"></div>
+                    <div id="form_area"></div>
                     <input id="addInput" type="button" value="+">
-<input type="button" id="deleteInput" value="-" disabled>
+                    <input type="button" id="deleteInput" value="-" disabled>
 
 
                     <h2>作り方</h2>

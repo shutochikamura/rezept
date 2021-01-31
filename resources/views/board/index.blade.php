@@ -22,6 +22,7 @@
                 <div class="card-body board-frame ">
                     <table>
                 @foreach($items as $item)
+                @if($item->getData() === Auth::id())
                         <tr class="recipeCard">
                             @if($item->state === 1)
                             <th class="mouse">
@@ -50,6 +51,7 @@
                             </form>
 
                         </tr>
+                        @endif
                 @endforeach
                     </table>
                 </div>
