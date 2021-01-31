@@ -33,10 +33,10 @@
                         <input type="radio" name="state" value="6" @if($form->state === 6) checked @endif >その他
                         <h2>材料名</h2>
 
-                        <div  id="form_area">
+                        <div  >
 
                             @foreach($form->materials as $obj)
-                            <table class="input-wrapper">
+                            <table class="">
                                     <tr>
                                     <input type="hidden" name="num_{{$obj->getId()}}" value="{{$obj->getId()}}">
                                     <th>
@@ -52,25 +52,25 @@
                                             <option value="2" @if($obj->getUnit() === '2') selected @endif >個</option>
                                             <option value="3" @if($obj->getUnit() === '3') selected @endif >ml</option>
                                             <option value="4" @if($obj->getUnit() === '4') selected @endif >適量</option>
+                                            <option value="0" >削除する</option>
 
                                         </select>
-                                        {{$obj->state}}
                                     </td>
                                 </tr>
                             </table>
                                     @endforeach
                             </div>
-                            <div></div>
+                            <div id="form_area"></div>
                             <input id="editInput" type="button" value="+">
                             <input type="button" id="deleteInput" value="-" disabled>
                         <h2>作り方</h2>
                         <textarea name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
-                        <input type="submit" value="変更">
+                        <input  type="submit" value="変更">
                     </form>
                     <form action="/board/{{$form->id}}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="削除">
+                        <input type="submit" value="テーブルを削除する">
                     </form>
 
 

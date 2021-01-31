@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Board;
 use App\Http\Requests\BoardRequest;
 use App\Models\Material;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\countOf;
 
 class BoardController extends Controller
 {
 
     public function index()
     {
-        $items = Board::all();
-        return view('board.index', compact('items'));
+            $items = Board::all();
+            return view('board.index', compact('items'));
+
     }
 
     public function create()
@@ -29,6 +34,9 @@ class BoardController extends Controller
         $post->fill($form)->save();
         $postId = $post->id;
         foreach ($form as $key => $val) {
+            if($val == null){
+                break;
+            }
             if (preg_match("/material/", $key)) {
                 $material = new Material;
                 $material->board_id = $postId;
@@ -65,34 +73,32 @@ class BoardController extends Controller
         unset($form['_token']);
         $post->fill($form)->save();
         $postId = $post->id;
-        $materialGet = Board::find($id)->materials()->get();
-
-
 
         foreach ($form as $key => $val) {
+            if($val == null){
+                break;
+            }
             if (preg_match("/digit/", $key)){
                 $material = new Material;
                 $material->board_id = $postId;
                 $material->material = $val;
-            }
-            if (preg_match("/num/", $key)) {
+            } else if (preg_match("/num/", $key)) {
                 $material = Material::find($val);
             }
             if (preg_match("/material/", $key)) {
                 $material->material = $val;
-            }
-            if (preg_match("/volume/", $key)) {
-
+            } else if (preg_match("/volume/", $key)) {
                 $material->volume = $val;
-            }
-
-            if (preg_match("/unit/", $key) && $material != null) {
+            } else if (preg_match("/unit/", $key)) {
                 $material->unit = $val;
                 $material->save();
+                if($val === '0'){
+                    $material->delete();
+                }
             }
-
         }
         return redirect('/board');
+
     }
 
     public function destroy($id)
