@@ -30,7 +30,7 @@ class CustomVerifyEmail extends VerifyEmail
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        // return ['mail'];
     }
 
     /**
@@ -41,11 +41,11 @@ class CustomVerifyEmail extends VerifyEmail
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-            ->subject(__('Verify Your Email Address'))
-            ->line(__('Please click the link below to verify your email address.'))
-            ->action(__('Verify Email Address'), $this->verificationUrl($notifiable))
-            ->line(__('If you did not create an account, no further action is required.'));
+        // return (new MailMessage)
+        //     ->subject(__('Verify Your Email Address'))
+        //     ->line(__('Please click the link below to verify your email address.'))
+        //     ->action(__('Verify Email Address'), $this->verificationUrl($notifiable))
+        //     ->line(__('If you did not create an account, no further action is required.'));
     }
 
     /**

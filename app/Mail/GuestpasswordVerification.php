@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailVerification extends Mailable
+class GuestpasswordVerification extends Mailable
 {
     use Queueable, SerializesModels;
     protected $user;
@@ -17,10 +17,12 @@ class EmailVerification extends Mailable
         $this->user = $user;
     }
 
+
     public function build()
     {
-        return $this->subject('【site】仮登録が完了しました')
-        ->view('auth.email.pre_register')
-        ->with(['token' => $this->user->email_verify_token,]);
+        return $this
+        ->subject('[site]ゲスト用パスワードを設定しました')
+        ->view('auth.email.guestpassword_register')
+        ->with(['user' => $this->user]);
     }
 }
