@@ -34,7 +34,9 @@ Route::group(['middleware' => ['auth', 'can:manager']],function (){
     Route::get('guest_path', 'App\Http\Controllers\Guest_pathController@index');
     Route::post('guest_password/register', 'App\Http\Controllers\Guest_pathController@register')->name('guest_password.register');
     Route::post('guest_password/registered', 'App\Http\Controllers\Guest_pathController@registered')->name('guest_password.registered');
+    //guest-password変更処理
     Route::get('guest_path/edit', 'App\Http\Controllers\Guest_pathController@edit');
+    Route::get('guest_password/update', 'App\Http\Controllers\Guest_pathController@validation')->name('guest_password.update');
     Route::post('guest_password/update', 'App\Http\Controllers\Guest_pathController@update')->name('guest_password.update');
     Route::post('guest_password/password_edit_check', 'App\Http\Controllers\Guest_pathController@showCheck')->name('guest_password.password_edit_check');
     Route::post('guest_password/password_new_registered', 'App\Http\Controllers\Guest_pathController@reset')->name('guest_password.password_new_registered');

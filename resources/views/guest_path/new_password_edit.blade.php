@@ -9,33 +9,27 @@
 
                 <div class="card-body">
                     <h2>ゲストパスワード変更画面</h2>
-                    <form method="POST" action="{{ route('guest_password.update') }}">
+                    <form method="post" action="{{ route('guest_password.update') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{Auth::id()}}">
-<div>
-    @if($form)
-        <p>{{$form}}</p>
-    @endif
-</div>
-
-
-
+                        <div>
+                            @if($form)
+                            <p class="red">{{$form}}</p>
+                            @endif
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('現在のGuestPassword') }}</label>
-
                             <div class="col-md-6">
                                 <input id="guest_password" type="password" class="form-control @error('password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
-
-
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

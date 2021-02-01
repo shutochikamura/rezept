@@ -10,14 +10,19 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('guest_password.registered') }}">
                         @csrf
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
-
-
+                            <div class="col-md-6">
+                                <span class="">{{Auth::user()->email}}</span>
+                                <input type="hidden" name="email" value="{{Auth::user()->email}}">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">ゲストパスワード</label>
                             <input type="hidden" name="id" value="{{Auth::id()}}">
                             <div class="col-md-6">
-<span>{{$form}}</span>
+                                <span>**********</span>
                                 <input type="hidden" name="guest_password" value="{{$form}}">
                             </div>
                         </div>

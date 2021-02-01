@@ -13,16 +13,16 @@
                         @csrf
 
                         <input type="hidden" name="id" value="{{Auth::id()}}">
-
+                        <input type="hidden" name="email" value="{{Auth::user()->email}}">
 
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('GuestPassword') }}</label>
+                            <label for="guest_password" class="col-md-4 col-form-label text-md-right">{{ __('GuestPassword') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
+                                <input id="guest_password" type="password" class="form-control @error('guest_password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
 
-                                @error('password')
+                                @error('guest_password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -31,10 +31,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="guest-password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm GuestPassword') }}</label>
+                            <label for="guest_password_confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm GuestPassword') }}</label>
 
                             <div class="col-md-6">
-                                <input id="guest-password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="guest_password_confirm" type="password" class="form-control" name="guest_password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 

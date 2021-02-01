@@ -9,23 +9,21 @@
 
                 <div class="card-body">
                     <h2>新ゲストパスワード作成画面</h2>
-                    <form method="POST" action="{{ route('guest_password.password_edit_check') }}">
+                    <form method="post" action="{{ route('guest_password.password_edit_check') }}">
                         @csrf
 
                         <input type="hidden" name="id" value="{{Auth::id()}}">
 
-
-
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('GuestPassword') }}</label>
+                            <label for="guest_password" class="col-md-4 col-form-label text-md-right">{{ __('GuestPassword') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
+                                <input id="guest_password" type="password" class="form-control @error('guest_password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('guest_password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -34,7 +32,7 @@
                             <label for="guest-password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm GuestPassword') }}</label>
 
                             <div class="col-md-6">
-                                <input id="guest-password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="guest-password-confirm" type="password" class="form-control" name="guest_password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
