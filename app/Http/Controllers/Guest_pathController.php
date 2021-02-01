@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class Guest_pathController extends Controller
 {
@@ -16,69 +18,46 @@ class Guest_pathController extends Controller
         return view('guest_path.password_store');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function register(Request $request)
+    {
+
+        $form = $request->guest_password;
+
+        return view('guest_path.password_check', compact('form'));
+    }
+    public function registered(Request $request)
+    {
+        $user = User::find($request->id);
+
+        $user->guest_password = $request->guest_password;
+        $user->save();
+        return view('guest_path.created');
+    }
+    public function edit()
     {
         return view('guest_path.password_edit');
     }
+    public function update(Request $request){
+        $user = User::find($request->id);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        if($user->guest_password == $request->guest_password){
+
+            return view('guest_path.password_reset');
+        }else {
+            $form = 'ゲスト用パスワードが違います';
+            return view('guest_path.password_edit', compact('form'));
+        }
+    }
+    public function showCheck(Request $request){
+        $form = $request->guest_password;
+        return view('guest_path.password_edit_check', compact('form'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function reset(Request $request){
+        $user = User::find($request->id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user->guest_password = $request->guest_password;
+        $user->save();
+        return view('guest_path.password_new_registered');
     }
 }

@@ -68,7 +68,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a href="/guest_path">ゲストパスワード作成</a>
-                                <a href="/guest_path/create">ゲストパスワード変更</a>
+                                <a href="/guest_path/edit">ゲストパスワード変更</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

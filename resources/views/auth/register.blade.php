@@ -11,26 +11,6 @@
                     <form method="POST" action="{{ route('register.pre_check') }}">
                         @csrf
 
-                        <!-- <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div >
-    <input name="role" type="radio" value="1" checked>製造長
-    <input name="role" type="radio" value="5">従業員
-    <input name="role" type="radio" value="9">研修生
-</div>
-                        -->
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 

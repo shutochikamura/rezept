@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Reset GuestPassword') }}</div>
 
                 <div class="card-body">
-                    <h2>ゲストパスワード作成画面</h2>
-                    <form method="POST" action="{{ route('guest_password.register') }}">
+                    <h2>新ゲストパスワード作成画面</h2>
+                    <form method="POST" action="{{ route('guest_password.password_edit_check') }}">
                         @csrf
 
                         <input type="hidden" name="id" value="{{Auth::id()}}">
