@@ -57,9 +57,13 @@
                         @endif
                         @else
                         @if(Auth::check())
-                        <li><a href="/board">レシピ一覧</a></li>
+
+                        <li>
+                            <a href="/board">レシピ一覧</a>
+                        </li>
 
                         <li><a href="/board/create">レシピ作成</a></li>
+
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -69,9 +73,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @can('manager')
                                 @if(Auth::user()->guest_password == null)
-                                <a href="/guest_path">ゲストパスワード作成</a>
+                                <a href="/guest_password">ゲストパスワード作成</a>
                                 @elseif(Auth::user()->guest_password != "")
-                                <a href="/guest_path/edit">ゲストパスワード変更</a>
+                                <a href="/guest_password/edit">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

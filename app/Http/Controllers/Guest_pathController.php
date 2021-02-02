@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Board;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Guest_pathRequest;
 use App\Mail\GuestpasswordVerification;
@@ -18,13 +19,13 @@ class Guest_pathController extends Controller
         return view('guest_path.password_store');
     }
 
-    public function register(Guest_pathRequest $request)
+    public function check(Guest_pathRequest $request)
     {
         $form = $request->guest_password;
         return view('guest_path.password_check',compact('form'));
     }
 
-    public function registered(Request $request)
+    public function register(Request $request)
     {
         $user = User::find($request->id);
         $user->guest_password = $request->guest_password;
@@ -32,7 +33,7 @@ class Guest_pathController extends Controller
 
         $email = new GuestpasswordVerification($user);
         Mail::to($user->email)->send($email);
-        return view('guest_path.created');
+        return view('guest_path.registered');
     }
 
     public function edit()
@@ -68,6 +69,28 @@ class Guest_pathController extends Controller
         $email = new NewGuestpasswordVerification($user);
         Mail::to($user->email)->send($email);
         return view('guest_path.new_password_registered');
+    }
+
+    public function confirm(Request $request){
+        $name = $request->name;
+        $guest_password = $request->guest_password;
+        $user = User::where('name','=', $name)->first();
+        if($user->guest_password === $guest_password){
+            //hostのもの
+            $host_id = User::find($user->id);
+            //guestのもの
+            $auth = User::find(Auth::id());
+            $auth->guest_id = $host_id->id;
+
+            $auth->save();
+
+            $guest_items = Board::where('user_id','=',$user->id)->get();
+
+            return view('guest.confirm', compact('user'));
+        }else {
+            $home_form = '名前またはパスワードが間違っています';
+            return view('home', compact('home_form'));
+        }
     }
 
 }
