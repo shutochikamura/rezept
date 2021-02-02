@@ -7,9 +7,15 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <td>
-                    <h3>レシピ一覧</h3>
+                    <h3>{{$host->name}}のレシピ一覧</h3>
                 </td>
 
+                <td>
+                    <form action="/guest/create" method="get">
+                        @csrf
+                        <input type="submit" value="レシピ作成">
+                </form>
+                </td>
                 <tr>
                     <th><input type="radio" name="stateList" value="10" checked>全て</th>
                     <th><input type="radio" name="stateList" value="1">生菓子</th>
@@ -22,8 +28,9 @@
 
                 <div class="card-body board-frame ">
                     <table>
+
                 @foreach($items as $item)
-                @if($item->getData() === Auth::id())
+
                         <tr class="recipeCard">
                             @if($item->state === 1)
                             <th class="mouse">
@@ -39,20 +46,21 @@
                             <th class="el">
                                 @endif
                             </th>
-                            <form action="board/{{$item->id}}" method="get">
+                            <form action="/guest/{{$item->id}}" method="get">
                                 @csrf
-
+                                <input type="hidden" value="{{$item->user_id}}">
                                 <td><input type="submit" value="{{$item->title}}"></td>
                             </form>
-                            <form id="edit/{{$item->id}}" action="/board/{{$item->id}}/edit" method="get">
+                            <form id="/guest/edit/{{$item->id}}" action="/guest/{{$item->id}}/edit" method="get">
                                 @csrf
+                                <input type="hidden" value="{{$item->user_id}}">
                                 <th>
-                                    <input form="edit/{{$item->id}}" type="submit" value="編集">
+                                    <input form="/guest/edit/{{$item->id}}" type="submit" value="編集">
                                 </th>
                             </form>
 
                         </tr>
-                        @endif
+
                 @endforeach
                     </table>
                 </div>

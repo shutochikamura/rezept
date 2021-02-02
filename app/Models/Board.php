@@ -21,4 +21,5 @@ public function getData(){
     return $this->user->id;
 }
 
+
 }

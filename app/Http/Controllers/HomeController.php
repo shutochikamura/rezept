@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $home_form = '';
+        return view('home', compact('home_form'));
     }
 }
