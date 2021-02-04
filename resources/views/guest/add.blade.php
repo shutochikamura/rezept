@@ -13,6 +13,7 @@
                     @endforeach
                 </ul>
                 @endif
+                @can('employee')
                 <form action="/guest" method="post">
                     @csrf
 
@@ -66,6 +67,7 @@
                     <textarea name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
                     <input type="submit" value="作成">
                 </form>
+                @endcan
 
             </div>
         </div>

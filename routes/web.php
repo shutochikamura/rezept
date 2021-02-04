@@ -17,7 +17,7 @@ use App\Http\Controllers\GuestpassController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('rezept');
 });
 Auth::routes(['verify' => true]);
 //メールで仮登録、本登録処理
@@ -25,19 +25,21 @@ Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
 Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck')->name('register.main_check');
 Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister')->name('register.main.registered');
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('guest_home', 'App\Http\Controllers\Guest_pathController@confirm');
-
+//自分のレシピ画面
 Route::resource('board', App\Http\Controllers\BoardController::class);
 
+Route::post('guest_home', 'App\Http\Controllers\Guest_pathController@confirm');
+//guestがレシピ編集した際の戻り画面
 Route::get('guest_home', 'App\Http\Controllers\GuestController@index');
+
 Route::resource('guest', App\Http\Controllers\GuestController::class);
 
 
 
-Route::group(['middleware' => ['auth', 'can:manager']],function (){
+
+//manager,製造長の処理
+Route::group(['middleware' => ['auth', 'can:manager']], function () {
     //guest_password作成処理
     Route::get('guest_password', 'App\Http\Controllers\Guest_pathController@index');
     Route::post('guest_password/check', 'App\Http\Controllers\Guest_pathController@check')->name('guest_password.check');

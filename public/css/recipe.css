@@ -12,3 +12,7 @@ font-size:12px;
 .red{
     color:red;
 }
+
+.rezept-background-image{
+    background-image: url('/images/christmas-tarts-2976316_1920.jpg');
+}

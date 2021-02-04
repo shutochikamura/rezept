@@ -14,7 +14,7 @@ use function PHPUnit\Framework\countOf;
 class BoardController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
         $items = Board::all();
         return view('board.index', compact('items'));
@@ -75,6 +75,7 @@ class BoardController extends Controller
         $postId = $post->id;
 
         foreach ($form as $key => $val) {
+
             if($val == null){
                 break;
             }

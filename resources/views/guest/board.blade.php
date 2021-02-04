@@ -10,12 +10,6 @@
                     <h3>{{$host->name}}のレシピ一覧</h3>
                 </td>
 
-                <td>
-                    <form action="/guest/create" method="get">
-                        @csrf
-                        <input type="submit" value="レシピ作成">
-                </form>
-                </td>
                 <tr>
                     <th><input type="radio" name="stateList" value="10" checked>全て</th>
                     <th><input type="radio" name="stateList" value="1">生菓子</th>
@@ -51,6 +45,7 @@
                                 <input type="hidden" value="{{$item->user_id}}">
                                 <td><input type="submit" value="{{$item->title}}"></td>
                             </form>
+                            @can('employee', 'manager')
                             <form id="/guest/edit/{{$item->id}}" action="/guest/{{$item->id}}/edit" method="get">
                                 @csrf
                                 <input type="hidden" value="{{$item->user_id}}">
@@ -58,6 +53,7 @@
                                     <input form="/guest/edit/{{$item->id}}" type="submit" value="編集">
                                 </th>
                             </form>
+                            @endcan
 
                         </tr>
 

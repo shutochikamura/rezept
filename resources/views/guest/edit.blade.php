@@ -14,6 +14,7 @@
                 </ul>
                 @endif
                 <div class="card-body board-frame">
+                    @can('employee')
                     <form action="/guest/{{$form->id}}" method="post">
                         @method('PATCH')
                         @csrf
@@ -67,7 +68,7 @@
                         <textarea name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
                         <input  type="submit" value="変更">
                     </form>
-
+                @endcan
 
 
 
