@@ -58,7 +58,7 @@
                             <tr>
                             <th>
                             {{$items->recipe}}
-                                <!-- <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10" disabled></textarea> -->
+
                             </th>
                             </tr>
                         </table>
