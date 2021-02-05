@@ -15,12 +15,13 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('title');
 
             $table->string('recipe');
             $table->integer('state');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

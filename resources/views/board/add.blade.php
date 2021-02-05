@@ -3,69 +3,74 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                @if (count($errors) > 0)
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-                @endif
-                <form action="/board" method="post">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{Auth::id()}}">
-                    <h2>菓子名</h2>
+                <div class="card">
+                    <h3 class="card-header">{{ __('レシピ作成') }}</h3>
+                    <div class="card-body">
+                        @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                        @endif
 
-                    <input type="text" name="title" value="{{old('title')}}">
-                    <h2>菓子の種類</h2>
-
-
-
-                    <input type="radio" name="state" value="1" checked>生菓子
-                    <input type="radio" name="state" value="2">焼き菓子
-                    <input type="radio" name="state" value="3">チョコレート
-                    <input type="radio" name="state" value="4">季節もの
-                    <input type="radio" name="state" value="5">パン
-                    <input type="radio" name="state" value="6">その他
-
-                    <h2>材料名</h2>
-                    <table>
-
-                        <div>
-
-                            <tr>
-                                <th>
-                                    <input type="text" name="material_0" value="{{old('material')}}">
-                                </th>
-
-                                <th>
-                                    <input type="text" name="volume_0">
-                                </th>
-
-                                <td>
-                                    <select id="unit" name="unit_0">
-                                        <option value="1">g</option>
-                                        <option value="2">個</option>
-                                        <option value="3">ml</option>
-                                        <option value="4">適量</option>
-                                    </select>
-                                </td>
-                            </tr>
-
+                    <form action="/board" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                            <label form="add-recipe"><h3>菓子名</h3></label>
+                                <input id="add-recipe" class="form-control" type="text" name="title" value="{{old('title')}}">
                         </div>
-                    </table>
-                    <div id="form_area"></div>
-                    <input id="addInput" type="button" value="+">
-                    <input type="button" id="deleteInput" value="-" disabled>
+
+                        <h3>菓子の種類</h3>
 
 
-                    <h2>作り方</h2>
-                    <textarea name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
-                    <input type="submit" value="作成">
-                </form>
+                            <!-- input-group-text -->
 
+
+                                    <label for="add-state-1"><input id="add-state-1" class="custom-radio" type="radio" name="state" value="1" checked>生菓子</label>
+                                    <label for="add-state-2"><input id="add-state-2" class="custom-radio" type="radio" name="state" value="2">焼き菓子</label>
+                                    <label for="add-state-3"><input id="add-state-3" class="custom-radio" type="radio" name="state" value="3">チョコレート</label>
+                                    <label for="add-state-4"><input id="add-state-4" class="custom-radio" type="radio" name="state" value="4">季節もの</label>
+                                    <label for="add-state-5"><input id="add-state-5" class="custom-radio" type="radio" name="state" value="5">パン</label>
+                                    <label for="add-state-6"><input id="add-state-6" class="custom-radio" type="radio" name="state" value="6">その他</label>
+
+
+
+                                    <h2>材料名</h2>
+                                    <div class="form-group material-box ">
+                                            <input class="material-input" type="text" name="material_0" value="{{old('material')}}">
+
+                                            <input class="volume-input" type="text" name="volume_0">
+
+                                            <select class="unit-select" id="unit" name="unit_0">
+                                                <option value="1">g</option>
+                                                <option value="2">個</option>
+                                                <option value="3">ml</option>
+                                                <option value="4">適量</option>
+                                            </select>
+
+                                            <div id="form_area"></div>
+                                        </div>
+
+
+                        <input class="form-plus" id="addInput" type="button" value="+">
+                        <input class="form-plus" type="button" id="deleteInput" value="-" disabled>
+
+
+                            <h2 >作り方</h2>
+
+                        <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+                        <div class="edit-form">
+                            <input class="form-control-sm btn-success edit-input" type="submit" value="作成">
+                        </div>
+
+                    </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

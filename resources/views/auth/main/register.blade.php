@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="col-md-6 offset-md-4 mb-2">
                             <h4　class="your-job">あなたのポジションを教えて下さい</h4>
 
 

@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    <li>test</li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -58,11 +58,12 @@
                         @else
                         @if(Auth::check())
 
-                        <li>
-                            <a href="/board">レシピ一覧</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/board">{{__('レシピ一覧')}}</a>
                         </li>
 
-                        <li><a href="/board/create">レシピ作成</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/board/create">{{__('レシピ作成')}}</a></li>
 
                         @endif
                         <li class="nav-item dropdown">
@@ -73,11 +74,18 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @can('manager')
                                 @if(Auth::user()->guest_password == null)
-                                <a href="/guest_password">ゲストパスワード作成</a>
+                                <a class="dropdown-item" href="/guest_password">ゲストパスワード作成</a>
                                 @elseif(Auth::user()->guest_password != "")
-                                <a href="/guest_password/edit">ゲストパスワード変更</a>
+                                <a class="dropdown-item" href="/guest_password/edit">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
+                                @if(Auth::user()->guest_id != null)
+
+                                <a class="dropdown-item" href="/guest">ホストのレシピ一覧</a>
+                                @can('employee')
+                                <a class="dropdown-item" href="/guest/create">ホストのレシピ作成</a>
+                                @endcan
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

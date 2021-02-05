@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\BoardRequest;
+use App\Http\Requests\GuestRequest;
 use App\Models\Board;
 use App\Models\Material;
 use App\Models\User;
@@ -23,7 +24,7 @@ class GuestController extends Controller
         return view('guest.add');
     }
 
-    public function store(BoardRequest $request)
+    public function store(GuestRequest $request)
     {
         $post = new Board;
         $form = $request->all();
@@ -62,7 +63,7 @@ class GuestController extends Controller
         return view('guest.edit', compact('form'));
     }
 
-    public function update(Request $request, $id)
+    public function update(GuestRequest $request, $id)
     {
         $post = Board::find($id);
         $form = $request->all();
