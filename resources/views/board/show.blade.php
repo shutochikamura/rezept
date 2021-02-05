@@ -1,66 +1,70 @@
-
 @extends('layouts.app')
 
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-<h3>test</h3>
+                <div class="card">
+                    <h3 class="card-header">レシピ詳細</h3>
 
 
-<div class="card-body board-frame">
+                    <div class="card-body">
 
 
-        <table>
+                        <table>
+                            <tr>
+                                <th>{{$items->title}}</th>
+                            </tr>
+                            <tr>
+                                @if($items->state === 1)
+                                <th>生菓子</th>
+                                @elseif($items->state === 2)
+                                <th>焼き菓子</th>
+                                @elseif($items->state === 3)
+                                <th>チョコレート</th>
+                                @elseif($items->state === 4)
+                                <th>季節もの</th>
+                                @elseif($items->state === 5)
+                                <th>パン</th>
+                                @elseif($items->state === 6)
+                                <th>その他</th>
+                                @else
+                                <th>その他</th>
+                                @endif
+                            </tr>
 
 
-                <tr>
-                    <th>{{$items->title}}</th>
-            </tr>
-        </table>
-        <table>
+                            @if($items->materials != null)
+                            @foreach($items->materials as $obj)
+                            <tr>
+                                <th>{{$obj->getData()}}
 
-        <tr>
-        @if($items->state === 1)
-        <th>生菓子</th>
-            @elseif($items->state === 2)
-            <th>焼き菓子</th>
-            @elseif($items->state === 3)
-            <th>チョコレート</th>
-            @elseif($items->state === 4)
-            <th>季節もの</th>
-            @elseif($items->state === 5)
-            <th>パン</th>
-            @elseif($items->state === 6)
-            <th>その他</th>
-            @else
-            <th>その他</th>
-            @endif
-        </tr>
-        </table>
+                                    @if($obj->getUnit() === '1')
+                                    g
+                                    @elseif($obj->getUnit() === '2')
+                                    個
+                                    @elseif($obj->getUnit() === '3')
+                                    ml
+                                    @elseif($obj->getUnit() === '4')
+                                    適量
+                                    @endif
+                                    </th>
+                            </tr>
+                            @endforeach
+                            @endif
 
-        @if($items->materials != null)
-        @foreach($items->materials as $obj)
-        <table><tr><th>{{$obj->getData()}}</th><td>
-            @if($obj->getUnit() === '1')
-            g
-            @elseif($obj->getUnit() === '2')
-            個
-            @elseif($obj->getUnit() === '3')
-            ml
-            @elseif($obj->getUnit() === '4')
-            適量
-            @endif
-        </td></tr></table>
-        @endforeach
-        @endif
-        <table>
-        <tr><th>{{$items->recipe}}</th></tr>
-        </table>
+                            <tr>
+                            <th>
+                            {{$items->recipe}}
+                                <!-- <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10" disabled></textarea> -->
+                            </th>
+                            </tr>
+                        </table>
+                    </div>
 
-</div>
+                </div>
 
 
             </div>

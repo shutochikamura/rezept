@@ -5,9 +5,9 @@ function addForm(){
   const divElement = document.createElement('div');
   divElement.className = 'input-wrapper';
   //Materialの三つの単位を入れてる（material ,volume,unit)
-  divElement.innerHTML = '<table><tr><th><input type="text" name="digit_'
-  + i +'"></th><th><input type="text" name="volume_'
-  + i + '"></th><td><select name="unit_'
+  divElement.innerHTML = '<input class="material-input mr-1" type="text" name="digit_'
+  + i +'"><input class="volume-input mr-1" type="text" name="volume_'
+  + i + '"><select class="unit-select mr-1" name="unit_'
   + i + '"><option value="1">g</option><option value="2">個</option><option value="3">ml</option><option value="4">適量</option><option value="0">削除する</option></select></td></tr></table>';
 
   const parent = document.getElementById('form_area');
@@ -34,5 +34,13 @@ function deleteForm(){
     deleteButton.disabled = true; // - をクリックできないようにする。
   }
 }
+
+function delete_alert(e){
+   if(!window.confirm('本当に削除しますか？')){
+      window.alert('キャンセルされました');
+      return false;
+   }
+   document.deleteform.submit();
+};
 editButton.addEventListener('click', addForm);
 deleteButton.addEventListener('click', deleteForm);
