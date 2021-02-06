@@ -29,8 +29,6 @@
 
 
                             <!-- input-group-text -->
-
-
                                     <label for="add-state-1"><input id="add-state-1" class="custom-radio" type="radio" name="state" value="1" checked>生菓子</label>
                                     <label for="add-state-2"><input id="add-state-2" class="custom-radio" type="radio" name="state" value="2">焼き菓子</label>
                                     <label for="add-state-3"><input id="add-state-3" class="custom-radio" type="radio" name="state" value="3">チョコレート</label>
@@ -65,7 +63,7 @@
 
                         <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
                         <div class="edit-form">
-                            <input class="form-control-sm btn-success edit-input" type="submit" value="作成">
+                            <input class="form-control-sm btn-success edit-input btn" type="submit" value="作成">
                         </div>
 
                     </form>

@@ -21,19 +21,19 @@
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="{{Auth::id()}}">
-                                <h2>菓子名</h2>
+                                <label for="edit-title"><h3>菓子名</h3></label>
 
-                                <input class="form-control" type="text" name="title" value="{{$form->title}}">
+                                <input id="edit-title" class="form-control" type="text" name="title" value="{{$form->title}}">
                             </div>
-                            <h2>菓子の種類</h2>
+                            <h3>菓子の種類</h3>
 
-                            <input type="radio" name="state" value="1" @if($form->state === 1) checked @endif >生菓子
-                            <input type="radio" name="state" value="2" @if($form->state === 2) checked @endif >焼き菓子
-                            <input type="radio" name="state" value="3" @if($form->state === 3) checked @endif >チョコレート
-                            <input type="radio" name="state" value="4" @if($form->state === 4) checked @endif >季節もの
-                            <input type="radio" name="state" value="5" @if($form->state === 5) checked @endif >パン
-                            <input type="radio" name="state" value="6" @if($form->state === 6) checked @endif >その他
-                            <h2>材料名</h2>
+                            <label for="edit-state-1"><input id="edit-state-1" type="radio" name="state" value="1" @if($form->state === 1) checked @endif >生菓子</label>
+                            <label for="edit-state-2"><input id="edit-state-2" type="radio" name="state" value="2" @if($form->state === 2) checked @endif >焼き菓子</label>
+                            <label for="edit-state-3"><input id="edit-state-3" type="radio" name="state" value="3" @if($form->state === 3) checked @endif >チョコレート</label>
+                            <label for="edit-state-4"><input id="edit-state-4" type="radio" name="state" value="4" @if($form->state === 4) checked @endif >季節もの</label>
+                            <label for="edit-state-5"><input id="edit-state-5" type="radio" name="state" value="5" @if($form->state === 5) checked @endif >パン</label>
+                            <label for="edit-state-6"><input id="edit-state-6" type="radio" name="state" value="6" @if($form->state === 6) checked @endif >その他</label>
+                            <h3>材料名</h3>
 
                             <div class="form-group material-box">
 
@@ -63,16 +63,16 @@
                             </div>
                             <input class="form-plus" id="editInput" type="button" value="+">
                             <input class="form-plus " type="button" id="deleteInput" value="-" disabled>
-                            <h2>作り方</h2>
+                            <h3>作り方</h3>
                             <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
                         </form>
 
-                        <table class=" edit-form">
-                            <input form="edit-host-input" class="form-control-sm btn-success edit-input" type="submit" value="変更">
+                        <table class="edit-form">
+                            <input form="edit-host-input" class="form-control-sm btn-success edit-input btn" type="submit" value="変更">
                             <form action="/board/{{$form->id}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <input class="form-control-sm btn-danger delete-input" type="submit" value="削除する" onClick="delete_alert(event);return false;">
+                                <input class="btn form-control-sm btn-danger delete-input" type="submit" value="削除する" onClick="delete_alert(event);return false;">
                             </form>
                         </table>
 

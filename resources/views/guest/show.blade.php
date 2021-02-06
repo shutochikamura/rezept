@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -9,60 +8,68 @@
             <div class="panel panel-default">
                 <div class="card">
 
-    <h3 class="card-header">test</h3>
+                    <h3 class="card-header">test</h3>
 
 
-    <div class="card-body board-frame">
+                    <div class="card-body board-frame">
 
 
-            <table>
 
 
-                    <tr>
-                        <th>{{$items->title}}</th>
-                </tr>
+
+                        <h4 class="cake-menu">
+                            {{$items->title}}
+                        </h4>
+
+                        <div class="h5 cake-menu">
+                            @if($items->state === 1)
+                            生菓子
+                            @elseif($items->state === 2)
+                            焼き菓子
+                            @elseif($items->state === 3)
+                            チョコレート
+                            @elseif($items->state === 4)
+                            季節もの
+                            @elseif($items->state === 5)
+                            パン
+                            @elseif($items->state === 6)
+                            その他
+                            @else
+                            その他
+                            @endif
+                        </div>
 
 
-            <tr>
-            @if($items->state === 1)
-            <th>生菓子</th>
-                @elseif($items->state === 2)
-                <th>焼き菓子</th>
-                @elseif($items->state === 3)
-                <th>チョコレート</th>
-                @elseif($items->state === 4)
-                <th>季節もの</th>
-                @elseif($items->state === 5)
-                <th>パン</th>
-                @elseif($items->state === 6)
-                <th>その他</th>
-                @else
-                <th>その他</th>
-                @endif
-            </tr>
+                        <div class="cake-menu h5">分量</div>
+                        @if($items->materials != null)
+                        <ul class="material-ul">
+                            @foreach($items->materials as $obj)
+                            <li class="cake-menu material-list mt-1">
+                                <div class="material-show">
+                                    {{$obj->getMaterial()}}
+                                </div>
+                                <div class="volume-show">
+                                    {{$obj->getVolume()}}
+                                    @if($obj->getUnit() === '1')
+                                    g
+                                    @elseif($obj->getUnit() === '2')
+                                    個
+                                    @elseif($obj->getUnit() === '3')
+                                    ml
+                                    @elseif($obj->getUnit() === '4')
+                                    適量
+                                    @endif
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
+                        <div class="cake-menu  h5 mt-5">作り方</div>
+                        <textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
 
+                    </div>
 
-            @if($items->materials != null)
-            @foreach($items->materials as $obj)
-            <table><tr><th>{{$obj->getData()}}</th><td>
-                @if($obj->getUnit() === '1')
-                g
-                @elseif($obj->getUnit() === '2')
-                個
-                @elseif($obj->getUnit() === '3')
-                ml
-                @elseif($obj->getUnit() === '4')
-                適量
-                @endif
-            </td></tr>
-            @endforeach
-            @endif
-            <table>
-            <tr><th>{{$items->recipe}}</th></tr>
-            </table>
                 </div>
-
-</div>
 
 
             </div>

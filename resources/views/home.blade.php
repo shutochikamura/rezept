@@ -42,9 +42,10 @@
                         {{__('別の方を参照する場合')}}
 
                     </div>
-                </div> -->
+                </div>
 
-                @endif
+                @endif-->
+                @cannot('manager')
                 <div>
                     <div class="card-header">
                         <h4>別の方のレシピ参照</h4>
@@ -82,6 +83,7 @@
                         </form>
                     </div>
                 </div>
+                @endcannot
             </div>
         </div>
     </div>

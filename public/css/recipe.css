@@ -113,4 +113,52 @@ height: calc(1.6em + 0.75rem + 2px);
 }
 textarea{
     white-space:pre-wrap;
+    font-size:2vmax;
+    font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+.btn {
+    border-radius: 5pt;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+.dropdown-state{
+    transition: 0.3s;
+}
+.cake-menu{
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.material-ul{
+    margin:0;
+    padding:0;
+
+}
+.material-list{
+margin: -3px 0;
+    list-style:none;
+    font-size:1.5vmax;
+}
+.recipe-textarea{
+    border:none;
+    resize:none;
+}
+.recipe-menu{
+    font-size:1.5vmax;
+    height:100%;
+margin-right:1em;
+
+}
+.board-menu{
+    height:1vmin;
+    width:100%;
+    margin-left:-1em;
+}
+.material-show{
+    vertical-align:text-bottom;
+}
+.volume-show{
+    text-align:right;
 }
