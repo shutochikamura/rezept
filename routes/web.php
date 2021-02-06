@@ -20,11 +20,13 @@ Route::get('/', function () {
     return view('rezept');
 });
 Auth::routes(['verify' => true]);
+
 //メールで仮登録、本登録処理
 Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@pre_check')->name('register.pre_check');
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
 Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck')->name('register.main_check');
 Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister')->name('register.main.registered');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //自分のレシピ画面
 Route::resource('board', App\Http\Controllers\BoardController::class);

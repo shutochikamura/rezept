@@ -89,7 +89,7 @@ class Guest_pathController extends Controller
             //guestのもの
             $auth = User::find(Auth::id());
             $auth->guest_id = $host_id->id;
-
+            $auth->guest_password = $guest_password;
             $auth->save();
 
             $guest_items = Board::where('user_id', '=', $user->id)->get();

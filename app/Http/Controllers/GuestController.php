@@ -16,7 +16,15 @@ class GuestController extends Controller
     {
         $host = User::where('id', '=', Auth::user()->guest_id)->first();
         $items = Board::where('user_id', '=', Auth::user()->guest_id)->get();
-        return view('guest.board', compact('items', 'host'));
+        $guest_password = Auth::user()->guest_password;
+
+        if($guest_password === $host->guest_password){
+
+            return view('guest.board', compact('items', 'host'));
+        }else {
+            $home_form = 'パスワードを再入力して下さい';
+            return view('home', compact('home_form'));
+        }
     }
 
     public function create()
