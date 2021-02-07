@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -79,13 +80,7 @@
                                 <a class="dropdown-item" href="/guest_password/edit">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
-                                @if(Auth::user()->guest_id != null)
-
-                                <a class="dropdown-item" href="/guest">ホストのレシピ一覧</a>
-                                @can('employee')
-                                <a class="dropdown-item" href="/guest/create">ホストのレシピ作成</a>
-                                @endcan
-                                @endif
+                                <a class="dropdown-item" href="home">home</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

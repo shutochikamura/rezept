@@ -80,10 +80,8 @@ class Guest_pathController extends Controller
         $name = $request->name;
         $guest_password = $request->guest_password;
         $user = User::where('name', '=', $name)->first();
-        if (Auth::user()->guest_password === $guest_password) {
-            $home_form = 'ホスト自身では入れません';
-            return view('home', compact('home_form'));
-        } else if ($user->guest_password === $guest_password) {
+
+        if ($user->guest_password === $guest_password) {
             //hostのもの
             $host_id = User::find($user->id);
             //guestのもの
@@ -93,7 +91,6 @@ class Guest_pathController extends Controller
             $auth->save();
 
             $guest_items = Board::where('user_id', '=', $user->id)->get();
-
             return view('guest.confirm', compact('user'));
         } else {
             $home_form = '名前またはパスワードが間違っています';

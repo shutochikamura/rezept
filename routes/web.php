@@ -4,6 +4,7 @@ use App\Http\Controllers\BoardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GuestpassController;
+use App\Http\Middleware\GuestMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,15 +31,18 @@ Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterControl
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //自分のレシピ画面
 Route::resource('board', App\Http\Controllers\BoardController::class);
+Route::post('board_search', 'App\Http\Controllers\BoardController@search');
 
 Route::post('guest_home', 'App\Http\Controllers\Guest_pathController@confirm');
-//guestがレシピ編集した際の戻り画面
-Route::get('guest_home', 'App\Http\Controllers\GuestController@index');
-
-Route::resource('guest', App\Http\Controllers\GuestController::class);
 
 
-
+//guestのguest_passwordとhostのguest_passwordが合ってるか参照
+Route::group(['middleware' => ['guest-mdl']],
+function (){
+    Route::resource('guest', App\Http\Controllers\GuestController::class);
+    Route::post('guest_search', 'App\Http\Controllers\GuestController@search');
+    Route::get('guest_home', 'App\Http\Controllers\GuestController@index');
+});
 
 //manager,製造長の処理
 Route::group(['middleware' => ['auth', 'can:manager']], function () {

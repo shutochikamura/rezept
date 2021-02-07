@@ -14,37 +14,9 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                </div>
-                <!--
-                @if(Auth::user()->guest_id != null)
-                <div class="card-header">
-
-                    {{ __('ホストのレシピ編集') }}
+                    {{ __('ログインしました!') }}
                 </div>
 
-
-                <div class="ml-3">
-                    <form action="guest" method="get">
-                        @csrf
-
-                        <div class="form-group row mt-4 mb-4 ">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('レシピ編集、閲覧') }}
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                    <div class="col-md-6 offset-md-4 mb-2">
-
-                        {{__('別の方を参照する場合')}}
-
-                    </div>
-                </div>
-
-                @endif-->
                 @cannot('manager')
                 <div>
                     <div class="card-header">
