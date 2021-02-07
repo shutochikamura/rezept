@@ -169,7 +169,7 @@ margin-right:1em;
 }
 
 .guestCreate{
-    width:10px;
+
     border: 1px solid #ced4da;
     font-size: 0.9vmax;
 }
@@ -210,3 +210,66 @@ margin-right:1em;
       margin:0 auto;
       width:24em;
   }
+  @media (max-width: 991.98px){
+
+      .rezept{
+          background-image: url(/images/dessert-3227890_1920.jpg);
+          background-size:cover;
+          height: 900px;
+          width:100%;
+
+        }
+    }
+    @media (min-width: 991.99px){
+
+        .rezept{
+            background-image: url(/images/christmas-tarts-2976316_1920.jpg);
+            background-size:cover;
+            height: 800px;
+            width:100%;
+        }
+    }
+
+
+
+.rezept-header{
+    margin-top:5vh;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    border:none;
+
+}
+.rezept-font{
+    color:black;
+    opacity: 0.7;
+}
+.rezept-body{
+    border:1px solid #ced4da;
+    background-color:white;
+    height: 18em;
+    width:60vw;
+    max-width: 420px;
+    opacity:0.8;
+    flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  border-radius: 1.0em;
+}
+.btn-rezept{
+    border: 1px solid #999;
+}
+.btn-rezept:hover{
+    background-color:#ced4da;
+}
+.rezept-font-body{
+    font-size:2vmax;
+}
+
+.rezept-sign{
+    background:
+    linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(2, 145, 2, 0.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -33,9 +33,10 @@
                             </div>
                         </div>
                         @can('employee')
-                        <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
-
-                        <a class="form-control btn guestCreate" href="/guest/create" value="{{Auth::id()}}">ホストのレシピ作成</a>
+                        <div class="form-group">
+                            <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
+                            <a class="form-control btn guestCreate" href="/guest/create" value="{{Auth::id()}}">ホストのレシピ作成</a>
+                        </div>
                         @endcan
 
                     </div>
