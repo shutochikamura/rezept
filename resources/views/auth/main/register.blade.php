@@ -41,19 +41,19 @@
                             @endif
 
                         </div>
-                        <div class="">
+                        <div class="mb-4 retister-role-div">
 
                             <div class=" register-role">
 
-                                <label for="role-manager" class="col-md-4 col-form-label text-md-right">製造長</label>
+                                <label for="role-manager" class="row-col-md-2 col-form-label text-md-right offset-md-4">製造長</label>
 
-                                <input name="role" type="radio" id="role-manager" value="1">
+                                <input class="" name="role" type="radio" id="role-manager" value="1">
 
                             </div>
 
                             <div class="register-role">
 
-                                <label for="role-employee" class="col-md-4 col-form-label text-md-right">従業員</label>
+                                <label for="role-employee" class="row-col-md-2 col-form-label text-md-right offset-md-4">従業員</label>
 
                                 <input name="role" type="radio" id="role-employee" value="5">
 
@@ -61,21 +61,18 @@
 
                             <div class="register-role">
 
-                                <label for="role-trainee" class="col-md-4 col-form-label text-md-right">研修生</label>
+                                <label for="role-trainee" class="row-col-md-2 col-form-label text-md-right offset-md-4">研修生</label>
 
                                 <input name="role" type="radio" id="role-trainee" value="9" checked>
-
                             </div>
+                        </div>
+                        <div class="col-md-6 offset-md-4 mb-2">
+                            <button type="submit" class="btn btn-primary your-job">
+                                確認画面へ
+                            </button>
                         </div>
 
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    確認画面へ
-                                </button>
-                            </div>
-                        </div>
                     </form>
                 </div>
                 @endempty

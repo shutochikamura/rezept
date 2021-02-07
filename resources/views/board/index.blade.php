@@ -10,8 +10,16 @@
 
                     <h3 class="card-header">レシピ一覧</h3>
 
+                    <div style="width:100%;">
+                        <form method="post" action="board_search" class="search_container m-3">
+                            @csrf
+                            <input id="hostSearch" name="hostSearch" type="text" size="25" placeholder="レシピ内検索">
+                            <input type="submit" value="&#xf002">
+                        </form>
+                    </div>
+
                     <div class="form-group m-2 btn-group">
-                        <div class=" nav-item dropdown dropbottom ">
+                        <div class=" nav-   item dropdown dropbottom ">
                             <a href="#" id="stateDropdown" class="nav-link dropdown-toggle h5 dropdown-state" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 お菓子の種類
                             </a>
@@ -28,6 +36,7 @@
                         </div>
 
 
+                        <h4 class="cake-menu mt-1">レシピの数{{$items->where('user_id','=', Auth::id())->count()}}</h4>
 
                     </div>
                     <div class="card-body board-frame ">

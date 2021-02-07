@@ -28,6 +28,8 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    protected $maxAttempts = 10;
+    protected $decayMinutes = 30;
     /**
      * Create a new controller instance.
      *

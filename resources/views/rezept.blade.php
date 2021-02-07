@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+
+<head>
 
     <title>Rezept</title>
 
@@ -12,6 +13,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/recipe.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,53 +22,62 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/recipe.css')}}">
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body class="">
+    <style>
+        body {
+            font-family: 'Nunito';
+        }
+    </style>
+</head>
+
+<body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
-            <div class="container">
-                <h2 class="" >Rezept</h2>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <div>
+            <h1 class="rezept-sign ml-3">Rezept</h1>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-
-
-                    </ul>
-                </div>
-            </div>
         </div>
-
-
-            <div >
-                <img src="/Downloads/christmas-tarts-2976316_1920.jpg" alt="">
-                @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                        @auth
-                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                            @endif
-                        @endauth
+    </nav>
+    <div class="rezept">
+        <div class="container row justify-content-center">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default ">
+                    <div class="rezept-header " >
+                        <h3 class="rezept-font">パティシエの従業員間</h3>
+                        <h3 class="rezept-font">共有レシピ</h3>
                     </div>
+                    <div class="rezept-body">
+
+                        <div>
+                @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
+                    @auth
+                    <div class="m-3 pl-3">
+                        <h3 class="rezept-font-body">この度は使っていただきありがとうございます</h3>
+                        <h3 class="rezept-font-body">ホームへ行く</h3>
+                        <a href="{{ url('/home') }}" class="text-gray-700  btn btn-rezept">Home</a>
+                    </div>
+                    @else
+                    <div class="m-2">
+                        <h3 class="rezept-font-body">ログインはこちら</h3>
+                        <a href="{{ route('login') }}" class="text-gray-700 btn btn-rezept">Login</a>
+                    </div>
+                    <div class="m-2">
+                        <h3 class="rezept-font-body">登録はこちら</h3>
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
+                    </div>
+                    @endif
+                    @endauth
+                </div>
                 @endif
             </div>
 
-    </body>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
 </html>

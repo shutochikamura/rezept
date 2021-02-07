@@ -9,6 +9,15 @@
                 <div class="card">
 
                     <h3 class="card-header">{{$host->name}}のレシピ一覧</h3>
+                    <div >
+                        <form method="post" action="guest_search" class="search_container m-3">
+                            @csrf
+                            <input id="guestSearch" name="guestSearch" type="text" size="25" placeholder="レシピ内検索">
+                            <input type="submit" value="&#xf002">
+                        </form>
+                    </div>
+
+
 
                     <div class="form-group m-2 btn-group">
                         <div class=" nav-item dropdown dropbottom ">
@@ -23,12 +32,19 @@
                                 <label class="check-state ml-2" for="state-6"><input id="state-6" type="radio" name="stateList" value="6">その他</label>
                             </div>
                         </div>
+                        @can('employee')
+                        <div class="form-group">
+                            <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
+                            <a class="form-control btn guestCreate" href="/guest/create" value="{{Auth::id()}}">ホストのレシピ作成</a>
+                        </div>
+                        @endcan
+
                     </div>
                     <div class="card-body board-frame ">
                         <table class="table board-menu">
 
                             @foreach($items as $item)
-
+                            @if($item->getData() === Auth::user()->guest_id)
                             <tr class="recipeCard">
                                 @if($item->state === 1)
                                 <th class="mouse">
@@ -62,7 +78,7 @@
                                 </div>
 
                             </tr>
-
+                            @endif
                             @endforeach
                         </table>
                     </div>
