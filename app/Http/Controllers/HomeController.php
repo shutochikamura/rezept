@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,5 +27,14 @@ class HomeController extends Controller
     {
         $home_form = '';
         return view('home', compact('home_form'));
+    }
+
+    public function destroy(){
+        $user = Auth::user();
+
+        Auth::logout();
+        $user->delete();
+
+        return redirect('/');
     }
 }

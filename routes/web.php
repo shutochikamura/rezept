@@ -17,6 +17,7 @@ use App\Http\Middleware\GuestMiddleware;
 |
 */
 
+
 Route::get('/', function () {
     return view('rezept');
 });
@@ -27,7 +28,12 @@ Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
 Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck')->name('register.main_check');
 Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister')->name('register.main.registered');
+Route::post('/user_role/register', 'App\Http\Controllers\Auth\RegisterController@role');
 
+Route::get('login/google', 'App\Http\Controllers\Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'App\Http\Controllers\Auth\LoginController@handleGoogleCallback');
+
+Route::get('/log_destroy', 'App\Http\Controllers\HomeController@destroy');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //自分のレシピ画面
 Route::resource('board', App\Http\Controllers\BoardController::class);

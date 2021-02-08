@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '9d0cc6366a1a8d269ef8045dd341b157fe475842',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -151,6 +151,15 @@
       ),
       'reference' => '307fb34a5ab697461ec4c9db865b20ff2fd40771',
     ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.2.0',
+      'version' => '5.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'feb0e820b8436873675fd3aca04f3728eb2185cb',
+    ),
     'fruitcake/laravel-cors' => 
     array (
       'pretty_version' => 'v2.0.3',
@@ -159,6 +168,33 @@
       array (
       ),
       'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
+    ),
+    'google/apiclient' => 
+    array (
+      'pretty_version' => 'v2.9.1',
+      'version' => '2.9.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2fb6e702aca5d68203fa737f89f6f774022494c6',
+    ),
+    'google/apiclient-services' => 
+    array (
+      'pretty_version' => 'v0.159.0',
+      'version' => '0.159.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd5334e9853afe16e7d8215006a475061d8023216',
+    ),
+    'google/auth' => 
+    array (
+      'pretty_version' => 'v1.15.0',
+      'version' => '1.15.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b346c07de6613e26443d7b4830e5e1933b830dc4',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -440,12 +476,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '9d0cc6366a1a8d269ef8045dd341b157fe475842',
     ),
     'laravel/sail' => 
     array (
@@ -455,6 +491,15 @@
       array (
       ),
       'reference' => '277d868441b49898caf0ce3cb4e19b439e419133',
+    ),
+    'laravel/socialite' => 
+    array (
+      'pretty_version' => 'v5.1.3',
+      'version' => '5.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2e6beafe911a09f2300353c102d882e9d63f1f72',
     ),
     'laravel/tinker' => 
     array (
@@ -500,6 +545,15 @@
       array (
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
+    ),
+    'league/oauth1-client' => 
+    array (
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1e7e6be2dc543bf466236fb171e5b20e1b06aee6',
     ),
     'mockery/mockery' => 
     array (
@@ -575,6 +629,24 @@
       ),
       'reference' => '943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5',
     ),
+    'paragonie/constant_time_encoding' => 
+    array (
+      'pretty_version' => 'v2.4.0',
+      'version' => '2.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c',
+    ),
+    'paragonie/random_compat' => 
+    array (
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
+    ),
     'phar-io/manifest' => 
     array (
       'pretty_version' => '2.0.1',
@@ -628,6 +700,15 @@
       array (
       ),
       'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
+    ),
+    'phpseclib/phpseclib' => 
+    array (
+      'pretty_version' => '3.0.4',
+      'version' => '3.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '845a2275e886ba9fb386c8f59cb383dd9c8963e9',
     ),
     'phpspec/prophecy' => 
     array (
@@ -691,6 +772,15 @@
       array (
       ),
       'reference' => 'e7bdf4085de85a825f4424eae52c99a1cec2f360',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
