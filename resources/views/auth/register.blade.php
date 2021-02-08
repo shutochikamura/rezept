@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-4">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
@@ -55,7 +55,14 @@
                             </div>
                         </div>
                     </form>
-                    <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-login_uri="https://your.domain/your_login_endpoint" data-your_own_param_1_to_login="any_value" data-your_own_param_2_to_login="any_value">
+
+                    <div class="form-group row mt-2 pt-2 googleApi" >
+                        <div class="col-md-8 offset-md-4">
+                        <h4 class="col-form-label ">もしくは</h4>
+                            <a href="/login/google" class="btn btn-secondary" role="button">
+                                Google Register
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

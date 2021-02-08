@@ -9,5 +9,6 @@
     "select",
     "unit",
     "value"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }

@@ -12,13 +12,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('/js/userDelete.js')}}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- GoogleAPIS -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="env('GOOGLE_CLIENT_ID')">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -82,7 +83,7 @@
                                 <a class="dropdown-item" href="/guest_password/edit">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
-                                <a class="dropdown-item" href="home">home</a>
+                                <a class="dropdown-item" href="/home">home</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -90,6 +91,10 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+
+
+                                <a class="dropdown-item mt-4 log_destroy dropdown-state" href="/log_destroy" onClick="delete_alert(event);return false;">退会する</a>
+
                             </div>
                         </li>
                         @endguest

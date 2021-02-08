@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -15,8 +16,9 @@
                     @endif
 
                     {{ __('ログインしました!') }}
-                </div>
 
+
+                </div>
                 @cannot('manager')
                 <div>
                     <div class="card-header">
@@ -56,8 +58,10 @@
                     </div>
                 </div>
                 @endcannot
+
             </div>
         </div>
     </div>
 </div>
+
 @endsection

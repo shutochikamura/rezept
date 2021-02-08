@@ -273,3 +273,9 @@ margin-right:1em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.googleApi{
+    border-top: 1px solid #ced4da;
+}
+.log_destroy{
+    color:#d0211c;
+}
