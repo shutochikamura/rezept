@@ -1,0 +1,14 @@
+{
+  "intelephense.diagnostics.undefinedTypes": false,
+  "cSpell.words": [
+    "g",
+    "id",
+    "ml",
+    "name",
+    "option",
+    "select",
+    "unit",
+    "value"
+  ],
+  "git.ignoreLimitWarning": true
+}
