@@ -60,8 +60,8 @@ class LoginController extends Controller
             $user = $this->createUserByGoogle($gUser);
         }
         if ($user->role == null) {
-            \Auth::login($user, true);
-            return view('auth.main.role_register');
+
+            return view('auth.main.role_register', compact('user'));
         }
 
         \Auth::login($user, true);

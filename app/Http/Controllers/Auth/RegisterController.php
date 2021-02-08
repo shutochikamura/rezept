@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Mail\EmailVerification;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -158,11 +159,13 @@ class RegisterController extends Controller
     }
 
     public function role(Request $request) {
-        dd($request);
-        $user = User::find(Auth::id());
+
+        $user = User::where('email', '=', $request->email)->first();
         $user->role = $request->role;
         $user->save();
-        return view('home');
+        \Auth::login($user, true);
+        $home_form = '';
+        return view('home', compact('home_form'));
     }
 
 

@@ -12,9 +12,10 @@
                 <div class="card-body">
                     <form action="/user_role/register" method="post">
 
-                        @csrf
+                    @csrf
+                    <input type="hidden" name="email" value="{{$user->email}}">
                         <div class="col-md-6 offset-md-4 mb-2">
-                            <h4　class="your-job">{{Auth::user()->name}}さんのポジションを教えて下さい</h4>
+                            <h4　class="your-job">あなたのポジションを教えて下さい</h4>
 
                         </div>
                         <div class="mb-4 retister-role-div">
