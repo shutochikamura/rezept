@@ -13,7 +13,7 @@
 <input type="hidden" name="email_token" value="{{$email_token}}">
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-2">
                                 <span class="">{{$user->name}}</span>
                                 <input type="hidden" name="name" value="{{$user->name}}">
                             </div>
@@ -21,7 +21,7 @@
 
                         <div class="form-group row">
                         <label for="role" class="col-md-4 col-form-label text-md-right">役職</label>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                                 <span class="">
                                 @if($user->role === "1")
                                 製造長
