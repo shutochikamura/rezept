@@ -16,8 +16,8 @@ class BoardController extends Controller
 
     public function index()
     {
-
         $items = Board::all();
+
         return view('board.index', compact('items'));
     }
     public function search(Request $request)
@@ -33,8 +33,7 @@ class BoardController extends Controller
             $keywords = array_unique(explode(' ', $_q)); //キーワードを半角スペースで配列に変換し、重複する値を削除
             $query = Board::query();
             foreach ($keywords as $keyword) {
-                //1つのキーワードに対し、名前かメールアドレスのいずれかが一致しているユーザを抽出
-                //キーワードが複数ある場合はAND検索
+
                 $query->where(function ($_query) use ($keyword) {
                     $_query->where('title', 'LIKE', '%' . $keyword . '%')
                         ->orwhere('recipe', 'LIKE', '%' . $keyword . '%');
