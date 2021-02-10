@@ -26,6 +26,7 @@ class BoardRequest extends FormRequest
         return [
             'title' => 'required',
             'recipe' => 'required',
+            'file' => 'required|file|image|mimes:jpeg,png',
         ];
     }
     public function messages(){
