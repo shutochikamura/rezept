@@ -17,7 +17,7 @@
                         </ul>
                         @endif
 
-                    <form action="/board" method="post">
+                    <form action="/board" method="post" enctype="multipart/form-data" >
                         @csrf
                         <div class="form-group">
                             <input type="hidden" name="user_id" value="{{Auth::id()}}">
