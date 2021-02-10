@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('ホーム') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -25,17 +25,17 @@
                         <h4>別の方のレシピ参照</h4>
                     </div>
                     <div class="card-body">
-                        <form action="guest_home" method="post">
+                        <form action="/guest_home" method="post">
                             @csrf
                             <div class="form-group row">
-                                <label for="host-name" class="col-md-4 col-form-label text-md-right">{{ __('HostName') }}</label>
+                                <label for="host-name" class="col-md-4 col-form-label text-md-right">{{ __('ホスト名') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="host-name" type="text" class="form-control" name="name" required autocomplete="new-password">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="guest_password" class="col-md-4 col-form-label text-md-right">{{ __('GuestPassword') }}</label>
+                                <label for="guest_password" class="col-md-4 col-form-label text-md-right">{{ __('ゲストパスワード') }}</label>
                                 <div class="col-md-6">
                                     <input id="guest_password" type="password" class="form-control @error('guest_password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
 

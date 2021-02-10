@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <h2>ゲストパスワード変更画面</h2>
+                    <h3>ゲストパスワード変更画面</h3>
                     <form method="post" action="{{ route('guest_password.update') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{Auth::id()}}">
@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('現在のGuestPassword') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('現在のゲストパスワード') }}</label>
                             <div class="col-md-6">
                                 <input id="guest_password" type="password" class="form-control @error('password') is-invalid @enderror" name="guest_password" required autocomplete="new-password">
 
