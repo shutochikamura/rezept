@@ -83,7 +83,7 @@
                                 <a class="dropdown-item" href="/guest_password/edit">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
-                                <a class="dropdown-item" href="/home">home</a>
+                                <a class="dropdown-item" href="/home">ホーム</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -93,7 +93,8 @@
                                 </form>
 
 
-                                <a class="dropdown-item mt-4 log_destroy dropdown-state" href="/log_destroy" onClick="delete_alert(event);return false;">退会する</a>
+                                <!-- 退会処理付けようか迷ってます
+                                     <a class="dropdown-item mt-4 log_destroy dropdown-state" href="/log_destroy" onClick="delete_alert(event);return false;">退会する</a> -->
 
                             </div>
                         </li>
