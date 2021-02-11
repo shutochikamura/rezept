@@ -16,7 +16,7 @@
                         @endforeach
                     </ul>
                     @endif
-                        <form id="edit-host-input" action="/board/{{$form->id}}" method="post">
+                        <form id="edit-host-input" action="/board/{{$form->id}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
@@ -65,6 +65,12 @@
                             <input class="form-plus " type="button" id="deleteInput" value="-" disabled>
                             <h3>作り方</h3>
                             <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
+                            @if($user_images != null)
+                            @foreach ($user_images as $user_image)
+                            <img class="img-size" src="{{ $user_image['path'] }}">
+                            @endforeach
+                            @endif
+                            <input type="text" name="image" value="1">
                         </form>
 
                         <table class="edit-form">

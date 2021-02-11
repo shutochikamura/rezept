@@ -17,7 +17,7 @@
                         </ul>
                         @endif
 
-                    <form action="/board" method="post">
+                    <form action="/board" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <input type="hidden" name="user_id" value="{{Auth::id()}}">
@@ -40,7 +40,7 @@
 
                                     <h2>材料名</h2>
                                     <div class="form-group material-box ">
-                                            <input class="material-input" type="text" name="material_0" value="{{old('material')}}">
+                                            <input class="material-input" type="text" name="material_0">
 
                                             <input class="volume-input" type="text" name="volume_0">
 

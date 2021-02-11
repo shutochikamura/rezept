@@ -9,6 +9,8 @@ use App\Models\Material;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 use function PHPUnit\Framework\countOf;
 
@@ -42,24 +44,7 @@ class BoardController extends Controller
             }
             $items = $query->get();
         }
-        if ($request->file('file') != null) {
-            //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
 
-            $upload_info = Storage::disk('s3')->putFile('/test', $request->file('file'), 'public');
-            //                        //S3へのファイルアップロード処理の時の情報が格納された変数$upload_infoを用いてアップロードされた画像へのリンクURLを変数$pathに格納する
-
-            $path = Storage::disk('s3')->url($upload_info);
-            //現在ログイン中のユーザIDを変数$user_idに格納する
-            $user_id = Auth::id();
-            //モデルファイルのクラスからインスタンスを作成し、オブジェクト変数$new_image_dataに格納する
-            $new_image_data = new Image();
-            //プロパティ(静的メソッド)user_idに変数$user_idに格納されている内容を格納する
-            $new_image_data->user_id = $user_id;
-            //プロパティ(静的メソッド)に変数$pathに格納されている内容を格納する
-            $new_image_data->path = $path;
-            //インスタンスの内容をDBのテーブルに格納する
-            $new_image_data->save();
-        }
         return view('board.index', compact('items'));
     }
 
@@ -76,6 +61,7 @@ class BoardController extends Controller
         unset($form['_token']);
         $post->fill($form)->save();
         $postId = $post->id;
+
         foreach ($form as $key => $val) {
             if ($val == null) {
                 break;
@@ -93,6 +79,23 @@ class BoardController extends Controller
                 $material->save();
             }
         }
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    'file',
+                    'image',
+                    'mimes:jpeg,png',
+                ]
+            ]);
+            if ($request->file('file')->isValid([])) {
+                $disk = new Image;
+                $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                $disk->path = Storage::disk('s3')->url($path);
+                $disk->board_id = $postId;
+                $disk->save();
+            }
+        }
+
         return redirect('/board');
     }
 
@@ -106,7 +109,8 @@ class BoardController extends Controller
     public function edit($id)
     {
         $form = Board::find($id);
-        return view('board.edit', compact('form'));
+        $user_images = Image::where('board_id', $id)->get();
+        return view('board.edit', compact('form', 'user_images'));
     }
 
 
@@ -115,6 +119,7 @@ class BoardController extends Controller
         $post = Board::find($id);
         $form = $request->all();
         unset($form['_token']);
+
         $post->fill($form)->save();
         $postId = $post->id;
 
@@ -141,6 +146,23 @@ class BoardController extends Controller
                     $material->delete();
                 }
             }
+            if (preg_match("/image/", $key)) {
+                if ($val === '1') {
+                    $image = Image::where('board_id', '=',  $postId)->first();
+                    $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
+                    Storage::disk('s3')->delete($str);
+                    $image->delete();
+                } else if ($val === '2') {
+                    $image = Image::where('board_id', '=',  $postId)->first();
+                    $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
+                    Storage::disk('s3')->delete($str);
+                    // $image->delete();
+                    $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                    $image->path = Storage::disk('s3')->url($path);
+                    $image->board_id = $postId;
+                    $image->save();
+                }
+            }
         }
         return redirect('/board');
     }
@@ -150,5 +172,51 @@ class BoardController extends Controller
         $post = Board::find($id);
         $post->delete();
         return redirect('/board');
+    }
+
+    public function image()
+    {
+        return view('images.image');
+    }
+
+    public function storeImage(Request $request)
+    {
+
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    // アップロードされたファイルであること
+                    'file',
+                    // 画像ファイルであること
+                    'image',
+                    // MIMEタイプを指定
+                    'mimes:jpeg,png',
+                ]
+            ]);
+            if ($request->file('file')->isValid([])) {
+
+                $post = new Image;
+
+                $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                $post->path = Storage::disk('s3')->url($path);
+                $post->board_id = 1;
+
+
+                $post->save();
+            } else {
+                dd($request);
+                return view('images.show');
+            }
+        }
+        return view('rezept');
+    }
+
+    public function showImage()
+    {
+        //現在ログイン中のユーザIDを変数$user_idに格納する
+        $user_id = 1;
+        //imagesテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$user_imagesに格納する
+        $user_images = Image::whereBoard_id($user_id)->get();
+        return view('images.show', ['user_images' => $user_images]);
     }
 }
