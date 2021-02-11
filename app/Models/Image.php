@@ -11,12 +11,12 @@ class Image extends Model
 	protected $guarded = array('id');
 
 	public function getImageId()
-		    {
-			            return $this->user->id;
-				        }
+	{
+		return $this->user->id;
+	}
 
-	    public function user()
-		        {
-				        return $this->belongsTo(User::class);
-					    }
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }

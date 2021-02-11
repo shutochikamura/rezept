@@ -57,15 +57,16 @@
                                     @endif
                                 </div>
                             </li>
-			    @endforeach
-			   
+                            @endforeach
+
                         </ul>
                         @endif
 
                         <div class="cake-menu  h5 mt-5">作り方</div>
-			<textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
-			@foreach ($user_images as $user_image)                                    <img src="{{ $user_image['path'] }}">                                            <br>                                                @endforeach
-			{{$user_images}}
+
+                        <textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
+                        @foreach ($user_images as $user_image) <img src="{{ $user_image['path'] }}"> <br> @endforeach
+
                     </div>
 
                 </div>
