@@ -61,7 +61,9 @@
 
                             <h2 >作り方</h2>
 
-                        <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+			<textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+<label for="photo">画像ファイル:</label>
+    <input type="file" class="form-control" name="file">
                         <div class="edit-form">
                             <input class="form-control-sm btn-success edit-input btn" type="submit" value="作成">
                         </div>
