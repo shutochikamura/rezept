@@ -17,6 +17,7 @@
                         </ul>
                         @endif
 
+
                         <form action="/board" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
@@ -24,6 +25,7 @@
                                 <label form="add-recipe">
                                     <h3>菓子名</h3>
                                 </label>
+          
                                 <input id="add-recipe" class="form-control" type="text" name="title" value="{{old('title')}}">
                             </div>
 

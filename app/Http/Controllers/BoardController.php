@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Board;
 use App\Http\Requests\BoardRequest;
@@ -43,7 +44,9 @@ class BoardController extends Controller
                 });
             }
             $items = $query->get();
-        }
+
+	     }
+	
 
         return view('board.index', compact('items'));
     }
@@ -78,6 +81,7 @@ class BoardController extends Controller
                 $material->unit = $val;
                 $material->save();
             }
+
         }
         if ($request->file('file')) {
             $this->validate($request, [
@@ -96,14 +100,17 @@ class BoardController extends Controller
             }
         }
 
+
         return redirect('/board');
     }
 
     public function show($id)
     {
         $items = Board::find($id);
+
         $user_image = Image::where('board_id', $id)->first();
         return view('board.show', compact('items', 'user_image'));
+
     }
 
     public function edit($id)
