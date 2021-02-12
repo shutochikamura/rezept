@@ -102,20 +102,30 @@ class BoardController extends Controller
     public function show($id)
     {
         $items = Board::find($id);
-        $user_images = Image::where('board_id', $id)->get();
-        return view('board.show', compact('items', 'user_images'));
+        $user_image = Image::where('board_id', $id)->first();
+        return view('board.show', compact('items', 'user_image'));
     }
 
     public function edit($id)
     {
         $form = Board::find($id);
-        $user_images = Image::where('board_id', $id)->get();
-        return view('board.edit', compact('form', 'user_images'));
+        $user_image = Image::where('board_id', $id)->first();
+        return view('board.edit', compact('form', 'user_image'));
     }
 
 
     public function update(BoardRequest $request, $id)
     {
+
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    'file',
+                    'image',
+                    'mimes:jpeg,png',
+                ]
+            ]);
+        }
         $post = Board::find($id);
         $form = $request->all();
         unset($form['_token']);
@@ -147,12 +157,15 @@ class BoardController extends Controller
                 }
             }
             if (preg_match("/image/", $key)) {
-                if ($val === '1') {
+                if ($val === '2') {
                     $image = Image::where('board_id', '=',  $postId)->first();
                     $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
                     Storage::disk('s3')->delete($str);
                     $image->delete();
-                } else if ($val === '2') {
+                } else if ($val === '1') {
+                    if($request->file('file') == null){
+                        break;
+                    }
                     $image = Image::where('board_id', '=',  $postId)->first();
                     $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
                     Storage::disk('s3')->delete($str);
@@ -161,6 +174,15 @@ class BoardController extends Controller
                     $image->path = Storage::disk('s3')->url($path);
                     $image->board_id = $postId;
                     $image->save();
+                } else if ($val === '3') {
+                    if($request->file('file') == null){
+                        break;
+                    }
+                    $disk = new Image;
+                    $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                    $disk->path = Storage::disk('s3')->url($path);
+                    $disk->board_id = $postId;
+                    $disk->save();
                 }
             }
         }
@@ -172,51 +194,5 @@ class BoardController extends Controller
         $post = Board::find($id);
         $post->delete();
         return redirect('/board');
-    }
-
-    public function image()
-    {
-        return view('images.image');
-    }
-
-    public function storeImage(Request $request)
-    {
-
-        if ($request->file('file')) {
-            $this->validate($request, [
-                'file' => [
-                    // アップロードされたファイルであること
-                    'file',
-                    // 画像ファイルであること
-                    'image',
-                    // MIMEタイプを指定
-                    'mimes:jpeg,png',
-                ]
-            ]);
-            if ($request->file('file')->isValid([])) {
-
-                $post = new Image;
-
-                $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
-                $post->path = Storage::disk('s3')->url($path);
-                $post->board_id = 1;
-
-
-                $post->save();
-            } else {
-                dd($request);
-                return view('images.show');
-            }
-        }
-        return view('rezept');
-    }
-
-    public function showImage()
-    {
-        //現在ログイン中のユーザIDを変数$user_idに格納する
-        $user_id = 1;
-        //imagesテーブルからuser_idカラムが変数$user_idと一致するレコード情報を取得し変数$user_imagesに格納する
-        $user_images = Image::whereBoard_id($user_id)->get();
-        return view('images.show', ['user_images' => $user_images]);
     }
 }
