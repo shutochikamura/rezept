@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="/guest" method="post">
+                        <form action="/guest" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="user_id" value="{{Auth::user()->guest_id}}">
@@ -57,6 +57,8 @@
 
                             <h2>作り方</h2>
                             <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+                            <label class="h4" for="photo">画像ファイル</label>
+                            <input type="file" class="form-control img-input" name="file">
                             <input class="form-control-sm btn-success edit-input btn" type="submit" value="作成">
                         </form>
                         @endcan

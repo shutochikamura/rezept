@@ -17,6 +17,9 @@ use App\Http\Middleware\GuestMiddleware;
 |
 */
 
+Route::get('/image', 'App\Http\Controllers\BoardController@image');
+Route::post('/image', 'App\Http\Controllers\BoardController@storeImage');
+Route::get('/image/show', 'App\Http\Controllers\BoardController@showImage');
 
 Route::get('/', function () {
     return view('rezept');

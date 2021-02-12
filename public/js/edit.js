@@ -1,6 +1,7 @@
 let i = 23000;
 const editButton = document.getElementById('editInput');
 const deleteButton = document.getElementById('deleteInput');
+const imgSelect = document.getElementById('img-select');
 function addForm(){
   const divElement = document.createElement('div');
   divElement.className = 'input-wrapper';
@@ -42,5 +43,23 @@ function delete_alert(e){
    }
    document.deleteform.submit();
 };
+
+function imgEdit(){
+    let img_value = imgSelect.value;
+
+  if(img_value === '1' || img_value === '3'){
+    const divElement = document.createElement("div");
+    divElement.className = 'img-wrapper';
+    divElement.innerHTML = '<input type="file" class="form-control img-input" name="file">';
+    const parent = document.getElementById('img_area');
+    parent.appendChild(divElement);
+  }else {
+    const inputDivs = document.getElementsByClassName('img-wrapper');
+    const parent = document.getElementById("img_area");
+    parent.removeChild(inputDivs[inputDivs.length-1]);
+  }
+
+}
 editButton.addEventListener('click', addForm);
 deleteButton.addEventListener('click', deleteForm);
+imgSelect.addEventListener('change', imgEdit);
