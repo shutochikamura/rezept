@@ -1,6 +1,7 @@
 let i = 1;
 const addButton = document.getElementById('addInput');
 const deleteButton = document.getElementById('deleteInput');
+
 function addForm(){
 const divElement = document.createElement("div");
 divElement.className = ' input-wrapper';
@@ -33,5 +34,6 @@ function deleteForm(){
     deleteButton.disabled = true; // - をクリックできないようにする。
   }
 }
+
 addButton.addEventListener('click', addForm)
 deleteButton.addEventListener('click', deleteForm)

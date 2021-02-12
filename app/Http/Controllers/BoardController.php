@@ -10,6 +10,8 @@ use App\Models\Material;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 use function PHPUnit\Framework\countOf;
 
@@ -42,8 +44,10 @@ class BoardController extends Controller
                 });
             }
             $items = $query->get();
-	}
+
+	     }
 	
+
         return view('board.index', compact('items'));
     }
 
@@ -60,6 +64,7 @@ class BoardController extends Controller
         unset($form['_token']);
         $post->fill($form)->save();
         $postId = $post->id;
+
         foreach ($form as $key => $val) {
             if ($val == null) {
                 break;
@@ -76,19 +81,25 @@ class BoardController extends Controller
                 $material->unit = $val;
                 $material->save();
             }
-	}
-	if($request->file != null){
-	   $post = new Image;
-	    //s3アップロード開始
-	   $image = $request->file('file');
-	   // バケットの`myprefix`フォルダへアップロード
-	   $path = Storage::disk('s3')->putFile('rezept', $image, 'public');
-	   // アップロードした画像のフルパスを取得
-	   $post->path = Storage::disk('s3')->url($path);
-	   $post->board_id = $post_id;
-	   $post->save();
-	
-	}
+
+        }
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    'file',
+                    'image',
+                    'mimes:jpeg,png',
+                ]
+            ]);
+            if ($request->file('file')->isValid([])) {
+                $disk = new Image;
+                $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                $disk->path = Storage::disk('s3')->url($path);
+                $disk->board_id = $postId;
+                $disk->save();
+            }
+        }
+
 
         return redirect('/board');
     }
@@ -96,22 +107,36 @@ class BoardController extends Controller
     public function show($id)
     {
         $items = Board::find($id);
-        $user_images = Image::where('board_id', '=', $id)->get();
-        return view('board.show', compact('items', 'user_images'));
+
+        $user_image = Image::where('board_id', $id)->first();
+        return view('board.show', compact('items', 'user_image'));
+
     }
 
     public function edit($id)
     {
         $form = Board::find($id);
-        return view('board.edit', compact('form'));
+        $user_image = Image::where('board_id', $id)->first();
+        return view('board.edit', compact('form', 'user_image'));
     }
 
 
     public function update(BoardRequest $request, $id)
     {
+
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    'file',
+                    'image',
+                    'mimes:jpeg,png',
+                ]
+            ]);
+        }
         $post = Board::find($id);
         $form = $request->all();
         unset($form['_token']);
+
         $post->fill($form)->save();
         $postId = $post->id;
 
@@ -136,6 +161,35 @@ class BoardController extends Controller
                 $material->save();
                 if ($val === '0') {
                     $material->delete();
+                }
+            }
+            if (preg_match("/image/", $key)) {
+                if ($val === '2') {
+                    $image = Image::where('board_id', '=',  $postId)->first();
+                    $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
+                    Storage::disk('s3')->delete($str);
+                    $image->delete();
+                } else if ($val === '1') {
+                    if($request->file('file') == null){
+                        break;
+                    }
+                    $image = Image::where('board_id', '=',  $postId)->first();
+                    $str = str_replace('https://rezept-s3.s3.ap-northeast-1.amazonaws.com/', '', $image->path);
+                    Storage::disk('s3')->delete($str);
+                    // $image->delete();
+                    $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                    $image->path = Storage::disk('s3')->url($path);
+                    $image->board_id = $postId;
+                    $image->save();
+                } else if ($val === '3') {
+                    if($request->file('file') == null){
+                        break;
+                    }
+                    $disk = new Image;
+                    $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
+                    $disk->path = Storage::disk('s3')->url($path);
+                    $disk->board_id = $postId;
+                    $disk->save();
                 }
             }
         }

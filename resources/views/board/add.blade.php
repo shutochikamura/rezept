@@ -17,58 +17,68 @@
                         </ul>
                         @endif
 
-                    <form action="/board" method="post" enctype="multipart/form-data" >
-                        @csrf
-                        <div class="form-group">
-                            <input type="hidden" name="user_id" value="{{Auth::id()}}">
-                            <label form="add-recipe"><h3>菓子名</h3></label>
-                                <input id="add-recipe" class="form-control" type="text" name="title" value="{{old('title')}}">
-                        </div>
 
-                        <h3>菓子の種類</h3>
+                        <form action="/board" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                                <label form="add-recipe">
+                                    <h3>菓子名</h3>
+                                </label>
+          
+                                <input id="add-recipe" class="form-control" type="text" name="title" value="{{old('title')}}">
+                            </div>
+
+                            <h3>菓子の種類</h3>
 
 
                             <!-- input-group-text -->
-                                    <label for="add-state-1"><input id="add-state-1" class="custom-radio" type="radio" name="state" value="1" checked>生菓子</label>
-                                    <label for="add-state-2"><input id="add-state-2" class="custom-radio" type="radio" name="state" value="2">焼き菓子</label>
-                                    <label for="add-state-3"><input id="add-state-3" class="custom-radio" type="radio" name="state" value="3">チョコレート</label>
-                                    <label for="add-state-4"><input id="add-state-4" class="custom-radio" type="radio" name="state" value="4">季節もの</label>
-                                    <label for="add-state-5"><input id="add-state-5" class="custom-radio" type="radio" name="state" value="5">パン</label>
-                                    <label for="add-state-6"><input id="add-state-6" class="custom-radio" type="radio" name="state" value="6">その他</label>
+                            <label for="add-state-1"><input id="add-state-1" class="custom-radio" type="radio" name="state" value="1" checked>生菓子</label>
+                            <label for="add-state-2"><input id="add-state-2" class="custom-radio" type="radio" name="state" value="2">焼き菓子</label>
+                            <label for="add-state-3"><input id="add-state-3" class="custom-radio" type="radio" name="state" value="3">チョコレート</label>
+                            <label for="add-state-4"><input id="add-state-4" class="custom-radio" type="radio" name="state" value="4">季節もの</label>
+                            <label for="add-state-5"><input id="add-state-5" class="custom-radio" type="radio" name="state" value="5">パン</label>
+                            <label for="add-state-6"><input id="add-state-6" class="custom-radio" type="radio" name="state" value="6">その他</label>
 
 
 
-                                    <h2>材料名</h2>
-                                    <div class="form-group material-box ">
-                                            <input class="material-input" type="text" name="material_0" value="{{old('material')}}">
+                            <h2>材料名</h2>
+                            <div class="form-group material-box ">
+                                <input class="material-input" type="text" name="material_0">
 
-                                            <input class="volume-input" type="text" name="volume_0">
+                                <input class="volume-input" type="text" name="volume_0">
 
-                                            <select class="unit-select" id="unit" name="unit_0">
-                                                <option value="1">g</option>
-                                                <option value="2">個</option>
-                                                <option value="3">ml</option>
-                                                <option value="4">適量</option>
-                                            </select>
+                                <select class="unit-select" id="unit" name="unit_0">
+                                    <option value="1">g</option>
+                                    <option value="2">個</option>
+                                    <option value="3">ml</option>
+                                    <option value="4">適量</option>
+                                </select>
 
-                                            <div id="form_area"></div>
-                                        </div>
-
-
-                        <input class="form-plus" id="addInput" type="button" value="+">
-                        <input class="form-plus" type="button" id="deleteInput" value="-" disabled>
+                                <div id="form_area"></div>
+                            </div>
 
 
-                            <h2 >作り方</h2>
+                            <input class="form-plus" id="addInput" type="button" value="+">
+                            <input class="form-plus" type="button" id="deleteInput" value="-" disabled>
 
-			<textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
-<label for="photo">画像ファイル:</label>
-    <input type="file" class="form-control" name="file">
-                        <div class="edit-form">
-                            <input class="form-control-sm btn-success edit-input btn" type="submit" value="作成">
-                        </div>
 
-                    </form>
+                            <h2>作り方</h2>
+
+                            <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+                            <!-- <div id="attachment">
+                                こちらの方がかっこいいけどJQueryのため保留
+                                <label><input type="file" name="file" class="fileinput">写真を添付する</label>
+                                <div id="img-input" class="filename"></div>
+                            </div> -->
+                            <label class="h4" for="photo">画像ファイル</label>
+                            <input type="file" class="form-control img-input" name="file">
+
+                            <div class="edit-form">
+                                <input class="form-control-sm btn-success edit-input btn" type="submit" value="作成">
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
