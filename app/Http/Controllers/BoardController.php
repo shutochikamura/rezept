@@ -10,7 +10,6 @@ use App\Models\Material;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 
 use function PHPUnit\Framework\countOf;
