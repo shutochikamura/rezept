@@ -30,7 +30,7 @@
     <div id="">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand rezept-sign " href="{{ url('/') }}">
+                <a class="navbar-brand rezept-sign " href="{{ url('/', $is_production) }}">
                     {{ config('app.name', 'Rezept') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -50,13 +50,13 @@
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login', $is_production) }}">{{ __('Login') }}</a>
                         </li>
                         @endif
 
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register', $is_production) }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
@@ -64,7 +64,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/board">{{__('レシピ一覧')}}</a>
+                            <a class="nav-link" href="/board , $is_production">{{__('レシピ一覧')}}</a>
                         </li>
 
                         <li class="nav-item"><a class="nav-link" href="/board/create">{{__('レシピ作成')}}</a></li>

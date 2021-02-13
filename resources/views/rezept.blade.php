@@ -53,17 +53,17 @@
                                 <div class="m-3 pl-3">
                                     <h3 class="rezept-font-body">この度は使っていただきありがとうございます</h3>
                                     <h3 class="rezept-font-body">ホームへ行く</h3>
-                                    <a href="{{ url('/home') }}" class="text-gray-700  btn btn-rezept">Home</a>
+                                    <a href="{{ url('/home', $is_production) }}" class="text-gray-700  btn btn-rezept">Home</a>
                                 </div>
                                 @else
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">ログインはこちら</h3>
-                                    <a href="{{ route('login') }}" class="text-gray-700 btn btn-rezept">Login</a>
+                                    <a href="{{ route('login', $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
                                 </div>
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">登録はこちら</h3>
                                     @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
+                                    <a href="{{ route('register', $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
                                 </div>
                                 @endif
                                 @endauth
