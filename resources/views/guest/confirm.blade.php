@@ -17,7 +17,7 @@
                             <h4>-- {{$user->name}} --</h4>
                         </div>
                     </div>
-                    <form action="{{url('/guest',$is_production)}}" method="get">
+                    <form action="{{secure_url('/guest',$is_production)}}" method="get">
                         @csrf
                         <div class="form-group row mt-4 mb-4">
                             <div class="col-md-6 offset-md-4">

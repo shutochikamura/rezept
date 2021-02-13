@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="{{url('/guest', $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{secure_url('/guest', $is_production)}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="user_id" value="{{Auth::user()->guest_id}}">
@@ -70,5 +70,5 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/add.js')}}"></script>
+<script src="{{secure_asset('/js/add.js')}}"></script>
 @endsection

@@ -12,16 +12,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/recipe.js') }}" defer></script>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/recipe.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/recipe.css')}}">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ secure_asset('css/recipe.css')}}">
     <style>
         body {
             font-family: 'Nunito';
@@ -53,17 +53,17 @@
                                 <div class="m-3 pl-3">
                                     <h3 class="rezept-font-body">この度は使っていただきありがとうございます</h3>
                                     <h3 class="rezept-font-body">ホームへ行く</h3>
-                                    <a href="{{ url('/home', $is_production) }}" class="text-gray-700  btn btn-rezept">Home</a>
+                                    <a href="{{ secure_url('/home', $is_production) }}" class="text-gray-700  btn btn-rezept">Home</a>
                                 </div>
                                 @else
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">ログインはこちら</h3>
-                                    <a href="{{ url('login', $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
+                                    <a href="{{ secure_url('login', $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
                                 </div>
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">登録はこちら</h3>
                                     @if (Route::has('register'))
-                                    <a href="{{ route('register', $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
+                                    <a href="{{ secure_url('register', $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
                                 </div>
                                 @endif
                                 @endauth

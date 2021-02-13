@@ -16,7 +16,7 @@
                             @endforeach
                         </ul>
                         @endif
-                        <form id="edit-host-input" action="{{url('/board/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form id="edit-host-input" action="{{secure_url('/board/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
@@ -107,5 +107,5 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/edit.js')}}"></script>
+<script src="{{secure_asset('/js/edit.js')}}"></script>
 @endsection

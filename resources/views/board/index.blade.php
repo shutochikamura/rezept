@@ -11,7 +11,7 @@
                     <h3 class="card-header">レシピ一覧</h3>
 
                     <div style="width:100%;">
-                        <form method="post" action="{{url('board_search', $is_production)}}" class="search_container m-3">
+                        <form method="post" action="{{secure_url('board_search', $is_production)}}" class="search_container m-3">
                             @csrf
                             <input id="hostSearch" name="hostSearch" type="text" size="25" placeholder="レシピ内検索">
                             <input type="submit" value="&#xf002">
@@ -59,12 +59,12 @@
                                     @endif
                                 </th>
                                 <div class="board-menu">
-                                    <form action="{{url('/board/{{$item->id}}',$is_production)}}" method="get">
+                                    <form action="{{secure_url('/board/{{$item->id}}',$is_production)}}" method="get">
                                         @csrf
 
                                         <td><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></td>
                                     </form>
-                                    <form id="edit/{{$item->id}}" action="{{url('/board/{{$item->id}}/edit',$is_production)}}" method="get">
+                                    <form id="edit/{{$item->id}}" action="{{secure_url('/board/{{$item->id}}/edit',$is_production)}}" method="get">
                                         @csrf
                                         <th>
                                             <input class="form-control btn-success btn" form="edit/{{$item->id}}" type="submit" value="編集">

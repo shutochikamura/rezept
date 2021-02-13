@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="{{url('/guest/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{secure_url('/guest/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
@@ -98,5 +98,5 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/edit.js')}}"></script>
+<script src="{{secure_asset('/js/edit.js')}}"></script>
 @endsection
