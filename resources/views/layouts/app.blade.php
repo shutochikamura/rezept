@@ -64,10 +64,10 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/board , $is_production">{{__('レシピ一覧')}}</a>
+                            <a class="nav-link" href="{{url ('/board' , $is_production)}}">{{__('レシピ一覧')}}</a>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="/board/create">{{__('レシピ作成')}}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url ('/board/create', $is_production)}}">{{__('レシピ作成')}}</a></li>
 
                         @endif
                         <li class="nav-item dropdown">
@@ -78,13 +78,13 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @can('manager')
                                 @if(Auth::user()->guest_password == null)
-                                <a class="dropdown-item" href="/guest_password">ゲストパスワード作成</a>
+                                <a class="dropdown-item" href="{{url('/guest_password', $is_production)}}">ゲストパスワード作成</a>
                                 @elseif(Auth::user()->guest_password != "")
-                                <a class="dropdown-item" href="/guest_password/edit">ゲストパスワード変更</a>
+                                <a class="dropdown-item" href="{{url('/guest_password/edit', $is_production)}}">ゲストパスワード変更</a>
                                 @endif
                                 @endcan
-                                <a class="dropdown-item" href="/home">ホーム</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{url('/home', $is_production)}}">ホーム</a>
+                                <a class="dropdown-item" href="{{ route('logout', $is_production) }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -94,7 +94,7 @@
 
 
                                 <!-- 退会処理付けようか迷ってます
-                                     <a class="dropdown-item mt-4 log_destroy dropdown-state" href="/log_destroy" onClick="delete_alert(event);return false;">退会する</a> -->
+                                     <a class="dropdown-item mt-4 log_destroy dropdown-state" href="{{url('/log_destroy', $is_production)}}" onClick="delete_alert(event);return false;">退会する</a> -->
 
                             </div>
                         </li>

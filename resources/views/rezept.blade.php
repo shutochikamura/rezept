@@ -58,7 +58,7 @@
                                 @else
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">ログインはこちら</h3>
-                                    <a href="{{ route('login', $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
+                                    <a href="{{ url('login', $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
                                 </div>
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">登録はこちら</h3>
