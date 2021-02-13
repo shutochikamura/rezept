@@ -8,7 +8,7 @@
                 <div class="card-header">仮会員登録確認</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ secure_url('register') }}">
                         @csrf
 
                         <div class="form-group row">

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Material;
+use App\Models\Image;
 
 class Board extends Model
 {
@@ -25,4 +26,9 @@ class Board extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function images()
+	        {
+			        return $this->hasOne(Image::class);
+				    }
 }

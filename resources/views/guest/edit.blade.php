@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="/guest/{{$form->id}}" method="post">
+                        <form action="{{secure_url('/guest/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
@@ -67,6 +67,23 @@
                             <input class="form-plus" type="button" id="deleteInput" value="-" disabled>
                             <h2>作り方</h2>
                             <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
+                            @if($host_image != null)
+
+                            <img class="img-size" src="{{ $host_image['path'] }}">
+
+                            <div id="img_area"></div>
+                            <select class="img-select" name="image" id="img-select">
+                                <option value="0">写真そのまま</option>
+                                <option value="1">写真を変更</option>
+                                <option value="2">写真を削除</option>
+                            </select>
+                            @elseif ($host_image == null)
+                            <div id="img_area"></div>
+                            <select class="img-select" name="image" id="img-select">
+                                <option value="0">写真追加しない</option>
+                                <option value="3">写真追加</option>
+                            </select>
+                            @endif
                             <input class="form-control-sm btn-success edit-input btn" type="submit" value="変更">
                         </form>
                         @endcan
@@ -81,5 +98,5 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/edit.js')}}"></script>
+<script src="{{secure_asset('/js/edit.js')}}"></script>
 @endsection

@@ -10,7 +10,7 @@
 
                     <h3 class="card-header">{{$host->name}}のレシピ一覧</h3>
                     <div >
-                        <form method="post" action="guest_search" class="search_container m-3">
+                        <form method="post" action="{{secure_url('guest_search',$is_production)}}" class="search_container m-3">
                             @csrf
                             <input id="guestSearch" name="guestSearch" type="text" size="25" placeholder="レシピ内検索">
                             <input type="submit" value="&#xf002">
@@ -35,7 +35,7 @@
                         @can('employee')
                         <div class="form-group">
                             <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
-                            <a class="form-control btn guestCreate" href="/guest/create" value="{{Auth::id()}}">ホストのレシピ作成</a>
+                            <a class="form-control btn guestCreate" href="{{secure_url('/guest/create',$is_production)}}" value="{{Auth::id()}}">ホストのレシピ作成</a>
                         </div>
                         @endcan
 
@@ -61,13 +61,13 @@
                                     @endif
                                 </th>
                                 <div class="board-menu">
-                                    <form action="/guest/{{$item->id}}" method="get">
+                                    <form action="{{secure_url('/guest/{{$item->id}}, $is_production)}}" method="get">
                                         @csrf
                                         <input type="hidden" value="{{$item->user_id}}">
                                         <td><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></td>
                                     </form>
                                     @can('employee', 'manager')
-                                    <form id="/guest/edit/{{$item->id}}" action="/guest/{{$item->id}}/edit" method="get">
+                                    <form id="/guest/edit/{{$item->id}}" action="{{url('/guest/{{$item->id}}/edit', $is_production)}}" method="get">
                                         @csrf
                                         <input type="hidden" value="{{$item->user_id}}">
                                         <th>

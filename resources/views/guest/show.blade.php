@@ -66,6 +66,7 @@
                         @endif
                         <div class="cake-menu  h5 mt-5">作り方</div>
                         <textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
+                        <img class="img-size" src="{{ $host_image['path'] }}">
 
                     </div>
 

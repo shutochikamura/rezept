@@ -25,14 +25,15 @@ class BoardRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'recipe' => 'required',
-            'file' => 'required|file|image|mimes:jpeg,png',
+	    'recipe' => 'required',
+
         ];
     }
     public function messages(){
         return [
             'title.required' => '菓子名を入力して下さい',
-            'recipe.required' => '作り方を入力して下さい',
+	    'recipe.required' => '作り方を入力して下さい',
+
         ];
     }
 }

@@ -25,7 +25,8 @@
                         <h4>別の方のレシピ参照</h4>
                     </div>
                     <div class="card-body">
-                        <form action="/guest_home" method="post">
+
+                        <form action="{{secure_url('/guest_home', $is_production)}}" method="post">
                             @csrf
                             <div class="form-group row">
                                 <label for="host-name" class="col-md-4 col-form-label text-md-right">{{ __('ホスト名') }}</label>

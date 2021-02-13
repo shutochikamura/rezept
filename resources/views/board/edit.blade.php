@@ -9,19 +9,21 @@
                 <div class="card">
                     <h3 class="card-header">レシピ編集</h3>
                     <div class="card-body">
-                    @if (count($errors) > 0)
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                        <form id="edit-host-input" action="/board/{{$form->id}}" method="post">
+                        @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                        @endif
+                        <form id="edit-host-input" action="{{secure_url('/board/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="{{Auth::id()}}">
-                                <label for="edit-title"><h3>菓子名</h3></label>
+                                <label for="edit-title">
+                                    <h3>菓子名</h3>
+                                </label>
 
                                 <input id="edit-title" class="form-control" type="text" name="title" value="{{$form->title}}">
                             </div>
@@ -65,6 +67,25 @@
                             <input class="form-plus " type="button" id="deleteInput" value="-" disabled>
                             <h3>作り方</h3>
                             <textarea class="form-control mb-4" name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
+
+                            @if($user_image != null)
+
+                            <img class="img-size" src="{{ $user_image['path'] }}">
+
+                            <div id="img_area"></div>
+                            <select class="img-select" name="image" id="img-select">
+                                <option value="0">写真そのまま</option>
+                                <option value="1">写真を変更</option>
+                                <option value="2">写真を削除</option>
+                            </select>
+                            @elseif ($user_image == null)
+                            <div id="img_area"></div>
+                            <select class="img-select" name="image" id="img-select">
+                                <option value="0">写真追加しない</option>
+                                <option value="3">写真追加</option>
+                            </select>
+                            @endif
+
                         </form>
 
                         <table class="edit-form">
@@ -86,5 +107,5 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/edit.js')}}"></script>
+<script src="{{secure_asset('/js/edit.js')}}"></script>
 @endsection

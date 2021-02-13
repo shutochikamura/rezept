@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ secure_url('login', $is_production) }}">
                         @csrf
 
                         <div class="form-group row">
@@ -68,7 +68,7 @@
                     <div class="form-group row mt-2 pt-2 googleApi">
                         <div class="col-md-8 offset-md-4">
                             <h4 class="col-form-label ">もしくは</h4>
-                            <a href="/login/google" class="btn btn-secondary" role="button">
+                            <a href="{{secure_url('/login/google')}}" class="btn btn-secondary" role="button">
                             Google Login
                             </a>
                         </div>
@@ -79,6 +79,6 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/google.js')}}"></script>
+<script src="{{secure_asset('/js/google.js')}}"></script>
 
 @endsection

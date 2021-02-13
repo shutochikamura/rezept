@@ -10,7 +10,7 @@
                 <h4 class="card-header">まず始めに、</h4>
 
                 <div class="card-body">
-                    <form action="/user_role/register" method="post">
+                    <form action="{{secure_url('/user_role/register')}}" method="post">
 
                     @csrf
                     <input type="hidden" name="email" value="{{$user->email}}">

@@ -17,6 +17,9 @@ use App\Http\Middleware\GuestMiddleware;
 |
 */
 
+Route::get('/image', 'App\Http\Controllers\BoardController@image');
+Route::post('/image', 'App\Http\Controllers\BoardController@storeImage');
+Route::get('/image/show', 'App\Http\Controllers\BoardController@showImage');
 
 Route::get('/', function () {
     return view('rezept');
@@ -30,6 +33,7 @@ Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController
 Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister')->name('register.main.registered');
 Route::post('/user_role/register', 'App\Http\Controllers\Auth\RegisterController@role');
 
+//googleloginで使う
 Route::get('login/google', 'App\Http\Controllers\Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'App\Http\Controllers\Auth\LoginController@handleGoogleCallback');
 
