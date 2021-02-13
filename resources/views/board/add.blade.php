@@ -18,7 +18,7 @@
                         @endif
 
 
-                        <form action="{{secure_url('/board', $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{url('/board',[], $is_production)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="{{Auth::id()}}">
@@ -85,5 +85,5 @@
         </div>
     </div>
 </div>
-<script src="{{secure_asset('/js/add.js')}}"></script>
+<script src="{{asset('/js/add.js', $is_production)}}"></script>
 @endsection

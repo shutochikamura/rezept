@@ -8,9 +8,9 @@
                 <div class="card-header">本会員登録確認</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ secure_url('register.main.registered') }}">
+                    <form method="POST" action="{{ url('register.main.registered',[],$is_production) }}">
                         @csrf
-<input type="hidden" name="email_token" value="{{$email_token}}">
+                        <input type="hidden" name="email_token" value="{{$email_token}}">
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
                             <div class="col-md-6 mt-2">
@@ -20,16 +20,16 @@
                         </div>
 
                         <div class="form-group row">
-                        <label for="role" class="col-md-4 col-form-label text-md-right">役職</label>
-                        <div class="col-md-6 mt-2">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">役職</label>
+                            <div class="col-md-6 mt-2">
                                 <span class="">
-                                @if($user->role === "1")
-                                製造長
-                                @elseif($user->role === "5")
-                                従業員
-                                @elseif($user->role === "9")
-                                研修生
-                                @endif
+                                    @if($user->role === "1")
+                                    製造長
+                                    @elseif($user->role === "5")
+                                    従業員
+                                    @elseif($user->role === "9")
+                                    研修生
+                                    @endif
                                 </span>
                                 <input type="hidden" name="role" value="{{$user->role}}">
                             </div>

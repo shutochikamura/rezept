@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ secure_url('password.email') }}">
+                    <form method="POST" action="{{ url('password.email',[],$is_production) }}">
                         @csrf
 
                         <div class="form-group row">

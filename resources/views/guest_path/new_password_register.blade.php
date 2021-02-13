@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <h3>新ゲストパスワード作成画面</h3>
-                    <form method="post" action="{{ secure_url('guest_password.password_edit_check') }}">
+                    <form method="post" action="{{ url('guest_password.password_edit_check',[],$is_production) }}">
                         @csrf
 
                         <input type="hidden" name="id" value="{{Auth::id()}}">
