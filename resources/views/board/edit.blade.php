@@ -16,7 +16,7 @@
                             @endforeach
                         </ul>
                         @endif
-                        <form id="edit-host-input" action="{{secure_url('/board/{{$form->id}}', $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form id="edit-host-input" action="{{url('/board/$form->id',[], $is_production)}}" method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
@@ -90,7 +90,7 @@
 
                         <table class="edit-form">
                             <input form="edit-host-input" class="form-control-sm btn-success edit-input btn" type="submit" value="変更">
-                            <form action="/board/{{$form->id}}" method="post">
+                            <form action="{{url('/board/$form->id',[],$is_production)}}" method="post">
                                 @csrf
                                 @method('delete')
                                 <input class="btn form-control-sm btn-danger delete-input" type="submit" value="削除する" onClick="delete_alert(event);return false;">
@@ -107,5 +107,5 @@
         </div>
     </div>
 </div>
-<script src="{{secure_asset('/js/edit.js')}}"></script>
+<script src="{{asset('/js/edit.js',$is_production)}}"></script>
 @endsection

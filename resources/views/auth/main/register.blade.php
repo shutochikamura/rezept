@@ -14,7 +14,7 @@
 
                 @empty($message)
                 <div class="card-body">
-                    <form method="POST" action="{{ secure_url('register.main_check') }}">
+                    <form method="POST" action="{{ url('register.main_check',[],$is_production) }}">
                         @csrf
                         <input type="hidden" name="email_token" value="{{$email_token}}">
                         <div class="form-group row">

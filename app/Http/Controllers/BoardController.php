@@ -45,7 +45,7 @@ class BoardController extends Controller
             $items = $query->get();
 
 	     }
-	
+
 
         return view('board.index', compact('items'));
     }
@@ -116,7 +116,7 @@ class BoardController extends Controller
     {
         $form = Board::find($id);
         $user_image = Image::where('board_id', $id)->first();
-        return view('board.edit', compact('form', 'user_image'));
+        return view('board.edit', compact('form', 'user_image', 'is_production'));
     }
 
 
