@@ -44,6 +44,7 @@ class Guest_pathController extends Controller
 
     public function update(Request $request)
     {
+
         $user = User::find($request->id);
 
         if ($user->guest_password == $request->guest_password) {
@@ -54,8 +55,9 @@ class Guest_pathController extends Controller
         }
     }
 
-    public function validation(Request $request)
+    public function validation()
     {
+
         return view('guest_path.new_password_register');
     }
 

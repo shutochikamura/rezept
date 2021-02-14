@@ -8,7 +8,7 @@
                 <div class="card-header">新ゲスト用パスワード確認</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('guest_password.password_new_registered',[], $is_production) }}">
+                    <form method="POST" action="{{ url('guest_password/password_new_registered',[], $is_production) }}">
                         @csrf
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>

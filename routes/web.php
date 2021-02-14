@@ -17,9 +17,7 @@ use App\Http\Middleware\GuestMiddleware;
 |
 */
 
-Route::get('/image', 'App\Http\Controllers\BoardController@image');
-Route::post('/image', 'App\Http\Controllers\BoardController@storeImage');
-Route::get('/image/show', 'App\Http\Controllers\BoardController@showImage');
+
 
 Route::get('/', function () {
     return view('rezept');
@@ -29,8 +27,8 @@ Auth::routes(['verify' => true]);
 //メールで仮登録、本登録処理
 Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@pre_check')->name('register.pre_check');
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
-Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck')->name('register.main_check');
-Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister')->name('register.main.registered');
+Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck');
+Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister');
 Route::post('/user_role/register', 'App\Http\Controllers\Auth\RegisterController@role');
 
 //googleloginで使う
@@ -38,7 +36,7 @@ Route::get('login/google', 'App\Http\Controllers\Auth\LoginController@redirectTo
 Route::get('login/google/callback', 'App\Http\Controllers\Auth\LoginController@handleGoogleCallback');
 
 Route::get('/log_destroy', 'App\Http\Controllers\HomeController@destroy');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 //自分のレシピ画面
 Route::resource('board', App\Http\Controllers\BoardController::class);
 Route::post('board_search', 'App\Http\Controllers\BoardController@search');
@@ -58,12 +56,12 @@ function (){
 Route::group(['middleware' => ['auth', 'can:manager']], function () {
     //guest_password作成処理
     Route::get('guest_password', 'App\Http\Controllers\Guest_pathController@index');
-    Route::post('guest_password/check', 'App\Http\Controllers\Guest_pathController@check')->name('guest_password.check');
-    Route::post('guest_password/register', 'App\Http\Controllers\Guest_pathController@register')->name('guest_password.register');
+    Route::post('guest_password/check', 'App\Http\Controllers\Guest_pathController@check');
+    Route::post('guest_password/register', 'App\Http\Controllers\Guest_pathController@register');
     //guest-password変更処理
     Route::get('guest_password/edit', 'App\Http\Controllers\Guest_pathController@edit');
-    Route::get('guest_password/update', 'App\Http\Controllers\Guest_pathController@validation')->name('guest_password.update');
-    Route::post('guest_password/update', 'App\Http\Controllers\Guest_pathController@update')->name('guest_password.update');
-    Route::post('guest_password/password_edit_check', 'App\Http\Controllers\Guest_pathController@showCheck')->name('guest_password.password_edit_check');
-    Route::post('guest_password/password_new_registered', 'App\Http\Controllers\Guest_pathController@reset')->name('guest_password.password_new_registered');
+    Route::get('guest_password/update', 'App\Http\Controllers\Guest_pathController@validation');
+    Route::post('guest_password/update', 'App\Http\Controllers\Guest_pathController@update');
+    Route::post('guest_password/password_edit_check', 'App\Http\Controllers\Guest_pathController@showCheck');
+    Route::post('guest_password/password_new_registered', 'App\Http\Controllers\Guest_pathController@reset');
 });

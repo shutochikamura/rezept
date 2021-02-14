@@ -8,7 +8,7 @@
                 <div class="card-header">本会員登録確認</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('register.main.registered',[],$is_production) }}">
+                    <form method="POST" action="{{ url('register/main_registered',[],$is_production) }}">
                         @csrf
                         <input type="hidden" name="email_token" value="{{$email_token}}">
                         <div class="form-group row">
