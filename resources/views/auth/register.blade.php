@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('register.pre_check',[],$is_production) }}">
+                    <form method="POST" action="{{ url('register/pre_check',[],$is_production) }}">
                         @csrf
 
                         <div class="form-group row">

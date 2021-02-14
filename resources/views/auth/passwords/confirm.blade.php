@@ -10,7 +10,7 @@
                 <div class="card-body">
                     {{ __('Please confirm your password before continuing.') }}
 
-                    <form method="POST" action="{{ url('password.confirm',[],$is_production) }}">
+                    <form method="POST" action="{{ url('password/confirm',[],$is_production) }}">
                         @csrf
 
                         <div class="form-group row">
