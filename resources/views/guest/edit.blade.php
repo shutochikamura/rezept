@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="{{url('/guest/$form->id',[],$is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action={{ url("/guest/{$form->id}",[],$is_production)}} method="post" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">
