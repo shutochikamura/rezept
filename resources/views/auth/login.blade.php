@@ -79,6 +79,6 @@
         </div>
     </div>
 </div>
-<script src="{{asset('/js/google.js',$is_production)}}"></script>
+<script src="{{asset('/js/google.js', $is_production)}}"></script>
 
 @endsection
