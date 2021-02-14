@@ -82,6 +82,11 @@ class Guest_pathController extends Controller
         $name = $request->name;
         $guest_password = $request->guest_password;
         $user = User::where('name', '=', $name)->first();
+        if($user == null){
+            //名前が間違っている
+            $home_form = '名前またはパスワードが間違っています';
+            return view('home', compact('home_form'));
+        }
 
         if ($user->guest_password === $guest_password) {
             //hostのもの
@@ -95,6 +100,7 @@ class Guest_pathController extends Controller
             $guest_items = Board::where('user_id', '=', $user->id)->get();
             return view('guest.confirm', compact('user'));
         } else {
+            //名前合ってるけどパスワード間違っている
             $home_form = '名前またはパスワードが間違っています';
             return view('home', compact('home_form'));
         }

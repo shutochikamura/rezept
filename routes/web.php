@@ -28,7 +28,7 @@ Auth::routes(['verify' => true]);
 Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@pre_check');
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
 Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck');
-Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister');
+Route::post('register/main_registered', 'App\Http\Controllers\Auth\RegisterController@mainRegister');
 Route::post('/user_role/register', 'App\Http\Controllers\Auth\RegisterController@role');
 
 //googleloginで使う

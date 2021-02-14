@@ -88,5 +88,5 @@
         </div>
     </div>
 </div>
-<script src="{{mix('/js/recipe.js', $is_production)}}"></script>
+<script src="{{mix('/js/recipe.js')}}"></script>
 @endsection
