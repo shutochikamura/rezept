@@ -17,7 +17,7 @@
                         </ul>
                         @endif
                         @can('employee')
-                        <form action="{{url('/guest',[], $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/guest',[], $is_production)}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="user_id" value="{{Auth::user()->guest_id}}">

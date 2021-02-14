@@ -8,14 +8,12 @@ use App\Models\User;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    protected $is_production;
+
     public function __construct()
     {
         $this->middleware('verified');
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
     }
 
     /**
