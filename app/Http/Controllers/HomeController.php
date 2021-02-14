@@ -13,9 +13,12 @@ class HomeController extends Controller
      *
      * @return void
      */
+    protected $is_production;
+    	
     public function __construct()
     {
-        $this->middleware('verified');
+	    $this->middleware('verified');
+	    $this->is_production = env('APP_ENV') === 'production' ? true : false;
     }
 
     /**
