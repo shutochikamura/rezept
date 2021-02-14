@@ -88,7 +88,7 @@ class Guest_pathController extends Controller
             return view('home', compact('home_form'));
         }
 
-        if ($user->guest_password === $guest_password) {
+        if ($user->guest_password === $guest_password && $user->role === 1) {
             //hostのもの
             $host_id = User::find($user->id);
             //guestのもの
