@@ -58,6 +58,15 @@ class BoardController extends Controller
 
     public function store(BoardRequest $request)
     {
+        if ($request->file('file')) {
+            $this->validate($request, [
+                'file' => [
+                    'file',
+                    'image',
+                    'mimes:jpeg,png',
+                ]
+            ]);
+        }
         $post = new Board;
         $form = $request->all();
         unset($form['_token']);
@@ -82,22 +91,14 @@ class BoardController extends Controller
             }
 
         }
-        if ($request->file('file')) {
-            $this->validate($request, [
-                'file' => [
-                    'file',
-                    'image',
-                    'mimes:jpeg,png',
-                ]
-            ]);
-            if ($request->file('file')->isValid([])) {
+
+            if ($request->file('file')) {
                 $disk = new Image;
                 $path = Storage::disk('s3')->putFile('rezept', $request->file('file'), 'public');
                 $disk->path = Storage::disk('s3')->url($path);
                 $disk->board_id = $postId;
                 $disk->save();
             }
-        }
 
 
         return redirect('/board');
@@ -116,7 +117,7 @@ class BoardController extends Controller
     {
         $form = Board::find($id);
         $user_image = Image::where('board_id', $id)->first();
-        return view('board.edit', compact('form', 'user_image', 'is_production'));
+        return view('board.edit', compact('form', 'user_image'));
     }
 
 

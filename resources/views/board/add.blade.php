@@ -18,7 +18,7 @@
                         @endif
 
 
-                        <form action="{{url('/board',[], $is_production)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/board',[], $is_production)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="{{Auth::id()}}">
