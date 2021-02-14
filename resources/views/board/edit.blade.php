@@ -90,7 +90,7 @@
 
                         <table class="edit-form">
                             <input form="edit-host-input" class="form-control-sm btn-success edit-input btn" type="submit" value="変更">
-                            <form action="{{url('/board/$form->id',[],$is_production)}}" method="post">
+                            <form action={{ url("/board/{$form->id}",[],$is_production)}} method="post">
                                 @csrf
                                 @method('delete')
                                 <input class="btn form-control-sm btn-danger delete-input" type="submit" value="削除する" onClick="delete_alert(event);return false;">
