@@ -25,7 +25,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 //メールで仮登録、本登録処理
-Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@pre_check')->name('register.pre_check');
+Route::post('register/pre_check', 'App\Http\Controllers\Auth\RegisterController@pre_check');
 Route::get('register/verify/{token}', 'App\Http\Controllers\Auth\RegisterController@showForm');
 Route::post('register/main_check', 'App\Http\Controllers\Auth\RegisterController@mainCheck');
 Route::post('register/main_register', 'App\Http\Controllers\Auth\RegisterController@mainRegister');
