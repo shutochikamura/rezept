@@ -150,12 +150,23 @@ margin: -3px 0;
     border:none;
     resize:none;
 }
+.board-menu{
+    height:1vmin;
+    width:100%;
+    margin-left:-1em;
+
+}
 .recipe-menu{
-    font-size:1.5vmax;
+
+    font-size:1vmax;
+    /*
     height:100%;
-    margin-right:1em;
-    display: block;
+    */
+margin-right:1em;
+
+display: block;
   width: 100%;
+  height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
   font-weight: 400;
@@ -168,12 +179,7 @@ margin: -3px 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 }
-.board-menu{
-    height:1vmin;
-    width:100%;
-    margin-left:-1em;
 
-}
 .material-show{
     vertical-align:text-bottom;
 }
