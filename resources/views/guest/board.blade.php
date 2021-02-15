@@ -32,12 +32,12 @@
                                 <label class="check-state ml-2" for="state-6"><input id="state-6" type="radio" name="stateList" value="6">その他</label>
                             </div>
                         </div>
-                        @can('employee')
                         <div class="form-group">
                             <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
+                            @can('employee')
                             <a class="form-control btn guestCreate" href="{{ url('/guest/create',[],$is_production) }}" value="{{Auth::id()}}">ホストのレシピ作成</a>
+                            @endcan
                         </div>
-                        @endcan
 
                     </div>
                     <div class="card-body board-frame ">
