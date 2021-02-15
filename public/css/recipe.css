@@ -160,24 +160,45 @@ margin: -3px 0;
 
     margin-right:1em;
     padding-bottom: 0.125rem;
-    /* font-size:1vmax; */
-
-/* display: block;
-  width: 100%;
-  height: calc(1.6em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
-
+}
+@media (max-width: 480px){
+.recipe-menu-width{
+    max-width: 160px;
+}
+    .recipe-font{
+    text-overflow:ellipsis;
+}
 
 }
+@media (max-width: 896px){
+.recipe-menu-width{
+    max-width:300px;
+}
+    .recipe-font{
+        text-overflow:ellipsis;
+    }
+
+}
+@media (max-width: 992px){
+    .recipe-menu-width{
+        max-width:330px;
+    }
+        .recipe-font{
+            text-overflow:ellipsis;
+        }
+
+    }
+@media (min-width: 992.1px){
+.recipe-menu-width{
+    max-width:400px;
+}
+    .recipe-font{
+
+        text-overflow:ellipsis;
+    }
+
+}
+
 
 .material-show{
     vertical-align:text-bottom;
