@@ -163,16 +163,16 @@ margin: -3px 0;
 }
 @media (max-width: 480px){
 .recipe-menu-width{
-    max-width: 160px;
+    max-width: 200px!important;
 }
     .recipe-font{
-    text-overflow:ellipsis;
+    text-overflow:ellipsis!important;
 }
 
 }
 @media (max-width: 896px){
 .recipe-menu-width{
-    max-width:300px;
+    max-width: 300px;
 }
     .recipe-font{
         text-overflow:ellipsis;
