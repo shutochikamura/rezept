@@ -24,7 +24,7 @@ class GuestMiddleware
         $guest_data = Auth::user()->guest_id;
         $guest_password = Auth::user()->guest_password;
         //ホストのデータ
-        $items = Board::where('user_id', '=', Auth::user()->guest_id)->get();
+        $items = Board::where('user_id', '=', Auth::user()->guest_id)->paginate(10);
         $host = User::where('id', '=', Auth::user()->guest_id)->first();
 
         $request->merge(compact('guest_data', 'guest_password', 'host', 'items'));

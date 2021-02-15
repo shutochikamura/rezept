@@ -82,6 +82,9 @@
                             @endforeach
                         </table>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        {{ $items->links('vendor.pagination.bootstrap-4') }}
+                    </div>
                 </div>
 
             </div>

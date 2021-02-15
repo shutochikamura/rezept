@@ -51,7 +51,7 @@ class GuestController extends Controller
                             ->orwhere('recipe', 'LIKE', '%' . $keyword . '%');
                     });
                 }
-                $items = $query->get();
+                $items = $query->paginate(10);
             }
             return view('guest.board', compact('items', 'host'));
         } else if ($request->guest_password != $request->host->guest_password) {
