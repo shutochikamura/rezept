@@ -64,7 +64,7 @@
                                     <form action={{ url("/guest/{$item->id}",[], $is_production)}} method="get">
                                         @csrf
                                         <input type="hidden" value="{{$item->user_id}}">
-                                        <td><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></td>
+                                        <td class="recipe-menu-width recipe-font"><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></td>
                                     </form>
                                     @can('employee', 'manager')
                                     <form id="/guest/edit/{{$item->id}}" action={{ url("/guest/{$item->id}/edit",[], $is_production) }} method="get">
