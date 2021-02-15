@@ -19,7 +19,7 @@ class BoardController extends Controller
 
     public function index()
     {
-        $items = Board::all();
+        $items = Board::where('user_id','=', Auth::id())->paginate(10);
 
         return view('board.index', compact('items'));
     }
@@ -42,7 +42,7 @@ class BoardController extends Controller
                         ->orwhere('recipe', 'LIKE', '%' . $keyword . '%');
                 });
             }
-            $items = $query->get();
+            $items = $query->paginate(10);
 
 	     }
 
