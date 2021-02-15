@@ -14,6 +14,7 @@ class HomeController extends Controller
     {
         $this->middleware('verified');
         $this->is_production = env('APP_ENV') === 'production' ? true : false;
+
     }
 
     /**

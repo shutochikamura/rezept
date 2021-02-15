@@ -63,6 +63,7 @@
                                         @csrf
 
                                         <td><input class="recipe-menu" type="submit" value="{{$item->title}}"></td>
+
                                     </form>
                                     <form id="edit/{{$item->id}}" action={{ url("/board/{$item->id}/edit",[],$is_production) }} method="get">
                                         @csrf
