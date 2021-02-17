@@ -36,11 +36,12 @@
                         </div>
 
 
-                        <h4 class="cake-menu mt-1">レシピの数{{$items->where('user_id','=', Auth::id())->count()}}</h4>
+                        <h4 class="cake-menu mt-1">レシピ{{$items->firstItem()}}~{{$items->lastItem()}}
+                        </h4>
 
                     </div>
                     <div class="card-body board-frame ">
-                        <table class="table board-menu">
+                        <table class="table board-menu board-flex-recipe">
                             @foreach($items as $item)
                             @if($item->getData() === Auth::id())
                             <tr class="recipeCard">

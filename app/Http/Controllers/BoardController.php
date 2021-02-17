@@ -19,8 +19,7 @@ class BoardController extends Controller
 
     public function index()
     {
-        $items = Board::where('user_id','=', Auth::id())->paginate(10);
-
+        $items = Board::where('user_id','=', Auth::id())->paginate(20);
         return view('board.index', compact('items'));
     }
     public function search(Request $request)
@@ -42,7 +41,7 @@ class BoardController extends Controller
                         ->orwhere('recipe', 'LIKE', '%' . $keyword . '%');
                 });
             }
-            $items = $query->paginate(10);
+            $items = $query->paginate(20);
 
 	     }
 
