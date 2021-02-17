@@ -28,7 +28,19 @@ class Board extends Model
     }
 
     public function images()
-	        {
-			        return $this->hasOne(Image::class);
-				    }
+    {
+        return $this->hasOne(Image::class);
+    }
+
+    public function imagePath()
+    {
+        if($this->images == null){
+
+            return null;
+        }
+        if($this->images != null){
+
+            return $this->images->path;
+        }
+    }
 }

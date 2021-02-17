@@ -33,54 +33,45 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <h4 class="cake-menu mt-1 mr-2">レシピ数{{$items->where('user_id','=', Auth::user()->guest_id)->count()}}</h4>
+                            <h4 class="cake-menu mt-1 mr-2">レシピ{{$items->firstItem()}}~{{$items->lastItem()}}</h4>
                             @can('employee')
                             <a class="form-control btn guestCreate" href="{{ url('/guest/create',[],$is_production) }}" value="{{Auth::id()}}">ホストのレシピ作成</a>
                             @endcan
                         </div>
 
                     </div>
-                    <div class="card-body board-frame ">
-                        <table class="table board-menu">
+                    <div class="card-body board-frame table board-menu m-1 mb-2">
 
                             @foreach($items as $item)
                             @if($item->getData() === Auth::user()->guest_id)
-                            <tr class="recipeCard">
-                                @if($item->state === 1)
-                                <th class="mouse">
-                                    @elseif($item->state === 2)
-                                <th class="cookie">
-                                    @elseif($item->state === 3)
-                                <th class="choco">
-                                    @elseif($item->state === 4)
-                                <th class="season">
-                                    @elseif($item->state === 5)
-                                <th class="pan">
-                                    @elseif($item->state === 6)
-                                <th class="el">
-                                    @endif
-                                </th>
-                                <div class="board-menu">
-                                    <form action={{ url("/guest/{$item->id}",[], $is_production)}} method="get">
-                                        @csrf
-                                        <input type="hidden" value="{{$item->user_id}}">
-                                        <td class="recipe-menu-width recipe-font"><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></td>
-                                    </form>
-                                    @can('employee', 'manager')
-                                    <form id="/guest/edit/{{$item->id}}" action={{ url("/guest/{$item->id}/edit",[], $is_production) }} method="get">
-                                        @csrf
-                                        <input type="hidden" value="{{$item->user_id}}">
-                                        <th>
-                                            <input class="form-control btn-success btn" form="/guest/edit/{{$item->id}}" type="submit" value="編集">
-                                        </th>
-                                    </form>
-                                    @endcan
-                                </div>
+                            <div class="recipeCard f-item mt-2" @if($item->imagePath() != null)
+                            style="background-image:url({{$item->imagePath()}});"
+                            @endif>
+                                    @if($item->state === 1)
+                                    <div class="mouse">
+                                        @elseif($item->state === 2)
+                                    <div class="cookie">
+                                        @elseif($item->state === 3)
+                                    <div class="choco">
+                                        @elseif($item->state === 4)
+                                    <div class="season">
+                                        @elseif($item->state === 5)
+                                    <div class="pan">
+                                        @elseif($item->state === 6)
+                                    <div class="el">
+                                        @endif
+                                    </div>
+                                    <div class="board-flex-menu">
+                                        <form action={{ url("/guest/{$item->id}",[], $is_production)}} method="get">
+                                            @csrf
+                                            <input type="hidden" value="{{$item->user_id}}">
+                                            <div class="recipe-menu-width recipe-font"><input class="form-control recipe-menu" type="submit" value="{{$item->title}}"></div>
+                                        </form>
 
-                            </tr>
+                                    </div>
+                            </div>
                             @endif
                             @endforeach
-                        </table>
                     </div>
                     <div class="d-flex justify-content-center">
                         {{ $items->links('vendor.pagination.bootstrap-4') }}

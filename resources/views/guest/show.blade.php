@@ -8,15 +8,8 @@
             <div class="panel panel-default">
                 <div class="card">
 
-                    <h3 class="card-header">test</h3>
-
-
-                    <div class="card-body board-frame">
-
-
-
-
-
+                    <h4 class="card-header">ホストレシピ詳細</h4>
+                    <div class="card-body">
                         <h4 class="cake-menu">
                             {{$items->title}}
                         </h4>
@@ -67,7 +60,13 @@
                         <div class="cake-menu  h5 mt-5">作り方</div>
                         <textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
                         <img class="img-size" src="{{ $host_image['path'] }}">
-
+                        @can('employee', 'manager')
+                        <form id="/guest/edit/{{$items->id}}" action={{ url("/guest/{$items->id}/edit",[], $is_production) }} method="get">
+                            @csrf
+                            <input type="hidden" value="{{$items->user_id}}">
+                            <input class="form-control btn edit-border btn-success mt-2" form="/guest/edit/{{$items->id}}" type="submit" value="編集">
+                        </form>
+                        @endcan
                     </div>
 
                 </div>
