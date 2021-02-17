@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Socialite;
-use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -57,7 +56,8 @@ class LoginController extends Controller
 
         if ($user == null) {
 
-            $user = $this->createUserByGoogle($gUser);
+            $glmessage = '登録しているメールアドレスと一致しません';
+            return view('auth.login')->with(compact('glmessage'));
         }
         if ($user->role == null) {
 
@@ -67,17 +67,5 @@ class LoginController extends Controller
         \Auth::login($user, true);
         return redirect('/home');
     }
-    public function createUserByGoogle($gUser)
-    {
-        $user = User::create([
-            'name' => $gUser->name,
-            'email'    => $gUser->email,
-            'password' => \Hash::make(uniqid()),
-        ]);
-        $user->email_verified_at = Carbon::now();
-        $user->status = 1;
-        $user->save();
 
-        return $user;
-    }
 }

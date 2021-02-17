@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('新規パスワード作成') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -56,14 +56,14 @@
                         </div>
                     </form>
 
-                    <div class="form-group row mt-2 pt-2 googleApi" >
+                    <!-- <div class="form-group row mt-2 pt-2 googleApi" >
                         <div class="col-md-8 offset-md-4">
                         <h4 class="col-form-label ">もしくは</h4>
                             <a href="{{url('/login/google',[],$is_production)}}" class="btn btn-secondary" role="button">
                                 Google Login
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

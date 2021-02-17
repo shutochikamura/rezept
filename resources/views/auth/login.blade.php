@@ -71,6 +71,11 @@
                             <a href="{{url('/login/google',[],$is_production)}}" class="btn btn-secondary" role="button">
                             Google Login
                             </a>
+                            @if($glmessage ?? '')
+                                    <label class="mt-3  text-danger" for="">
+                                        {{ $glmessage }}
+                                    </label>
+                            @endif
                         </div>
                     </div>
 
@@ -80,5 +85,4 @@
     </div>
 </div>
 <script src="{{asset('/js/google.js', $is_production)}}"></script>
-
 @endsection

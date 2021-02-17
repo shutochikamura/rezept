@@ -58,12 +58,12 @@
                                 @else
                                 <div class="m-2">
                                     <h3 class="rezept-font-body">ログインはこちら</h3>
-                                    <a href="{{ url('login',[], $is_production) }}" class="text-gray-700 btn btn-rezept">Login</a>
+                                    <a href="{{ url('login',[], $is_production) }}" class="text-gray-700 btn btn-rezept">ログイン</a>
                                 </div>
                                 <div class="m-2">
-                                    <h3 class="rezept-font-body">登録はこちら</h3>
+                                    <h3 class="rezept-font-body">初めての方はこちら</h3>
                                     @if (Route::has('register'))
-                                    <a href="{{ url('register',[], $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">Register</a>
+                                    <a href="{{ url('register',[], $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">登録</a>
                                 </div>
                                 @endif
                                 @endauth

@@ -154,7 +154,6 @@ margin: -3px 0;
     height:1vmin;
     width:100%;
     margin-left:-1em;
-
 }
 .recipe-menu{
 
@@ -341,3 +340,25 @@ margin: -3px 0;
     margin:4px 0;
     height:100%;
 }
+
+/* @media (min-width: 992.1px){
+.board-frame{
+    display: flex;
+}
+.card-body{
+
+}
+.table{
+
+}
+.board_menu{
+
+}
+.recipe-card{
+    width:80px !important;
+}
+    .board-flex-recipe{
+
+    }
+
+} */
