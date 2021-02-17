@@ -30,9 +30,6 @@
                             </div>
 
                             <h3>菓子の種類</h3>
-
-
-                            <!-- input-group-text -->
                             <label for="add-state-1"><input id="add-state-1" class="custom-radio" type="radio" name="state" value="1" checked>生菓子</label>
                             <label for="add-state-2"><input id="add-state-2" class="custom-radio" type="radio" name="state" value="2">焼き菓子</label>
                             <label for="add-state-3"><input id="add-state-3" class="custom-radio" type="radio" name="state" value="3">チョコレート</label>

@@ -40,52 +40,50 @@
                         </h4>
 
                     </div>
-                    <div class="card-body board-frame ">
-                        <table class="table board-menu board-flex-recipe">
-                            @foreach($items as $item)
-                            @if($item->getData() === Auth::id())
-                            <tr class="recipeCard">
-                                @if($item->state === 1)
-                                <th class="mouse">
-                                    @elseif($item->state === 2)
-                                <th class="cookie">
+                    <div class="board-frame card-body table board-menu m-1 mb-2">
+
+                        @foreach($items as $item)
+                        @if($item->getData() === Auth::id())
+
+                        <div class="f-item recipeCard mt-2" @if($item->imagePath() != null)
+                            style="background-image:url({{$item->imagePath()}});"
+                            @endif>
+
+                            @if($item->state === 1)
+                            <div class="mouse">
+                                @elseif($item->state === 2)
+                                <div class="cookie">
                                     @elseif($item->state === 3)
-                                <th class="choco">
-                                    @elseif($item->state === 4)
-                                <th class="season">
-                                    @elseif($item->state === 5)
-                                <th class="pan">
-                                    @elseif($item->state === 6)
-                                <th class="el">
-                                    @endif
-                                </th>
-                                <div class="board-menu">
-                                    <form action={{ url("/board/{$item->id}",[], $is_production) }} method="get">
-                                        @csrf
+                                    <div class="choco">
+                                        @elseif($item->state === 4)
+                                        <div class="season">
+                                            @elseif($item->state === 5)
+                                            <div class="pan">
+                                                @elseif($item->state === 6)
+                                                <div class="el">
+                                                    @endif
+                                                </div>
+                                                <div class="board-flex-menu">
+                                                    <form action={{ url("/board/{$item->id}",[], $is_production) }} method="get">
+                                                        @csrf
+                                                        <div class="recipe-menu-width recipe-font">
+                                                            <input class="recipe-menu form-control" type="submit" value="{{$item->title}}">
+                                                        </div>
+                                                    </form>
 
-                                        <td class="recipe-menu-width recipe-font"><input class="recipe-menu form-control " type="submit" value="{{$item->title}}"></td>
-                                    </form>
-                                    <form id="edit/{{$item->id}}" action={{ url("/board/{$item->id}/edit",[],$is_production) }} method="get">
-                                        @csrf
-                                        <th>
-                                            <input class="form-control btn-success btn" form="edit/{{$item->id}}" type="submit" value="編集">
-                                        </th>
-                                    </form>
+                                                </div>
+                                            </div>
+                                            @endif
+                                            @endforeach
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            {{ $items->links('vendor.pagination.bootstrap-4') }}
+                                        </div>
+                                    </div>
+
                                 </div>
-
-                            </tr>
-                            @endif
-                            @endforeach
-                        </table>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        {{ $items->links('vendor.pagination.bootstrap-4') }}
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<script src="{{mix('/js/recipe.js')}}"></script>
-@endsection
+                    <script src="{{mix('/js/recipe.js')}}"></script>
+                    @endsection

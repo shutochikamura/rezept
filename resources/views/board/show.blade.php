@@ -12,7 +12,6 @@
 
                     <div class="card-body">
 
-
                         <h4 class="cake-menu">
                             {{$items->title}}
                         </h4>
@@ -69,6 +68,10 @@
 
                         <img class="img-size" src="{{ $user_image['path'] }}">
 
+                        <form id="edit/{{$items->id}}" action={{ url("/board/{$items->id}/edit",[],$is_production) }} method="get">
+                            @csrf
+                            <input class="form-control btn-success btn edit-border mt-2" form="edit/{{$items->id}}" type="submit" value="編集">
+                        </form>
 
                     </div>
 

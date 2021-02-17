@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\File;
+use Illuminate\Http\Resources\MergeValue;
 
 use function PHPUnit\Framework\countOf;
 
@@ -20,6 +21,7 @@ class BoardController extends Controller
     public function index()
     {
         $items = Board::where('user_id','=', Auth::id())->paginate(20);
+
         return view('board.index', compact('items'));
     }
     public function search(Request $request)

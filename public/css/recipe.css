@@ -151,7 +151,7 @@ margin: -3px 0;
     resize:none;
 }
 .board-menu{
-    height:1vmin;
+    height:100%;
     width:100%;
     margin-left:-1em;
 }
@@ -160,43 +160,83 @@ margin: -3px 0;
     margin-right:1em;
     padding-bottom: 0.125rem;
 }
+.edit-border{
+    border:1px solid #c4c4c4;
+}
 @media (max-width: 480px){
 .recipe-menu-width{
-    max-width: 200px!important;
+    max-width: 150px!important;
 }
     .recipe-font{
     text-overflow:clip!important;
+}
+.board-flex-menu{
+    opacity:0.9;
+}
+.f-item{
+    max-height:75px;
 }
 
 }
 @media (max-width: 896px){
 .recipe-menu-width{
-    max-width: 300px;
+    max-width: 150px;
 }
-    .recipe-font{
-        text-overflow:clip;
-    }
-
+.recipe-font{
+    text-overflow:clip;
+}
+.board-flex-menu{
+    opacity:0.9;
+}
 }
 @media (max-width: 992px){
-    .recipe-menu-width{
-        max-width:330px;
-    }
-        .recipe-font{
-            text-overflow:clip;
-        }
-
-    }
-@media (min-width: 992.1px){
 .recipe-menu-width{
-    max-width:400px;
+    max-width:100%;
 }
-    .recipe-font{
-
-        text-overflow:ellipsis;
+.recipe-font{
+    text-overflow:clip;
+}
+.board-flex-menu{
+    opacity:0.9;
+}
+.f-item{
+    height:150px;
+}
+}
+@media (min-width: 992.1px){
+.board-frame{
+    display:-webkit-box;
+  	display:-ms-flexbox;
+    display: flex;
+    flex-wrap:wrap;
+}
+.f-item{
+    width:48%;
+    height:200px;
+    margin:5px;
+}
+.board-flex-menu{
+    opacity:0.9;
+}
+}
+@media (min-width: 1200px){
+    .board-frame{
+        display:-webkit-box;
+          display:-ms-flexbox;
+        display: flex;
+        flex-wrap:wrap;
+    }
+    .f-item{
+        width:30%;
+        height:250px;
+        margin:10px;
+    }
+    .board-flex-menu{
+        opacity:0.9;
     }
 
 }
+
 
 .material-show{
     vertical-align:text-bottom;
@@ -246,6 +286,9 @@ margin: -3px 0;
       text-align:center;
       margin:0 auto;
       width:24em;
+  }
+  .text-gray{
+      color:#7e7e7e;
   }
   @media (max-width: 991.98px){
 
@@ -340,25 +383,3 @@ margin: -3px 0;
     margin:4px 0;
     height:100%;
 }
-
-/* @media (min-width: 992.1px){
-.board-frame{
-    display: flex;
-}
-.card-body{
-
-}
-.table{
-
-}
-.board_menu{
-
-}
-.recipe-card{
-    width:80px !important;
-}
-    .board-flex-recipe{
-
-    }
-
-} */

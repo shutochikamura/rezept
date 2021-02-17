@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="card">
                     <h3 class="card-header">ホストのレシピ編集</h3>
-                    <div class="card-body board-frame">
+                    <div class="card-body ">
                         @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $error)
