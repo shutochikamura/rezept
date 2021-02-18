@@ -20,11 +20,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        .sample-mail{background-color:#999; color:#fff;padding:5px 10px;}
-        .sample-pass{border:solid 1px #aaa; color:#999; padding:5px 10px;}
-
-    </style>
     <link href="{{ asset('css/app.css', $is_production) }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/recipe.css', $is_production)}}">
     <style>
