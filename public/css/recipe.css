@@ -366,6 +366,10 @@ margin: -3px 0;
 .img-size{
     width:100%;
 }
+.img-size-mobile{
+    width:75% ;
+    justify-content: ;
+}
 .img-select{
     width:100%;
     display: inline;

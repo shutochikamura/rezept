@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="card">
 
-                    <h3 class="card-header">レシピ一覧</h3>
+                    <h3 class="card-header">{{Auth::user()->name}}のレシピ一覧</h3>
 
                     <div style="width:100%;">
                         <form method="post" action="{{ url('board_search',[], $is_production) }}" class="search_container m-3">

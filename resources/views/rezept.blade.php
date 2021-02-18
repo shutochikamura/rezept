@@ -96,7 +96,7 @@
                             従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
                         </h5>
                         <h5>
-                            自分自身のレシピを作成にもお使いになれます
+                            自分自身のレシピの作成にもお使いになれます
                         </h5>
                     </div>
                     <div class="table mt-4">
@@ -114,12 +114,13 @@
 
                     </div>
                     <div>
-                        <h5 class="mt-4">レシピ一覧画面（サンプル）</h5>
+                        <h5 class="mt-4">レシピ一覧画面</h5>
+                        <h6>※写真はイメージです</h6>
                         <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.33.57.png', $is_production)}}" alt="">
                     </div>
                     <div>
-                        <h5 class="mt-4">スマホ画面（サンプル）</h5>
-                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.34.33.png', $is_production)}}" alt="">
+                        <h5 class="mt-4">スマホ画面</h5>
+                        <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-18 14.34.33.png', $is_production)}}" alt="">
                     </div>
                     <div>
                         <h5 class="mt-4">レシピ作成画面</h5>
