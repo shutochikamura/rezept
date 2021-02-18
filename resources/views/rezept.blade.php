@@ -101,7 +101,7 @@
                         {{__('下の図参照')}}
                     </h5>
                     <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                    <img class="img-size" src="{{asset('/images/2021-02-18 15.01のイメージ.jpg', $is_production)}}" alt="">
+                    <img class="img-size" src="{{ asset('/images/2021-02-18 15.01のイメージ.jpg', $is_production)}}" alt="">
                     <div>
                         <h5>製造長の方がゲストパスワードを作成して</h5>
                         <h5>
