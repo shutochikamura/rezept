@@ -70,13 +70,51 @@
                             </div>
                             @endif
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+
+                <div class="card-header">{{ __('使い方') }}</div>
+
+                <div class="card-body">
+                    <div>
+                        <h5 class="mt-4">レシピ一覧画面（サンプル）</h5>
+                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.33.57.png', $is_production)}}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="mt-4">スマホ画面（サンプル）</h5>
+                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.34.33.png', $is_production)}}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="mt-4">レシピ作成画面</h5>
+                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
+                    </div>
+                    <h5 class="mt-4">
+                        {{ __('rezept内でポジションを決めて下さい') }}<br>
+                        {{__('下の図参照')}}
+                    </h5>
+                    <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
+                    <img class="img-size" src="{{asset('/images/2021-02-18 15.01のイメージ.jpg', $is_production)}}" alt="">
+                    <div>
+                        <h5>製造長の方がゲストパスワードを作成して</h5>
+                        <h5>
+                            従業員、研修員の方がレシピを閲覧、従業員の方が編集もできるというイメージです
+                        </h5>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
