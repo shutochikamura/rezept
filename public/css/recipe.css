@@ -175,6 +175,7 @@ margin: -3px 0;
 }
 .f-item{
     max-height:100px;
+    background-size:cover ;
 }
 
 }
@@ -201,6 +202,7 @@ margin: -3px 0;
 }
 .f-item{
     height:150px;
+    background-size:cover ;
 }
 }
 @media (min-width: 992.1px){
@@ -214,6 +216,7 @@ margin: -3px 0;
     width:48%;
     height:200px;
     margin:5px;
+    background-size:cover ;
 }
 .board-flex-menu{
     opacity:0.9;
@@ -230,6 +233,7 @@ margin: -3px 0;
         width:30%;
         height:250px;
         margin:10px;
+        background-size:cover ;
     }
     .board-flex-menu{
         opacity:0.9;
