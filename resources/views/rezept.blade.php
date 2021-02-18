@@ -96,13 +96,13 @@
                         <h5 class="mt-4">レシピ作成画面</h5>
                         <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
                     </div>
+                    <div>
                     <h5 class="mt-4">
                         {{ __('rezept内でポジションを決めて下さい') }}<br>
                         {{__('下の図参照')}}
                     </h5>
                     <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                    <img class="img-size" src="{{ asset('/images/2021-02-18 15.01のイメージ.jpg', $is_production)}}" alt="">
-                    <div>
+                    <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
                         <h5>製造長の方がゲストパスワードを作成して</h5>
                         <h5>
                             従業員、研修員の方がレシピを閲覧、従業員の方が編集もできるというイメージです

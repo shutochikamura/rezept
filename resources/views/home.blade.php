@@ -22,10 +22,10 @@
                 @cannot('manager')
                 <div>
                     <div class="card-header">
-                        <h4>別の方のレシピ参照</h4>
+                        <h4>製造長のレシピ参照</h4>
                     </div>
                     <div class="card-body">
-
+                    @if($home_form != null || Auth::user()->guest_id == null)
                         <form action="{{url('/guest_home',[], $is_production)}}" method="post">
                             @csrf
                             <div class="form-group row">
@@ -56,6 +56,19 @@
                             </div>
 
                         </form>
+                        @elseif(Auth::user()->guest_id != null && Auth::user()->guest_password != null)
+                        <form action="{{url('/guest', [], $is_production)}}">
+                            @csrf
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('ホストのレシピ参照') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        @endif
                     </div>
                 </div>
                 @endcannot
