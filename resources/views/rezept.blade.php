@@ -20,6 +20,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <style>
+        .sample-mail{background-color:#999; color:#fff;padding:5px 10px;}
+        .sample-pass{border:solid 1px #aaa; color:#999; padding:5px 10px;}
+
+    </style>
     <link href="{{ asset('css/app.css', $is_production) }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/recipe.css', $is_production)}}">
     <style>
@@ -84,6 +89,35 @@
                 <div class="card-header">{{ __('使い方') }}</div>
 
                 <div class="card-body">
+                <div>
+                    <h5 class="mt-2">
+                        {{ __('rezept内でポジションを決めて下さい') }}<br>
+                        {{__('下の図参照')}}
+                    </h5>
+                    <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
+                    <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
+                        <h5>製造長の方がゲストパスワードを作成して</h5>
+                        <h5>
+                            従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
+                        </h5>
+                        <h5>
+                            自分自身のレシピを作成にもお使いになれます
+                        </h5>
+                    </div>
+                    <div class="table mt-4">
+                        <h5>こちらのパスワード、メールアドレスを試しにお使いください</h5>
+                            <div class="sample-mail"><div>サンプルメールアドレス</div><div>サンプルパスワード</div><div>役割</div>
+                        </div>
+                            <div class="sample-pass"><div>rezeptmanager10@gmail.com</div><div>rezeptmanager</div><div>製造長</div>
+                        </div>
+                            <div class="sample-pass"><div>rezept.employee@gmail.com</div><div>rezeptemployee</div><div>従業員</div>
+                        </div>
+                            <div class="sample-pass"><div>rezept.trainee@gmail.com</div><div>rezepttrainee</div><div>研修員</div>
+                        </div>
+                            <div class="sample-pass"><div>ゲストパスワード</div><div>rezeptmanager1!</div>
+                        </div>
+
+                    </div>
                     <div>
                         <h5 class="mt-4">レシピ一覧画面（サンプル）</h5>
                         <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.33.57.png', $is_production)}}" alt="">
@@ -96,18 +130,7 @@
                         <h5 class="mt-4">レシピ作成画面</h5>
                         <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
                     </div>
-                    <div>
-                    <h5 class="mt-4">
-                        {{ __('rezept内でポジションを決めて下さい') }}<br>
-                        {{__('下の図参照')}}
-                    </h5>
-                    <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                    <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
-                        <h5>製造長の方がゲストパスワードを作成して</h5>
-                        <h5>
-                            従業員、研修員の方がレシピを閲覧、従業員の方が編集もできるというイメージです
-                        </h5>
-                    </div>
+
                 </div>
 
 
