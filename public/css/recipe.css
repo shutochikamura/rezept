@@ -177,6 +177,9 @@ margin: -3px 0;
     max-height:100px;
     background-size:cover ;
 }
+.rezept-font-body{
+    font-size:15px !important;
+}
 
 }
 @media (max-width: 896px){
@@ -301,7 +304,9 @@ margin: -3px 0;
           background-size:cover;
           height: 900px;
           width:100%;
-
+        }
+        .rezept-font-body{
+            font-size:20px;
         }
     }
     @media (min-width: 991.99px){
@@ -311,6 +316,9 @@ margin: -3px 0;
             background-size:cover;
             height: 800px;
             width:100%;
+        }
+        .rezept-font-body{
+            font-size:25px;
         }
     }
 
@@ -345,9 +353,7 @@ margin: -3px 0;
 .btn-rezept:hover{
     background-color:#ced4da;
 }
-.rezept-font-body{
-    font-size:2vmax;
-}
+
 
 .rezept-sign{
     background:
@@ -368,7 +374,6 @@ margin: -3px 0;
 }
 .img-size-mobile{
     width:75% ;
-    justify-content: ;
 }
 .img-select{
     width:100%;
@@ -393,3 +398,5 @@ margin: -3px 0;
 }
 .sample-mail{background-color:#999; color:#fff;padding:5px 10px;}
 .sample-pass{border:solid 1px #aaa; color:#999; padding:5px 10px;}
+textarea:read-only{
+}
