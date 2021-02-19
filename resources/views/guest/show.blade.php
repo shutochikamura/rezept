@@ -58,7 +58,7 @@
                         </ul>
                         @endif
                         <div class="cake-menu  h5 mt-5">作り方</div>
-                        <textarea class="recipe-textarea form-control mb-4" name="" id="" cols="30" rows="10">{{$items->recipe}}</textarea>
+                        <textarea class="recipe-textarea form-control mb-4 bg-white" name="" id="" cols="30" rows="10" readonly>{{$items->recipe}}</textarea>
                         <img class="img-size" src="{{ $host_image['path'] }}">
                         @can('employee', 'manager')
                         <form id="/guest/edit/{{$items->id}}" action={{ url("/guest/{$items->id}/edit",[], $is_production) }} method="get">

@@ -50,7 +50,7 @@
                             @if (Route::has('login'))
                             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
                                 @auth
-                                <div class="m-3 pl-3">
+                                <div class="m-2">
                                     <h3 class="rezept-font-body">この度は使っていただきありがとうございます</h3>
                                     <h3 class="rezept-font-body">ホームへ行く</h3>
                                     <a href="{{ url('/home',[], $is_production) }}" class="text-gray-700  btn btn-rezept">Home</a>
@@ -81,7 +81,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="card-header">{{ __('使い方') }}</div>
+                <div class="card-header">{{ __('概要') }}</div>
 
                 <div class="card-body">
                 <div>
@@ -99,7 +99,7 @@
                             自分自身のレシピの作成にもお使いになれます
                         </h5>
                     </div>
-                    <div class="table mt-4">
+                    <!-- <div class="table mt-4">
                         <h5>こちらのパスワード、メールアドレスを試しにお使いください</h5>
                             <div class="sample-mail"><div>サンプルメールアドレス</div><div>サンプルパスワード</div><div>役割</div>
                         </div>
@@ -112,10 +112,9 @@
                             <div class="sample-pass"><div>ゲストパスワード</div><div>rezeptmanager1!</div>
                         </div>
 
-                    </div>
+                    </div> -->
                     <div>
                         <h5 class="mt-4">レシピ一覧画面</h5>
-                        <h6>※写真はイメージです</h6>
                         <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.33.57.png', $is_production)}}" alt="">
                     </div>
                     <div>
