@@ -34,6 +34,11 @@ Route::post('/user_role/register', 'App\Http\Controllers\Auth\RegisterController
 //googleloginで使う
 Route::get('login/google', 'App\Http\Controllers\Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'App\Http\Controllers\Auth\LoginController@handleGoogleCallback');
+//guestLogin
+Route::get('/login/guest', 'App\Http\Controllers\Auth\LoginController@guestLogin');
+Route::get('/login/manager', 'App\Http\Controllers\Auth\LoginController@managerLogin');
+Route::get('/login/employee', 'App\Http\Controllers\Auth\LoginController@employeeLogin');
+Route::get('/login/trainee', 'App\Http\Controllers\Auth\LoginController@traineeLogin');
 
 Route::get('/log_destroy', 'App\Http\Controllers\HomeController@destroy');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

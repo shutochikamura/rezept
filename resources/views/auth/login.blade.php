@@ -69,13 +69,23 @@
                         <div class="col-md-8 offset-md-4">
                             <h4 class="col-form-label ">もしくは</h4>
                             <a href="{{url('/login/google',[],$is_production)}}" class="btn btn-secondary" role="button">
-                            Google Login
+                                Google Login
                             </a>
                             @if($glmessage ?? '')
-                                    <label class="mt-3  text-danger" for="">
-                                        {{ $glmessage }}
-                                    </label>
+                            <label class="mt-3  text-danger" for="">
+                                {{ $glmessage }}
+                            </label>
                             @endif
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <div class="col-md-8 offset-md-4">
+                            <form action="{{ url('/login/guest',[], $is_production) }}" method="get">
+                                @csrf
+                                <button type="submit" class="btn btn-success guest-btn">
+                                    ゲストログイン
+                                </button>
+                            </form>
                         </div>
                     </div>
 
