@@ -67,5 +67,43 @@ class LoginController extends Controller
         \Auth::login($user, true);
         return redirect('/home');
     }
+    public function guestLogin()
+{
+
+    return view('auth.main.guestLogin');
+}
+    public function managerLogin()
+{
+    $email = 'rezeptmanager10@gmail.com';
+    $password = 'rezeptmanager';
+
+    if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        return redirect('/home');
+    }
+
+    return redirect('/');
+}
+public function employeeLogin()
+{
+    $email = 'rezept.employee@gmail.com';
+    $password = 'rezeptemployee';
+
+    if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        return redirect('/home');
+    }
+
+    return redirect('/');
+}
+public function traineeLogin()
+{
+    $email = 'rezept.trainee@gmail.com';
+    $password = 'rezepttrainee';
+
+    if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        return redirect('/home');
+    }
+
+    return redirect('/');
+}
 
 }
