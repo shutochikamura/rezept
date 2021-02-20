@@ -61,7 +61,11 @@
                         @endif
                         @else
                         @if(Auth::check())
-
+                        @if(Auth::user()->guest_id != null)
+                        <li class="nav-item">
+                            <a href="{{url ('/guest', [], $is_production)}}" class="nav-link">{{__('ホストのレシピ一覧')}}</a>
+                        </li>
+                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{url ('/board',[], $is_production)}}">{{__('レシピ一覧')}}</a>
