@@ -88,11 +88,11 @@
                     <div class="card-body">
                         <div>
                         <h5 class="mt-4">レシピ一覧画面</h5>
-                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.29.06.png', $is_production)}}" alt="">
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.58.18.png', $is_production)}}" alt="">
                         </div>
                         <div>
                             <h5 class="mt-4">スマホ画面</h5>
-                            <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-20 14.30.53.png', $is_production)}}" alt="">
+                            <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-20 14.59.38.png', $is_production)}}" alt="">
                         </div>
                         <div>
                             <h5 class="mt-4">レシピ作成画面</h5>
