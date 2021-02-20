@@ -77,62 +77,59 @@
     </div>
 
     <div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
 
-                <div class="card-header">{{ __('概要') }}</div>
-
-                <div class="card-body">
-                <div>
-                    <h5 class="mt-2">
-                        {{ __('rezept内でポジションを決めて下さい') }}<br>
-                        {{__('下の図参照')}}
-                    </h5>
-                    <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                    <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
-                        <h5>製造長の方がゲストパスワードを作成して</h5>
-                        <h5>
-                            従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
-                        </h5>
-                        <h5>
-                            自分自身のレシピの作成にもお使いになれます
-                        </h5>
+                    <div class="card-header">
+                        <h5>概要</h5>
                     </div>
-                    <!-- <div class="table mt-4">
-                        <h5>こちらのパスワード、メールアドレスを試しにお使いください</h5>
-                            <div class="sample-mail"><div>サンプルメールアドレス</div><div>サンプルパスワード</div><div>役割</div>
-                        </div>
-                            <div class="sample-pass"><div>rezeptmanager10@gmail.com</div><div>rezeptmanager</div><div>製造長</div>
-                        </div>
-                            <div class="sample-pass"><div>rezept.employee@gmail.com</div><div>rezeptemployee</div><div>従業員</div>
-                        </div>
-                            <div class="sample-pass"><div>rezept.trainee@gmail.com</div><div>rezepttrainee</div><div>研修員</div>
-                        </div>
-                            <div class="sample-pass"><div>ゲストパスワード</div><div>rezeptmanager1!</div>
-                        </div>
 
-                    </div> -->
-                    <div>
+                    <div class="card-body">
+                        <div>
                         <h5 class="mt-4">レシピ一覧画面</h5>
-                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 14.33.57.png', $is_production)}}" alt="">
-                    </div>
-                    <div>
-                        <h5 class="mt-4">スマホ画面</h5>
-                        <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-18 14.34.33.png', $is_production)}}" alt="">
-                    </div>
-                    <div>
-                        <h5 class="mt-4">レシピ作成画面</h5>
-                        <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
-                    </div>
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.29.06.png', $is_production)}}" alt="">
+                        </div>
+                        <div>
+                            <h5 class="mt-4">スマホ画面</h5>
+                            <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-20 14.30.53.png', $is_production)}}" alt="">
+                        </div>
+                        <div>
+                            <h5 class="mt-4">レシピ作成画面</h5>
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
+                        </div>
+                        <div>
+                            <h5 class="mt-4">レシピ閲覧</h5>
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.11.35.png',$is_production)}}" alt="">
+                        </div>
+                        <div>
+                            <h5 class="mt-4">レシピ編集画面</h5>
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.33.05.png',$is_production)}}" alt="">
+                        </div>
 
+                        <div class="mt-4">
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 13.22.40.png', $is_production)}}" alt="">
+                        </div>
+                        <div class="mt-4">
+                            <h5 class="mt-2">
+                                {{ __('rezept内でポジションを決めて下さい') }}<br>
+                                {{__('下の図参照')}}
+                            </h5>
+                            <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
+                            <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
+                                <h5>製造長の方がゲストパスワードを作成して</h5>
+                                <h5>
+                                    従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
+                                </h5>
+                                <h5>
+                                    従業員、研修員は自分自身のレシピの作成にもお使いになれます
+                                </h5>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-</div>
 
 </body>
 

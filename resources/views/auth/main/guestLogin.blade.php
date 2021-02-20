@@ -7,7 +7,7 @@
             <div class="card">
 
 
-                <h4 class="card-header">ゲストログイン</h4>
+                <h5 class="card-header">ゲストログイン</h5>
 
                 <div class="card-body ">
                     <div class="form-group row">

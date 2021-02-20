@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="form-group row mt-2 pt-2 googleApi">
+                    <div class="form-group row mt-2 pt-2 border-top">
                         <div class="col-md-8 offset-md-4">
                             <h4 class="col-form-label ">もしくは</h4>
                             <a href="{{url('/login/google',[],$is_production)}}" class="btn btn-secondary" role="button">
@@ -78,8 +78,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row mb-4">
+                    <div class="form-group row mb-4 border-top">
                         <div class="col-md-8 offset-md-4">
+                        <h4 class="col-form-label ">試しに使って下さい</h4>
                             <form action="{{ url('/login/guest',[], $is_production) }}" method="get">
                                 @csrf
                                 <button type="submit" class="btn btn-success guest-btn">
