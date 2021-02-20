@@ -400,3 +400,6 @@ margin: -3px 0;
 .sample-pass{border:solid 1px #aaa; color:#999; padding:5px 10px;}
 textarea:read-only{
 }
+.page-contents a{
+    text-decoration:none; /* 装飾(下線)を消す */
+    }
