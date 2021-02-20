@@ -363,7 +363,7 @@ margin: -3px 0;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.googleApi{
+.border-top{
     border-top: 1px solid #ced4da;
 }
 .log_destroy{
