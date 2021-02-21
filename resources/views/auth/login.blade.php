@@ -78,17 +78,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row mb-4 border-top">
-                        <div class="col-md-8 offset-md-4">
-                        <h4 class="col-form-label ">試しに使って下さい</h4>
-                            <form action="{{ url('/login/guest',[], $is_production) }}" method="get">
-                                @csrf
-                                <button type="submit" class="btn btn-success guest-btn">
-                                    ゲストログイン
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+
 
                 </div>
             </div>

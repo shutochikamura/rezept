@@ -65,6 +65,12 @@
                                     @if (Route::has('register'))
                                     <a href="{{ url('register',[], $is_production) }}" class=" text-sm text-gray-700 btn btn-rezept">登録</a>
                                 </div>
+
+                                <div class="m-2 pt-4 border-top">
+                                    <h5 class="rezept-font-body ">試しにお使い下さい</h5>
+                                    <a href="{{ url('/login/guest',[], $is_production) }}" class=" btn btn-rezept btn-success">ゲストログイン</a>
+
+                                </div>
                                 @endif
                                 @endauth
                             </div>
@@ -117,7 +123,12 @@
                                 {{__('下の図参照')}}
                             </h5>
                             <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                            <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt="">
+                            <!-- <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt=""> -->
+                            <table style="width: 100%; table-layout: fixed; box-sizing: border-box;">
+                            <tr><th>○</th><th>テスト</th></tr>
+                            <tr><th>✖️</th><th>テスト</th></tr>
+
+                            </table>
                             <h5>製造長の方がゲストパスワードを作成して</h5>
                             <h5>
                                 従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
@@ -127,7 +138,7 @@
                             </h5>
                         </div>
 
-                        <div class="card-header border-top m-4">
+                        <!-- <div class="card-header border-top m-4">
                             <h5>使い方</h5>
                         </div>
                         <div>
@@ -215,11 +226,11 @@
                             <img class="img-size mt-2" src="{{ asset('/HowtoImages/スクリーンショット 2021-02-20 20.17.30.png', $is_production)}}" alt="">
                         </div>
                         <div class="mt-4">
-                        <h4 id="i6">レシピ作成時の注意点</h4>
-                        <h5 class="bg-warning">素材のところ一列開けて入力してしまうとそれ以降の列が全て入力されなくなってしまいます</h5>
-                        <img class="img-size mt-2" src="{{ asset('/HowtoImages/スクリーンショット 2021-02-20 15.50.34.png', $is_production)}}" alt="">
-                        <img class="img-size mt-2" src="{{ asset('/HowtoImages/スクリーンショット 2021-02-20 15.52.07.png', $is_production)}}" alt="">
-                        </div>
+                            <h4 id="i6">レシピ作成時の注意点</h4>
+                            <h5 class="bg-warning">素材のところ一列開けて入力してしまうとそれ以降の列が全て入力されなくなってしまいます</h5>
+                            <img class="img-size mt-2" src="{{ asset('/HowtoImages/スクリーンショット 2021-02-20 15.50.34.png', $is_production)}}" alt="">
+                            <img class="img-size mt-2" src="{{ asset('/HowtoImages/スクリーンショット 2021-02-20 15.52.07.png', $is_production)}}" alt="">
+                        </div> -->
                     </div>
                 </div>
             </div>
