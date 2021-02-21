@@ -398,8 +398,22 @@ margin: -3px 0;
 }
 .sample-mail{background-color:#999; color:#fff;padding:5px 10px;}
 .sample-pass{border:solid 1px #aaa; color:#999; padding:5px 10px;}
-textarea:read-only{
-}
+
 .page-contents a{
     text-decoration:none; /* 装飾(下線)を消す */
     }
+table{
+    width: 100%;
+    table-layout: fixed;
+    box-sizing: border-box;
+    border:1px solid #ced4da;
+}
+th {
+    background-color:#999;
+    color:#fff;
+    padding:5px 10px;
+    width:25%;
+}
+td{
+    border:solid 1px #aaa; color:#999; padding:5px 10px;
+}
