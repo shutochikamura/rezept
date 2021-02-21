@@ -124,11 +124,11 @@
                             </h5>
                             <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
                             <!-- <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt=""> -->
-                            <table style="width: 100%; table-layout: fixed; box-sizing: border-box;">
+                            <!-- <table style="width: 100%; table-layout: fixed; box-sizing: border-box;">
                             <tr><th>○</th><th>テスト</th></tr>
                             <tr><th>✖️</th><th>テスト</th></tr>
 
-                            </table>
+                            </table> -->
                             <h5>製造長の方がゲストパスワードを作成して</h5>
                             <h5>
                                 従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
