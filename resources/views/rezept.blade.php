@@ -93,14 +93,49 @@
 
                     <div class="card-body">
                         <div>
+                            <h5>
+                                何ができるのか？
+                            </h5>
+                            <h5>
+                                このwebアプリの中でポジションを持たせ、（製造長、従業員、研修員）製造長が持ってるレシピを所属してる従業員、研修員に共有できるというものです
+                            </h5>
+                            <h5>主に個人店、中小企業（20人未満）のお菓子屋に使っていただければなと思います</h5>
+                            <table>
+                            <tr><th></th><th>自分のレシピ作成</th><th>ゲストパスワード<br>作成</th><th>製造長のレシピ閲覧</th><th>製造長のレシピ編集</th></tr>
+                            <tr><td>製造長</td><td>○</td><td>○</td><td>-</td><td>-</td></tr>
+                            <tr><td>従業員</td><td>○</td><td>✖️</td><td>○</td><td>○</td></tr>
+                            <tr><td>研修員</td><td>○</td><td>✖️</td><td>○</td><td>✖️</td></tr>
+
+                            </table>
+                        </div>
+                        <div class="mt-4">
+                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 13.22.40.png', $is_production)}}" alt="">
+                        </div>
+                        <div class="mt-4">
+                            <h5 class="mt-2">
+                                {{ __('rezept内でポジションを決めて下さい') }}<br>
+                                {{__('下の図参照')}}
+                            </h5>
+                            <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
+                            <!-- <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt=""> -->
+
+                            <h5>製造長の方がゲストパスワードを作成して</h5>
+                            <h5>
+                                従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
+                            </h5>
+                            <h5>
+                                従業員、研修員は自分自身のレシピの作成にもお使いになれます
+                            </h5>
+                        </div>
+                        <!-- <div>
                             <h5 class="mt-4">レシピ一覧画面</h5>
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.58.18.png', $is_production)}}" alt="">
                         </div>
                         <div>
                             <h5 class="mt-4">スマホ画面</h5>
                             <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-20 14.59.38.png', $is_production)}}" alt="">
-                        </div>
-                        <div>
+                        </div> -->
+                        <!-- <div>
                             <h5 class="mt-4">レシピ作成画面</h5>
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
                         </div>
@@ -111,32 +146,11 @@
                         <div>
                             <h5 class="mt-4">レシピ編集画面</h5>
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.33.05.png',$is_production)}}" alt="">
-                        </div>
+                        </div> -->
 
-                        <div class="mt-4">
-                            <h5>これは何ができる？</h5>
-                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 13.22.40.png', $is_production)}}" alt="">
-                        </div>
-                        <div class="mt-4">
-                            <h5 class="mt-2">
-                                {{ __('rezept内でポジションを決めて下さい') }}<br>
-                                {{__('下の図参照')}}
-                            </h5>
-                            <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-                            <!-- <img class="img-size" src="{{ asset('/images/スクリーンショット 2021-02-18 20.38.49.png', $is_production)}}" alt=""> -->
-                            <!-- <table style="width: 100%; table-layout: fixed; box-sizing: border-box;">
-                            <tr><th>○</th><th>テスト</th></tr>
-                            <tr><th>✖️</th><th>テスト</th></tr>
 
-                            </table> -->
-                            <h5>製造長の方がゲストパスワードを作成して</h5>
-                            <h5>
-                                従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
-                            </h5>
-                            <h5>
-                                従業員、研修員は自分自身のレシピの作成にもお使いになれます
-                            </h5>
-                        </div>
+
+
 
                         <!-- <div class="card-header border-top m-4">
                             <h5>使い方</h5>
