@@ -101,7 +101,6 @@
                                     このwebアプリの中でポジションを持たせ、ポジション間でレシピを共有できるというものです
                                 </h5>
                             </div>
-
                             <h5 class="form-control">どんなポジションがあるのか？</h5>
                             <div class="mt-4">
                                 <h5>
@@ -132,43 +131,14 @@
                         <div class="mt-4">
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 13.22.40.png', $is_production)}}" alt="">
                         </div>
-                        <!-- <div class="mt-4">
-                            <h5 class="mt-2">
-                                {{ __('rezept内でポジションを決めて下さい') }}<br>
-                                {{__('下の図参照')}}
-                            </h5>
-                            <h5>※ポジションは一度決めたら変えれません2021/2月</h5>
-
-
-                            <h5>製造長の方がゲストパスワードを作成して</h5>
-                            <h5>
-                                従業員、研修員の方が製造長のレシピを閲覧、従業員の方が編集もできるというイメージです
-                            </h5>
-                            <h5>
-                                従業員、研修員は自分自身のレシピの作成にもお使いになれます
-                            </h5>
-                        </div> -->
-                        <!-- <div>
+                        <div>
                             <h5 class="mt-4">レシピ一覧画面</h5>
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.58.18.png', $is_production)}}" alt="">
-                        </div>
-                        <div>
-                            <h5 class="mt-4">スマホ画面</h5>
-                            <img class="img-size-mobile" src="{{asset('/images/スクリーンショット 2021-02-20 14.59.38.png', $is_production)}}" alt="">
-                        </div> -->
-                        <!-- <div>
-                            <h5 class="mt-4">レシピ作成画面</h5>
-                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-18 17.05.03.png',$is_production)}}" alt="">
                         </div>
                         <div>
                             <h5 class="mt-4">レシピ閲覧</h5>
                             <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.11.35.png',$is_production)}}" alt="">
                         </div>
-                        <div>
-                            <h5 class="mt-4">レシピ編集画面</h5>
-                            <img class="img-size" src="{{asset('/images/スクリーンショット 2021-02-20 14.33.05.png',$is_production)}}" alt="">
-                        </div> -->
-
                     </div>
                 </div>
             </div>
