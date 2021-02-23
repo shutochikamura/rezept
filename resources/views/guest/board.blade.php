@@ -7,18 +7,14 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="card">
-
                     <h3 class="card-header">{{$host->name}}のレシピ一覧</h3>
-                    <div >
+                    <div>
                         <form method="post" action="{{ url('guest_search',[],$is_production)}}" class="search_container m-3">
                             @csrf
                             <input id="guestSearch" name="guestSearch" type="text" size="25" placeholder="レシピ内検索">
                             <input type="submit" value="&#xf002">
                         </form>
                     </div>
-
-
-
                     <div class="form-group m-2 btn-group">
                         <div class=" nav-item dropdown dropbottom ">
                             <a href="#" id="stateDropdown" class="nav-link dropdown-toggle h5 dropdown-state" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -38,10 +34,8 @@
                             <a class="form-control btn guestCreate" href="{{ url('/guest/create',[],$is_production) }}" value="{{Auth::id()}}">ホストのレシピ作成</a>
                             @endcan
                         </div>
-
                     </div>
                     <div class="card-body board-frame table board-menu m-1 mb-2">
-
                             @foreach($items as $item)
                             @if($item->getData() === Auth::user()->guest_id)
                             <div class="recipeCard f-item mt-2" @if($item->imagePath() != null)

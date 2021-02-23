@@ -7,7 +7,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="card">
-                    <h3 class="card-header">ホストのレシピ作成</h3>
+                    <h3 class="card-header">{{$host->name}}レシピ作成</h3>
                     <div class="card-body">
                         @if (count($errors) > 0)
                         <ul>
@@ -22,7 +22,9 @@
 
                             <input type="hidden" name="user_id" value="{{Auth::user()->guest_id}}">
                             <div class="form-group">
-                                <label for="add-recipe"><h2>菓子名</h2></label>
+                                <label for="add-recipe">
+                                    <h2>菓子名</h2>
+                                </label>
                                 <input id="add-recipe" class="form-control" type="text" name="title" value="{{old('title')}}">
                             </div>
 
@@ -37,19 +39,19 @@
 
                             <h2>材料名</h2>
 
-                                <div class="form-group material-box">
-                                            <input class="material-input"  type="text" name="material_0" value="{{old('material')}}">
+                            <div class="form-group material-box">
+                                <input class="material-input" type="text" name="material_0" value="{{old('material')}}">
 
-                                            <input class="volume-input"  type="text" name="volume_0">
+                                <input class="volume-input" type="text" name="volume_0">
 
-                                            <select class="unit-select" id="unit" name="unit_0">
-                                                <option value="1">g</option>
-                                                <option value="2">個</option>
-                                                <option value="3">ml</option>
-                                                <option value="4">適量</option>
-                                            </select>
-                                            <div id="form_area"></div>
-                                        </div>
+                                <select class="unit-select" id="unit" name="unit_0">
+                                    <option value="1">g</option>
+                                    <option value="2">個</option>
+                                    <option value="3">ml</option>
+                                    <option value="4">適量</option>
+                                </select>
+                                <div id="form_area"></div>
+                            </div>
 
                             <input class="form-plus" id="addInput" type="button" value="+">
                             <input class="form-plus" type="button" id="deleteInput" value="-" disabled>
@@ -63,9 +65,7 @@
                         </form>
                         @endcan
                     </div>
-                    </div>
-
-
+                </div>
             </div>
         </div>
     </div>

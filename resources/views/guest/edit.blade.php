@@ -7,7 +7,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="card">
-                    <h3 class="card-header">ホストのレシピ編集</h3>
+                    <h3 class="card-header">{{$host->name}}レシピ編集</h3>
                     <div class="card-body ">
                         @if (count($errors) > 0)
                         <ul>

@@ -9,23 +9,36 @@
                 <div class="card-header">{{ __('ホーム') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            <a class="btn btn-success" href="{{url ('/board',[], $is_production)}}">{{__('レシピ一覧')}}</a>
+                        </div>
                     </div>
-                    @endif
-
-                    {{ __('ログインしました!') }}
-
-
+                    <div class="form-group row mt-2">
+                        <div class="col-md-6 offset-md-4">
+                            <a class="btn btn-success" href="{{url ('/board/create',[], $is_production)}}">{{__('レシピ作成')}}</a>
+                        </div>
+                    </div>
+                    @can('manager')
+                    <div class="form-group row mt-2">
+                        <div class="col-md-6 offset-md-4">
+                            @if(Auth::user()->guest_password == null)
+                            <a class="btn btn-secondary" href="{{url('/guest_password', [],$is_production)}}">ゲストパスワード作成</a>
+                            @elseif(Auth::user()->guest_password != "")
+                            <a class="btn btn-secondary" href="{{url('/guest_password/edit',[], $is_production)}}">ゲストパスワード変更</a>
+                            @endif
+                        </div>
+                    </div>
+                    @endcan
                 </div>
+
                 @cannot('manager')
                 <div>
                     <div class="card-header">
                         <h4>製造長のレシピ参照</h4>
                     </div>
                     <div class="card-body">
-                    @if($home_form != null || Auth::user()->guest_id == null)
+                        @if($home_form != null || Auth::user()->guest_id == null)
                         <form action="{{url('/guest_home',[], $is_production)}}" method="post">
                             @csrf
                             <div class="form-group row">

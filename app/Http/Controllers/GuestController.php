@@ -65,7 +65,7 @@ class GuestController extends Controller
         $items = $request->items;
         $host = $request->host;
         if ($request->guest_password === $request->host->guest_password) {
-            return view('guest.add');
+            return view('guest.add', compact('host'));
         } else if ($request->guest_password != $request->host->guest_password) {
             $home_form = 'パスワードを再入力して下さい';
             return view('home', compact('home_form'));
@@ -131,7 +131,7 @@ class GuestController extends Controller
         if ($request->guest_password === $request->host->guest_password) {
             $items = Board::find($id);
             $host_image = Image::where('board_id', $id)->first();
-            return view('guest.show', compact('items', 'host_image'));
+            return view('guest.show', compact('items', 'host_image', 'host'));
         } else if ($request->guest_password != $request->host->guest_password) {
             $home_form = 'パスワードを再入力して下さい';
             return view('home', compact('home_form'));
@@ -145,7 +145,7 @@ class GuestController extends Controller
         if ($request->guest_password === $request->host->guest_password) {
             $form = Board::find($id);
             $host_image = Image::where('board_id', $id)->first();
-            return view('guest.edit', compact('form', 'host_image'));
+            return view('guest.edit', compact('form', 'host_image', 'host'));
         } else if ($request->guest_password != $request->host->guest_password) {
             $home_form = 'パスワードを再入力して下さい';
             return view('home', compact('home_form'));

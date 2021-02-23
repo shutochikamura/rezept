@@ -66,13 +66,12 @@
                             <a href="{{url ('/guest', [], $is_production)}}" class="nav-link">{{__('ホストのレシピ一覧')}}</a>
                         </li>
                         @endif
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{url ('/board',[], $is_production)}}">{{__('レシピ一覧')}}</a>
                         </li>
-
-                        <li class="nav-item"><a class="nav-link" href="{{url ('/board/create',[], $is_production)}}">{{__('レシピ作成')}}</a></li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url ('/board/create',[], $is_production)}}">{{__('レシピ作成')}}</a>
+                        </li>
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -95,7 +94,6 @@
                                 <form id="logout-form" action="{{ url('logout',[], $is_production) }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-
 
                                 <!-- 退会処理付けようか迷ってます
                                      <a class="dropdown-item mt-4 log_destroy dropdown-state" href="{{url('/log_destroy',[], $is_production)}}" onClick="delete_alert(event);return false;">退会する</a> -->
