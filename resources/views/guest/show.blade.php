@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="card">
 
-                    <h4 class="card-header">ホストレシピ詳細</h4>
+                    <h4 class="card-header">{{$host->name}}レシピ詳細</h4>
                     <div class="card-body">
                         <h4 class="cake-menu">
                             {{$items->title}}
