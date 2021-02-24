@@ -1,45 +1,35 @@
 
 ## Rezeptについて
 
-**Rezeptはパティシエの従業員間レシピ共有アプリです**
+**Rezeptはパティシエの従業員間レシピ共有アプリです**<br>
+(レツェプトと呼んでます：ドイツ語でレシピという意味 by google翻訳)
 
 
 ## 概要
-・何ができるのか？<br>
+**・何ができるのか？**<br>
 このwebアプリの中でポジションを持たせ、ポジション間でレシピを共有できるというものです<br>
-・どんなポジションがあるのか？<br>
-製造長<br>
+**・どんなポジションがあるのか？**<br>
+[製造長]<br>
 ゲストパスワードを作成して、従業員、研修員とレシピを共有できます<br>
-従業員<br>
+[従業員]<br>
 製造長のレシピを閲覧、編集、追加できます。自分のレシピ作成可<br>
-研修員<br>
+[研修員]<br>
 製造長のレシピを閲覧できます。自分のレシピ作成可<br>
 
 
 ## 作成経緯
 
-・僕がもともとパティシエだったから<br>
+**・僕がもともとパティシエだったから**<br>
 20歳から25歳の約五年間札幌のドイツ菓子屋で働いていて
 その時で働いていた経験を元にこういうのが欲しかったなあというものを作りました<br>
-・お菓子✖︎ITの皆無さ<br>
+**・お菓子✖︎ITの皆無さ**<br>
 やめて2年近く経ってるので変わってるかもしれないですが
 お菓子屋の中でレジやオーブンなどのハードウェア以外にITが入り込める余地がなく、
 そもそも実際のエンジニアの方は伸びている産業ではないお菓子の方に参入しないだろうなと思い作りました
 
+### 機能一覧
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
 
 ## Contributing
 
