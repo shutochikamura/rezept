@@ -9,11 +9,11 @@
 1. **何ができるのか？**
    - このwebアプリの中でポジションを持たせ、ポジション間でレシピを共有できるというものです
 2. **どんなポジションがあるのか？**
-   - [製造長]<br>
+   - *[製造長]*<br>
   ゲストパスワードを作成して、従業員、研修員とレシピを共有できます
-   - [従業員]<br>
+   - *[従業員]*<br>
      製造長のレシピを閲覧、編集、追加できます。自分のレシピ作成可
-   - [研修員]<br>
+   - *[研修員]*<br>
      製造長のレシピを閲覧できます。自分のレシピ作成可
 
 
@@ -83,21 +83,21 @@
      - 作り方
      - 写真
 
+## こだわった点
+
+## 苦労した点
 
 
 
-## Contributing
+## 使用技術
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##
 
-## Code of Conduct
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
+## ネットワーク構成図
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ER構成図
+<img width="1046" alt="スクリーンショット 2021-02-25 14 35 57" src="https://user-images.githubusercontent.com/72287165/109108592-30e41680-7777-11eb-9df1-bb7e58ea3c9b.png">
