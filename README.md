@@ -90,7 +90,14 @@
 
 
 ## 使用技術
-
+1. **バックエンド**
+ - PHP 7.3 /Laravel 8.12
+ - composer 2.0.11
+2. **フロントエンド**
+ - JavaScript
+3. **インフラ**
+ - Docker
+ - AWS EC2/ VPC/ Route53/ ALB/ ACM/ S3/ RDS
 ##
 
 
