@@ -93,11 +93,10 @@
 
 ##
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
 
 ## ネットワーク構成図
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## ER構成図
 <img width="959" alt="スクリーンショット 2021-02-25 14 49 48" src="https://user-images.githubusercontent.com/72287165/109109554-d946aa80-7778-11eb-92c1-32c096a03c24.png">
