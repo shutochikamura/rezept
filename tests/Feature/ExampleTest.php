@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class ExampleTest extends TestCase
 {
@@ -12,10 +14,14 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
+
     public function testBasicTest()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->assertTrue(true);
+        // $response = $this->select('name')->first();
+        // return $response;
+        // $user = new User();
+        // $response = $user->selectUser();
+        // $this->assertSame('rezept', $response['name']);
     }
 }
