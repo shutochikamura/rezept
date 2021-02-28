@@ -3,8 +3,8 @@
 
 **Rezeptはパティシエの従業員間レシピ共有アプリです**<br>
 (レツェプトと名付けました：ドイツ語でレシピという意味 : google翻訳)
-<!-- ![rezept](https://user-images.githubusercontent.com/72287165/109410177-c2ec5900-79db-11eb-9290-f4961f431f20.gif) -->
-<img width="700" alt="スクリーンショット 2021-02-25 14 49 48" src="https://user-images.githubusercontent.com/72287165/109410177-c2ec5900-79db-11eb-9290-f4961f431f20.gif">
+![tNAdkcN2IPgt9Ziyz1Vg1614497054-1614497071](https://user-images.githubusercontent.com/72287165/109411008-33967400-79e2-11eb-9536-945413624089.gif)
+![zSttdRdpHZhHJFFwK8UF1614497296-1614497316](https://user-images.githubusercontent.com/72287165/109411017-46a94400-79e2-11eb-89a4-a7b54f2442f6.gif)
 
 ## 概要
 1. **何ができるのか？**
