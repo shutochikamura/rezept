@@ -91,3 +91,5 @@
 
 ## ER構成図
 <img width="959" alt="スクリーンショット 2021-02-25 14 49 48" src="https://user-images.githubusercontent.com/72287165/109109554-d946aa80-7778-11eb-92c1-32c096a03c24.png">
+
+<!-- mysql -u root -h localhost -p -->
