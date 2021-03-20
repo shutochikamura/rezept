@@ -70,3 +70,5 @@ Route::group(['middleware' => ['auth', 'can:manager']], function () {
     Route::post('guest_password/password_edit_check', 'App\Http\Controllers\Guest_pathController@showCheck');
     Route::post('guest_password/password_new_registered', 'App\Http\Controllers\Guest_pathController@reset');
 });
+Route::get('business_card', 'App\Http\Controllers\BusinessCardController@index');
+Route::post('business_card/extract', 'App\Http\Controllers\BusinessCardController@extract');
