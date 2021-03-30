@@ -2,19 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179566256-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-179566256-2');
-    </script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -131,36 +118,11 @@
                                 <h5>自分のレシピ作成可</h5>
                             </div>
                             <table class="mt-4">
-                                <tr>
-                                    <th></th>
-                                    <th class="table-width">製造長</th>
-                                    <th class="table-width">従業員</th>
-                                    <th class="table-width">研修員</th>
-                                </tr>
-                                <tr>
-                                    <td>自分のレシピ作成</td>
-                                    <td>○</td>
-                                    <td>○</td>
-                                    <td>○</td>
-                                </tr>
-                                <tr>
-                                    <td>ゲストパスワード作成</td>
-                                    <td>○</td>
-                                    <td>✖️</td>
-                                    <td>✖️</td>
-                                </tr>
-                                <tr>
-                                    <td>製造長のレシピ閲覧</td>
-                                    <td>-</td>
-                                    <td>○</td>
-                                    <td>○</td>
-                                </tr>
-                                <tr>
-                                    <td>製造長のレシピ編集</td>
-                                    <td>-</td>
-                                    <td>○</td>
-                                    <td>✖️</td>
-                                </tr>
+                            <tr><th></th><th class="table-width">製造長</th><th class="table-width">従業員</th><th class="table-width">研修員</th></tr>
+                            <tr><td>自分のレシピ作成</td><td>○</td><td>○</td><td>○</td></tr>
+                            <tr><td>ゲストパスワード作成</td><td>○</td><td>✖️</td><td>✖️</td></tr>
+                            <tr><td>製造長のレシピ閲覧</td><td>-</td><td>○</td><td>○</td></tr>
+                            <tr><td>製造長のレシピ編集</td><td>-</td><td>○</td><td>✖️</td></tr>
                             </table>
                         </div>
                         <div class="mt-4">
